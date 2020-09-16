@@ -18,6 +18,10 @@
     </option>
   </component>
   <component name="ProjectId" id="1hasisEIyhozFxk9d8SRbWSC2m5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -26,6 +30,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c2bff7a2-ccc7-410b-896f-4375d3f4d9ba" name="Default Changelist" comment="" />
@@ -33,8 +38,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600260670664</updated>
-      <workItem from="1600260674163" duration="1000" />
+      <workItem from="1600260674163" duration="539000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
