@@ -19,12 +19,27 @@ have been ignored as well.
 
 ### Call Graph
 
-#### Diagram
-
 #### Reasoning
+Since there is no obvious entrypoint, we decided to use this simple `Hello World` script as our main entrypoint.
+```
+// imports
 
-Since OpenPDF is a library, a central entry point is not easy to determine. As mentioned before the focus lies on the creation of a `Hello World` file.
-The methods called and necessary for this are shown in the call graph. For a better overview not all methods are listed.
+public class HelloWorld {
+    public static void main(String[] args) {
+        Document document = new Document();
+        try {
+            final PdfWriter instance = PdfWriter.getInstance(document, new FileOutputStream("HelloWorld.pdf"));
+            document.open();
+            document.add(new Paragraph("Hello World"));
+        } catch (DocumentException | IOException de) {
+            System.err.println(de.getMessage());
+        }
+        document.close();
+    }
+}
+```
+
+#### Diagram
 
 ## Part 2
 
