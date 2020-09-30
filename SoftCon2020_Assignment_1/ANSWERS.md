@@ -10,7 +10,7 @@
 
 #### Reasoning
 
-As writing PDF files is one of the main tasks of the OpenPDF library, the focus is on the creation of such a file. Furthermore, the HTML package was included
+As writing PDF files is one of the main tasks of the OpenPDF library, the focus lies on the creation of such a file. Furthermore, the HTML package is included
 seeing that it is a great part of the library as well. The goal is to show the different layers of classes that are necessary for writing a `Hello World` file
 (this will be shown more in detail in the following call graph). The diagram shows how the classes are connected to each other and on which parts of the library
 most classes are built on. Naturally, there are several layers between the classes shown in the diagram (e.g. between several classes and the interface `Element`)
