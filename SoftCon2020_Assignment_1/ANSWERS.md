@@ -20,7 +20,8 @@ have been ignored as well.
 ### Call Graph
 
 #### Reasoning
-Since there is no directly runnable entrypoint, we decided to use this simple `Hello World` script as our main entrypoint for the call graph below.
+Since there is no directly runnable entrypoint, we decided to use this simple `Hello World` script as our main entrypoint for the call graph below. 
+In the graph the execution order of calls on the same level is from bottom to top (first `document.add()` then new `Paragraph()` etc).
 
 ```
 // imports
