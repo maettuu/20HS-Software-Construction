@@ -60,4 +60,6 @@ The next method is `PdfDocument.outlineTree` which contains a for-loop.
 ![PdfDocument.outlineTree](PdfDocument.outlineTree.png)
 
 #### Third Method 
-THe third method is 'HTMLEncoder.encode' which also contains a for loop
+The third method is 'Document.add' which also contains a for loop
+
+![Document.add](Document.add.png)
