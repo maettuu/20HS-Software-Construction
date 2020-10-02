@@ -20,7 +20,8 @@ have been ignored as well.
 ### Call Graph
 
 #### Reasoning
-Since there is no obvious entrypoint, we decided to use this simple `Hello World` script as our main entrypoint.
+Since there is no directly runnable entrypoint, we decided to use this simple `Hello World` script as our main entrypoint for the call graph below.
+
 ```
 // imports
 
@@ -41,6 +42,14 @@ public class HelloWorld {
 
 #### Diagram
 
+![OpenPdf Call Graph](CallGraph.png)
+
 ## Part 2
 
 ### Six Methods
+
+#### text.Paragraph.add
+
+
+#### text.Row.deleteColumn
+
