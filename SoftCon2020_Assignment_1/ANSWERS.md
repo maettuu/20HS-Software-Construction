@@ -63,3 +63,8 @@ The next method is `PdfDocument.outlineTree` which contains a for-loop.
 The third method is 'Document.add' which also contains a for loop
 
 ![Document.add](Document.add.png)
+
+#### Fourth method
+
+The fourth method is PdfString.toPDF
+![PdfString.toPDF](PdfString.toPDF.png)
