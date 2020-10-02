@@ -48,8 +48,15 @@ public class HelloWorld {
 
 ### Six Methods
 
-#### text.Paragraph.add
+#### First Method
+The first method is `PdfProw.writeBorderAndBackground`. It contains if statements.
 
+![PdfPRow.writeBorderAndBackground](PdfPRow.writeBorderAndBackground.png
+)
 
-#### text.Row.deleteColumn
+#### Second Method
+The next method is `PdfDocument.outlineTree` which contains a for-loop.
+
+![PdfDocument.outlineTree](PdfDocument.outlineTree.png)
+
 
