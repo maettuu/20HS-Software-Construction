@@ -48,24 +48,26 @@ public class HelloWorld {
 
 ### Call Graphs of Six Methods
 
-1. ``PdfProw.writeBorderAndBackground``
+#### 1. ``PdfProw.writeBorderAndBackground``
 
 The method ``writeBorderAndBackground`` from the ``PdfProw`` Package is responsible for displaying cells.
 
 ![PdfPRow.writeBorderAndBackground](PdfPRow.writeBorderAndBackground.png
 )
 
-2. `PdfDocument.outlineTree`
+#### 2. `PdfDocument.flushLines`
 
-The method ``outlineTree`` from the PDFDocument package writes oultines in recursive fashion, thus the name *Tree*.
+The method ``flushLines`` from the PDFDocument package writes lines to a text-object.
 
-![PdfDocument.outlineTree](PdfDocument.outlineTree.png)
+![PdfDocument.outlineTree](PdfDocument.flushLines.png)
 
-3. ``Document.add``
+#### 3. ``Document.add``
 
 The ``add`` Method from the ``Document package`` is used to add ``Element``s to a Document. 
 
-![Document.add](Document.add.png)4. ``PDFString.toPDF``
+![Document.add](Document.add.png)
+
+#### 4. ``PDFString.toPDF``
 
 The ``toPDF`` method from the ``PDFString`` package can convert a pdfString to a universally readable PDF File.
 
