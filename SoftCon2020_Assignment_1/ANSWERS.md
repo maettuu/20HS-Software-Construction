@@ -1,4 +1,4 @@
-# Assignment 1
+Assignment 1
 
 ## Part 1
 
@@ -69,4 +69,6 @@ The ``add`` Method from the ``Document package`` is used to add ``Element``s to 
 
 The ``toPDF`` method from the ``PDFString`` package can convert a pdfString to a universally readable PDF File.
 
-![PdfString.toPDF](PdfString.toPdf.png)
+
+
+![PdfString.toPdf](PDFString.ToPdf.png)
