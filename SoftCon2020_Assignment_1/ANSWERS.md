@@ -20,7 +20,7 @@ have been ignored as well.
 ### Call Graph
 
 #### Reasoning
-Since there is no directly runnable entrypoint, we decided to use this simple `Hello World` script as our main entrypoint for the call graph below. 
+Since there is no directly runnable entry point, we decided to use this simple `Hello World` script as our main entry point for the call graph below. 
 
 ```
 // imports
@@ -48,12 +48,11 @@ public class HelloWorld {
 
 ### Call Graphs of Six Methods
 
-#### 1. ``PdfProw.writeBorderAndBackground``
+#### 1. `PdfProw.writeBorderAndBackground`
 
 The method ``writeBorderAndBackground`` from the ``PdfProw`` Package is responsible for displaying cells.
 
-![PdfPRow.writeBorderAndBackground](PdfPRow.writeBorderAndBackground.png
-)
+![PdfPRow.writeBorderAndBackground](PdfPRow.writeBorderAndBackground.png)
 
 #### 2. `PdfDocument.flushLines`
 
@@ -61,16 +60,26 @@ The method ``flushLines`` from the PDFDocument package writes lines to a text-ob
 
 ![PdfDocument.outlineTree](PdfDocument.flushLines.png)
 
-#### 3. ``Document.add``
+#### 3. `Document.add`
 
 The ``add`` Method from the ``Document package`` is used to add ``Element``s to a Document. 
 
 ![Document.add](Document.add.png)
 
-#### 4. ``PDFString.toPDF``
+#### 4. `PDFString.toPDF`
 
 The ``toPDF`` method from the ``PDFString`` package can convert a pdfString to a universally readable PDF File.
 
-
-
 ![PdfString.toPdf](PDFString.ToPdf.png)
+
+#### 5. `PdfCell.addImage`
+
+This method is used to add an image to a pdf file. Checks about the size of the image and the alignment are necessary.
+
+![PdfCell.addImage](PdfCell.addImage.png)
+
+#### 6. `Table.addColumns`
+
+To add columns to an existing table this method comes in handy. A new table gets created and the values are copies using nested loops.
+
+![Table.addColumns](Table.addColumns.png)
