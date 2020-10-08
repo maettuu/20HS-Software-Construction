@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Board {
     //private List<List<Character>> board;
-    private String[][] board;
+    private Ship[][] board;
     private int columnLength;
     private int rowLength;
 
@@ -24,16 +24,12 @@ public class Board {
         this.rowLength = rowLength;
         this.columnLength = columnLength;
 
-        //board = new ArrayList<List<Character>>();
-        board = new String[rowLength][columnLength];
+        // Row Major
+        board = new Ship[rowLength][columnLength];
 
-
-        /**
-         * Initializing empty board
-         */
-        for (int i = 0; i < columnLength; i++) {
-            for (int j = 0; j < rowLength; j++) {
-                board[i][j] = " ";
+        for (int row = 0; row < rowLength; row++){
+            for (int col = 0; col < columnLength; col++){
+                board[row][col] = null;
             }
         }
     }
@@ -62,7 +58,12 @@ public class Board {
             boardString += String.format("[%d] | ", row);
             // Adding row values
             for (int col = 0; col < columnLength; col++) {
-                boardString += String.format("[%s]", board[row][col]);
+                if (this.board[row][col] == null){
+                    boardString += "[ ]";
+                }
+                else {
+                    boardString += String.format("[%s]", board[row][col]);
+                }
             }
             boardString += "\n";
         }
@@ -70,7 +71,7 @@ public class Board {
     };
 
     public void addShip(String startCoordinates, String endCoordinates, Ship ship) throws InvalidInputException {
-        // TODO
+        // TODO check if field is already occupied
         int[] start = stringToCoordinates(startCoordinates);
         int startCol = start[0];
         int startRow = start[1];
@@ -80,24 +81,29 @@ public class Board {
         int endRow = end[1];
 
 
-
         // Row oriented
         if (startCol != endCol && startRow == endRow){
+            int diff = endCol - startCol;
+            int sign = (int) Math.signum(diff);
             int i = startCol;
-            do {
-                this.board[i][startRow] = ship.toString();
-                i += Math.signum(endCol-startCol);
-                System.out.println(i);
-            } while (i != endRow);
+            // we need to add the sign because the last entry also needs to be filled
+            while (i != startCol + diff + sign) {
+                this.board[startRow][i] = ship;
+                // Depending on the input we need to iterate in different directions
+                i += sign;
+            }
         }
         // Col oriented
         else  if (startCol == endCol && startRow != endRow){
+            int diff = endRow - startRow;
+            int sign = (int) Math.signum(diff);
             int i = startRow;
-            do {
-                this.board[startCol][i] = ship.toString();
-                i += Math.signum(endRow-startRow);
-                System.out.println(i);
-            } while (i != endRow);
+            // we need to add the sign because the last entry also needs to be filled
+            while (i != startRow + diff + sign) {
+                this.board[i][startCol] = ship;
+                // Depending on the input we need to iterate in different directions
+                i += sign;
+            }
         }
         // No diagonals allowed
         else {
@@ -107,7 +113,8 @@ public class Board {
     }
 
     int[] stringToCoordinates(String string) throws InvalidInputException {
-        int col = (int) string.charAt(0) - 64;
+        int col = (int) string.charAt(0) - 64; // 64 - 1 because of array index 0 offset
+        col -= 1;
         if (col < 0 || col > columnLength){
             throw new InvalidInputException();
         }
