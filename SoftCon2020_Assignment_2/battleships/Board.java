@@ -7,7 +7,6 @@ import SoftCon2020_Assignment_2.battleships.ships.Ship;
  * A Board has a matrix for the fields and can be printed.
  */
 public class Board {
-    //private List<List<Character>> board;
     private Ship[][] board;
     private int columnLength;
     private int rowLength;
@@ -55,12 +54,7 @@ public class Board {
             boardString += String.format("[%d] | ", row);
             // Adding row values
             for (int col = 0; col < columnLength; col++) {
-                if (this.board[row][col] == null){
-                    boardString += "[ ]";
-                }
-                else {
-                    boardString += String.format("[%s]", board[row][col]);
-                }
+                boardString += this.board[row][col] == null ? "[ ]" : String.format("[%s]", board[row][col]);
             }
             boardString += "\n";
         }
@@ -76,7 +70,6 @@ public class Board {
         int[] end = stringToCoordinates(endCoordinates);
         int endCol = end[0];
         int endRow = end[1];
-
 
         // Row oriented
         if (startCol != endCol && startRow == endRow){
@@ -109,9 +102,12 @@ public class Board {
 
     }
 
+    /**
+     * Converts a string of shape i.e. B5 into seprate coordinates
+     */
     int[] stringToCoordinates(String string) throws InvalidInputException {
-        int col = (int) string.charAt(0) - 64; // 64 - 1 because of array index 0 offset
-        col -= 1;
+        int col = (int) string.charAt(0) - 64; // 64 is the start of uppercase letters in the ASCI alphabet
+        col -= 1; // subtract 1 because our arrays start at 0 not 1
         if (col < 0 || col > columnLength){
             throw new InvalidInputException();
         }
