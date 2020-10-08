@@ -116,11 +116,11 @@ public class Board {
     int[] stringToCoordinates(String string) throws InvalidInputException {
         int col = (int) string.charAt(0) - 64; // 64 is the start of uppercase letters in the ASCI alphabet
         col -= 1; // subtract 1 because our arrays start at 0 not 1
-        if (col < 0 || col > columnLength){
+        if (col < 0 || col >= columnLength){
             throw new PositionOutOfBoardException();
         }
         int row = Integer.parseInt(string.substring(1));
-        if (row < 0 || row > rowLength){
+        if (row < 0 || row >= rowLength){
             throw new PositionOutOfBoardException();
         }
 
