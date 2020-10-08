@@ -1,6 +1,6 @@
 package SoftCon2020_Assignment_2.battleships.ships;
 
-public class Submarine implements Ship {
+public class Battleship implements Ship {
 
     public int getLength() {
         return 3;
@@ -8,6 +8,6 @@ public class Submarine implements Ship {
 
     @Override
     public String toString() {
-        return "S";
+        return "B";
     }
 }

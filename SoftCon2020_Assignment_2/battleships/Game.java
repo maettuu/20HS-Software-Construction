@@ -1,6 +1,8 @@
 package SoftCon2020_Assignment_2.battleships;
 
+import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
 import SoftCon2020_Assignment_2.battleships.ships.Ship;
+import SoftCon2020_Assignment_2.battleships.ships.Submarine;
 
 import java.util.ArrayList;
 
@@ -16,9 +18,10 @@ public class Game {
         // TODO How to add ships to Game
     }
 
-    public void start() {
+    public void start() throws InvalidInputException {
         System.out.println(board);
-        board.setField(5, 5, BoardField.CARRIER);
+        board.addShip("A5", "A3", new Submarine());
+        //board.setField(5, 5, BoardField.CARRIER);
         System.out.println(board);
     }
 
