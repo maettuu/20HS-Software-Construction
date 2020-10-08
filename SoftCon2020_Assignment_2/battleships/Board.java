@@ -120,7 +120,7 @@ public class Board {
             throw new PositionOutOfBoardException();
         }
         int row = Integer.parseInt(string.substring(1));
-        if (row < 0 || row > columnLength){
+        if (row < 0 || row > rowLength){
             throw new PositionOutOfBoardException();
         }
 
