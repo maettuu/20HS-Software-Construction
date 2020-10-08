@@ -1,4 +1,4 @@
-package SoftCon2020_Assignment_2.battleship;
+package SoftCon2020_Assignment_2.battleships;
 
 /**
  * An enum which represents the status of a board field. Printing it returns a

@@ -1,4 +1,6 @@
-package SoftCon2020_Assignment_2.battleship;
+package SoftCon2020_Assignment_2.battleships;
+
+import SoftCon2020_Assignment_2.battleships.ships.Ship;
 
 import java.util.ArrayList;
 
@@ -10,7 +12,7 @@ public class Game {
     private ArrayList<Ship> ships;
 
     public Game() {
-        board = new Board();
+        board = new Board(9,9);
         // TODO How to add ships to Game
     }
 

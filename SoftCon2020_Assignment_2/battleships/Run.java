@@ -1,4 +1,4 @@
-package SoftCon2020_Assignment_2.battleship;
+package SoftCon2020_Assignment_2.battleships;
 
 public class Run {
     public static void main(String args[]) {

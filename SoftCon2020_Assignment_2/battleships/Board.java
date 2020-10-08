@@ -1,4 +1,4 @@
-package SoftCon2020_Assignment_2.battleship;
+package SoftCon2020_Assignment_2.battleships;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,16 +11,17 @@ public class Board {
     private int columnLength;
     private int rowLength;
 
-    public Board() {
+    public Board(int rowLength, int columnLength) {
 
         /**
          * In the assignment they once have the same columnLength as rowLength and once
          * not, so don't ask me what they want.
          */
-        rowLength = BoardColumn.values().length;
-        columnLength = 9;
+        this.rowLength = rowLength;
+        this.columnLength = columnLength;
 
         board = new ArrayList<List<BoardField>>();
+
 
         /**
          * Initializing empty board
@@ -39,8 +40,8 @@ public class Board {
 
         // Adding First row for column names
         boardString += "    | ";
-        for (BoardColumn ColumnName : BoardColumn.values()) {
-            boardString += String.format("[%s]", ColumnName.toString());
+        for (int i = 0; i < columnLength; i++) {
+            boardString += " " + String.valueOf((char)(65 + i)) + " ";
         }
         boardString += "\n";
 
