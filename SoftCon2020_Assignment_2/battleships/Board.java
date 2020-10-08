@@ -3,9 +3,6 @@ package SoftCon2020_Assignment_2.battleships;
 import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
 import SoftCon2020_Assignment_2.battleships.ships.Ship;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * A Board has a matrix for the fields and can be printed.
  */
