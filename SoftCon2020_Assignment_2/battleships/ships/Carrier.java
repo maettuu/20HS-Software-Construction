@@ -1,6 +1,6 @@
 package SoftCon2020_Assignment_2.battleships.ships;
 
-public class Carrier implements Ship {
+public class Carrier extends Ship {
 
     public int getLength() {
         return 6;

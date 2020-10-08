@@ -1,13 +1,17 @@
 package SoftCon2020_Assignment_2.battleships;
 
 import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
-import SoftCon2020_Assignment_2.battleships.ships.Ship;
+import SoftCon2020_Assignment_2.battleships.exceptions.NotInStraightLineException;
+import SoftCon2020_Assignment_2.battleships.exceptions.PositionAlreadyOccupiedException;
+import SoftCon2020_Assignment_2.battleships.exceptions.PositionOutOfBoardException;
+import SoftCon2020_Assignment_2.battleships.ships.IShip;
+import SoftCon2020_Assignment_2.battleships.ships.ShipPart;
 
 /**
  * A Board has a matrix for the fields and can be printed.
  */
 public class Board {
-    private Ship[][] board;
+    private ShipPart[][] board;
     private int columnLength;
     private int rowLength;
 
@@ -21,7 +25,7 @@ public class Board {
         this.columnLength = columnLength;
 
         // Row Major
-        board = new Ship[rowLength][columnLength];
+        board = new ShipPart[rowLength][columnLength];
 
         for (int row = 0; row < rowLength; row++){
             for (int col = 0; col < columnLength; col++){
@@ -54,15 +58,15 @@ public class Board {
             boardString += String.format("[%d] | ", row);
             // Adding row values
             for (int col = 0; col < columnLength; col++) {
-                boardString += this.board[row][col] == null ? "[ ]" : String.format("[%s]", board[row][col]);
+                boardString += this.board[row][col] == null ? "[ ]" : String.format("[%s]", board[row][col].ship);
             }
             boardString += "\n";
         }
         return boardString;
     };
 
-    public void addShip(String startCoordinates, String endCoordinates, Ship ship) throws InvalidInputException {
-        // TODO check if field is already occupied
+    public void addShip(String startCoordinates, String endCoordinates, IShip ship) throws InvalidInputException {
+        // TODO: throw invalidSizeExcpetion
         int[] start = stringToCoordinates(startCoordinates);
         int startCol = start[0];
         int startRow = start[1];
@@ -78,7 +82,10 @@ public class Board {
             int i = startCol;
             // we need to add the sign because the last entry also needs to be filled
             while (i != startCol + diff + sign) {
-                this.board[startRow][i] = ship;
+                if (this.board[startRow][i] != null) throw new PositionAlreadyOccupiedException();
+
+                this.board[startRow][i] = new ShipPart(ship);
+
                 // Depending on the input we need to iterate in different directions
                 i += sign;
             }
@@ -90,16 +97,17 @@ public class Board {
             int i = startRow;
             // we need to add the sign because the last entry also needs to be filled
             while (i != startRow + diff + sign) {
-                this.board[i][startCol] = ship;
+                if (this.board[i][startCol] != null) throw new PositionAlreadyOccupiedException();
+
+                this.board[i][startCol] = new ShipPart(ship);
                 // Depending on the input we need to iterate in different directions
                 i += sign;
             }
         }
         // No diagonals allowed
         else {
-            throw new InvalidInputException();
+            throw new NotInStraightLineException();
         }
-
     }
 
     /**
@@ -109,20 +117,13 @@ public class Board {
         int col = (int) string.charAt(0) - 64; // 64 is the start of uppercase letters in the ASCI alphabet
         col -= 1; // subtract 1 because our arrays start at 0 not 1
         if (col < 0 || col > columnLength){
-            throw new InvalidInputException();
+            throw new PositionOutOfBoardException();
         }
         int row = Integer.parseInt(string.substring(1));
         if (row < 0 || row > columnLength){
-            throw new InvalidInputException();
+            throw new PositionOutOfBoardException();
         }
 
         return new int[]{col, row};
     }
-
-    // TODO
-    // set private once addShips is implemented
-    // (at the moment public for testing purposes)
-    /*public void setField(int aBoardRow, int aBoardColumn, BoardField aBoardField) {
-        board.get(aBoardRow).set(aBoardColumn, aBoardField);
-    }*/
 }
