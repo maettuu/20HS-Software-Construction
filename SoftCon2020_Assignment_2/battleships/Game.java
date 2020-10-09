@@ -10,21 +10,17 @@ import java.util.ArrayList;
  */
 public class Game {
     private Board board;
-    private ArrayList<IShip> ships;
+    private ArrayList<BoardObject> ships;
 
     public Game() {
-        board = new Board(9,9);
+        board = new Board(9, 9);
         this.askUserForShips();
     }
 
     public void start() throws InvalidInputException {
-        System.out.println(board);
-
-        board.addShip("A5", "A3", new Submarine());
-        board.addShip("C6", "E6", new Carrier());
-        board.addShip("H8", "A8", new PatrolBoat());
-        board.addShip("I0", "I4", new Battleship());
-
+        board.addToBoard(new Carrier(), "A5", "A0");
+        board.addToBoard(new Battleship(), "C5", "C2");
+        board.addToBoard(new Submarine(), "F7", "D7");
         System.out.println(board);
     }
 
