@@ -25,9 +25,6 @@ public class AddStraightLine implements AddBehavior {
         int colStep = colMoves / (amountShipFields - 1); // horizontal steps
         int rowStep = rowMoves / (amountShipFields - 1); // vertical steps
 
-        System.out.println(rowStep);
-        System.out.println(colStep);
-
         // TODO If we remove the check below we could use this method for to create
         // diagonal ships as well. This should probably be refactored in the future.
         // in the future.
