@@ -1,5 +1,7 @@
 package SoftCon2020_Assignment_2.battleships;
 
+import SoftCon2020_Assignment_2.battleships.boardobjects.BoardField;
+import SoftCon2020_Assignment_2.battleships.boardobjects.BoardObject;
 import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
 import SoftCon2020_Assignment_2.battleships.exceptions.PositionAlreadyOccupiedException;
 import SoftCon2020_Assignment_2.battleships.exceptions.PositionOutOfBoardException;
@@ -13,11 +15,6 @@ public class Board {
     private int rowLength;
 
     public Board(int rowLength, int columnLength) {
-
-        /**
-         * In the assignment they once have the same columnLength as rowLength and once
-         * not, so don't ask me what they want.
-         */
         this.rowLength = rowLength;
         this.columnLength = columnLength;
 
@@ -62,11 +59,14 @@ public class Board {
         return boardString;
     };
 
-    public void addToBoard(BoardObject object, String start, String end) throws InvalidInputException {
-        object.addToBoard(this, stringToCoordinates(start), stringToCoordinates(end));
+    public void addToBoard(BoardObject boardObject, String start, String end) throws InvalidInputException {
+        boardObject.addToBoard(this, stringToCoordinates(start), stringToCoordinates(end));
     }
 
     public void setField(int row, int column, BoardField boardField) throws InvalidInputException {
+        if (rowLength <= row || columnLength <= column) {
+            throw new PositionOutOfBoardException();
+        }
         if (this.board[row][column] != null)
             throw new PositionAlreadyOccupiedException();
         this.board[row][column] = boardField;
@@ -86,6 +86,6 @@ public class Board {
             throw new PositionOutOfBoardException();
         }
 
-        return new int[] { col, row };
+        return new int[] { row, col };
     }
 }

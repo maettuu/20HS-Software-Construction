@@ -1,5 +1,6 @@
-package SoftCon2020_Assignment_2.battleships;
+package SoftCon2020_Assignment_2.battleships.boardobjects;
 
+import SoftCon2020_Assignment_2.battleships.Board;
 import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
 
 /**
@@ -15,4 +16,6 @@ public interface BoardObject {
     public void dealDamage();
 
     public void addToBoard(Board board, int[] start, int[] end) throws InvalidInputException;
+
+    public void addPart(Board board, BoardField field);
 }

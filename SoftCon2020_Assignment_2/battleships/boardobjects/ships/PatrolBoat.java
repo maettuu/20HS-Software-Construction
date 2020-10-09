@@ -1,4 +1,4 @@
-package SoftCon2020_Assignment_2.battleships.ships;
+package SoftCon2020_Assignment_2.battleships.boardobjects.ships;
 
 public class PatrolBoat extends Ship {
 

@@ -1,4 +1,4 @@
-package SoftCon2020_Assignment_2.battleships;
+package SoftCon2020_Assignment_2.battleships.boardobjects;
 
 public interface BoardField {
 
