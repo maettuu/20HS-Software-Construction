@@ -72,6 +72,13 @@ public class Board {
         this.board[row][column] = boardField;
     }
 
+    public boolean coordinatesAreOnBoard(int row, int column) {
+        if (rowLength <= row || columnLength <= column) {
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Converts a string of shape i.e. B5 into seprate coordinates
      */

@@ -6,6 +6,7 @@ import SoftCon2020_Assignment_2.battleships.Board;
 import SoftCon2020_Assignment_2.battleships.boardobjects.BoardField;
 import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
 import SoftCon2020_Assignment_2.battleships.exceptions.NotInStraightLineException;
+import SoftCon2020_Assignment_2.battleships.exceptions.PositionOutOfBoardException;
 
 /**
  * An AddBehavior for adding BoardObjects in a straight line.
@@ -38,6 +39,9 @@ public class AddStraightLine implements AddBehavior {
         int col = start[1];
 
         for (BoardField field : fields) {
+            if (!board.coordinatesAreOnBoard(row, col)) {
+                throw new PositionOutOfBoardException();
+            }
             board.setField(row, col, field);
             row += rowStep; // add vertical step
             col += colStep; // add horizontal step
