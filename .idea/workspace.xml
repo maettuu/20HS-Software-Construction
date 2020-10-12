@@ -44,17 +44,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Run" />
@@ -71,6 +60,7 @@
       <updated>1602074409616</updated>
       <workItem from="1602074413379" duration="669000" />
       <workItem from="1602318655940" duration="5130000" />
+      <workItem from="1602497331583" duration="5197000" />
     </task>
     <servers />
   </component>
@@ -78,22 +68,22 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1663" height="242" key="GridCell.Tab.0.bottom" timestamp="1602324017149">
+    <state width="809" height="242" key="GridCell.Tab.0.bottom" timestamp="1602507998631">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1663" height="242" key="GridCell.Tab.0.bottom/0.0.1707.920@0.0.1707.920" timestamp="1602324017149" />
-    <state width="1663" height="242" key="GridCell.Tab.0.center" timestamp="1602324017148">
+    <state width="809" height="242" key="GridCell.Tab.0.bottom/0.0.1707.920@0.0.1707.920" timestamp="1602507998631" />
+    <state width="809" height="242" key="GridCell.Tab.0.center" timestamp="1602507998630">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1663" height="242" key="GridCell.Tab.0.center/0.0.1707.920@0.0.1707.920" timestamp="1602324017148" />
-    <state width="1663" height="242" key="GridCell.Tab.0.left" timestamp="1602324017147">
+    <state width="809" height="242" key="GridCell.Tab.0.center/0.0.1707.920@0.0.1707.920" timestamp="1602507998630" />
+    <state width="809" height="242" key="GridCell.Tab.0.left" timestamp="1602507998630">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1663" height="242" key="GridCell.Tab.0.left/0.0.1707.920@0.0.1707.920" timestamp="1602324017147" />
-    <state width="1663" height="242" key="GridCell.Tab.0.right" timestamp="1602324017149">
+    <state width="809" height="242" key="GridCell.Tab.0.left/0.0.1707.920@0.0.1707.920" timestamp="1602507998630" />
+    <state width="809" height="242" key="GridCell.Tab.0.right" timestamp="1602507998631">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
-    <state width="1663" height="242" key="GridCell.Tab.0.right/0.0.1707.920@0.0.1707.920" timestamp="1602324017149" />
+    <state width="809" height="242" key="GridCell.Tab.0.right/0.0.1707.920@0.0.1707.920" timestamp="1602507998631" />
     <state width="1663" height="300" key="GridCell.Tab.1.bottom" timestamp="1602323804966">
       <screen x="0" y="0" width="1707" height="920" />
     </state>
@@ -110,16 +100,5 @@
       <screen x="0" y="0" width="1707" height="920" />
     </state>
     <state width="1663" height="300" key="GridCell.Tab.1.right/0.0.1707.920@0.0.1707.920" timestamp="1602323804965" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/SoftCon2020_Assignment_2/battleships/Game.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -3,7 +3,6 @@ package SoftCon2020_Assignment_2.battleships;
 import SoftCon2020_Assignment_2.battleships.boardobjects.BoardObject;
 import SoftCon2020_Assignment_2.battleships.boardobjects.ships.*;
 import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
-import SoftCon2020_Assignment_2.battleships.exceptions.InvalidSizeException;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,6 +13,15 @@ import java.util.Scanner;
 public class Game {
     private Board board;
     private ArrayList<BoardObject> ships;
+
+    /**
+     * The class UserShipCreatorHelper is used to create objects which simplify the user input loops
+     */
+    private class UserShipCreatorHelper {
+        private String shipName;
+        private int shipAmount;
+        private Ship shipType;
+    }
 
     public Game() {
         board = new Board(10, 10);
@@ -28,36 +36,44 @@ public class Game {
         System.out.println("Welcome to Battleship!!");
         System.out.println("To enter the desired coordinates, please follow the following pattern: A5 A0\n");
 
-        // array with all ships to enter
-        String[] ships = { "Carrier", "Battleship 1", "Battleship 2", "Submarine 1", "Submarine 2", "Submarine 3",
-                "Patrol boat 1", "Patrol boat 2", "Patrol boat 3", "Patrol boat 4" };
+        // array with all ships and their properties
+        UserShipCreatorHelper[] ships = {newShip("Carrier", 1, new Carrier()),
+                newShip("Battleship", 2, new Battleship()),
+                newShip("Submarine", 3, new Submarine()),
+                newShip("Patrol boat", 4, new PatrolBoat())};
+
         Scanner scanner = new Scanner(System.in);
 
-        // for loop for desired positions
-        for (int i = 0; i < ships.length; i++) {
-            System.out.println("Please enter the position of your " + ships[i] + ": ");
-            String input = scanner.nextLine();
-            int spacebar = input.indexOf(" ");
-            if (spacebar == -1) {
-                System.out.println("Please respect the given pattern!");
-                i--;
-                continue;
-            }
-            try {
-                if (i == 0) {
-                    board.addToBoard(new Carrier(), input.substring(0, spacebar), input.substring(spacebar + 1));
-                } else if (i == 1 || i == 2) {
-                    board.addToBoard(new Battleship(), input.substring(0, spacebar), input.substring(spacebar + 1));
-                } else if (i < 6) {
-                    board.addToBoard(new Submarine(), input.substring(0, spacebar), input.substring(spacebar + 1));
-                } else {
-                    board.addToBoard(new PatrolBoat(), input.substring(0, spacebar), input.substring(spacebar + 1));
+        //user is asked for desired coordinates of all boats
+        for (UserShipCreatorHelper currentShip : ships) {
+            for (int j = 1; j <= currentShip.shipAmount; j++) {
+                if (currentShip.shipAmount == 1) {// to ask for "Carrier" instead of "Carrier 1" when only 1 is needed
+                    System.out.println("Please enter the position of your " + currentShip.shipName + ": ");
+                } else {// if more than 1 boat of same type are needed
+                    System.out.println("Please enter the position of your " + currentShip.shipName + " " + j + ": ");
                 }
 
-            } catch (InvalidInputException InvalidInput) {
-                i--;
+                String input = scanner.nextLine();
+                int spacebar = input.indexOf(" ");
+                if (spacebar == -1) {
+                    System.out.println("Please respect the given pattern!");
+                    j--;
+                    continue;
+                }
+                try {
+                    board.addToBoard(currentShip.shipType, input.substring(0, spacebar), input.substring(spacebar + 1));
+                } catch (InvalidInputException InvalidInput) {
+                    j--;
+                }
             }
         }
+    }
 
-    };
+    private UserShipCreatorHelper newShip(String shipName, int shipAmount, Ship shipType)  {
+        UserShipCreatorHelper current = new UserShipCreatorHelper();
+        current.shipName = shipName;
+        current.shipAmount = shipAmount;
+        current.shipType = shipType;
+        return current;
+    }
 }
