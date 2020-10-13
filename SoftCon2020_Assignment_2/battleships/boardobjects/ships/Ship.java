@@ -9,6 +9,7 @@ import SoftCon2020_Assignment_2.battleships.boardobjects.BoardObject;
 import SoftCon2020_Assignment_2.battleships.boardobjects.addbehavior.AddBehavior;
 import SoftCon2020_Assignment_2.battleships.boardobjects.addbehavior.AddStraightLine;
 import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
+import SoftCon2020_Assignment_2.battleships.exceptions.InvalidSizeException;
 
 public abstract class Ship implements BoardObject {
     protected boolean intact;
@@ -47,6 +48,10 @@ public abstract class Ship implements BoardObject {
         List<BoardField> fields = new ArrayList<BoardField>();
         for (int i = 0; i < this.getLength(); i++) {
             fields.add(new ShipPart(this));
+        }
+        // check for length
+        if (Math.abs(start[0] - end[0]) + Math.abs(start[1] - end[1]) != this.getLength() - 1) {
+            throw new InvalidSizeException();
         }
         addBehavior.addToBoard(board, fields, start, end);
     }

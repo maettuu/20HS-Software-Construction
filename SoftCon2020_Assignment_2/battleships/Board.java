@@ -64,16 +64,13 @@ public class Board {
     }
 
     public void setField(int row, int column, BoardField boardField) throws InvalidInputException {
-        if (rowLength <= row || columnLength <= column) {
-            throw new PositionOutOfBoardException();
-        }
         if (this.board[row][column] != null)
             throw new PositionAlreadyOccupiedException();
         this.board[row][column] = boardField;
     }
 
-    public boolean coordinatesAreOnBoard(int row, int column) {
-        if (rowLength <= row || columnLength <= column) {
+    public boolean fieldIsEmpty(int row, int column) {
+        if (board[row][column] != null) {
             return false;
         }
         return true;
