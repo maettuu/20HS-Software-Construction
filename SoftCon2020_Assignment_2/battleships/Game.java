@@ -4,6 +4,7 @@ import SoftCon2020_Assignment_2.battleships.boardobjects.BoardObject;
 import SoftCon2020_Assignment_2.battleships.boardobjects.ships.*;
 import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,12 +16,16 @@ public class Game {
     private ArrayList<BoardObject> ships;
 
     /**
-     * The class UserShipCreatorHelper is used to create objects which simplify the user input loops
+     * The class ShipData is used to create objects which simplify the user input loops
      */
-    private class UserShipCreatorHelper {
-        private String shipName;
+    private static class ShipData {
         private int shipAmount;
         private Ship shipType;
+
+        private ShipData (int shipAmount, Ship shipType)  {
+            this.shipAmount = shipAmount;
+            this.shipType = shipType;
+        }
     }
 
     public Game() {
@@ -28,7 +33,7 @@ public class Game {
         this.askUserForShips();
     }
 
-    public void start() throws InvalidInputException {
+    public void start() {
         System.out.println(board);
     }
 
@@ -37,20 +42,20 @@ public class Game {
         System.out.println("To enter the desired coordinates, please follow the following pattern: A5 A0\n");
 
         // array with all ships and their properties
-        UserShipCreatorHelper[] ships = {newShip("Carrier", 1, new Carrier()),
-                newShip("Battleship", 2, new Battleship()),
-                newShip("Submarine", 3, new Submarine()),
-                newShip("Patrol boat", 4, new PatrolBoat())};
+        ShipData[] ships = {new ShipData(1, new Carrier()),
+                new ShipData(2, new Battleship()),
+                new ShipData(3, new Submarine()),
+                new ShipData(4, new PatrolBoat())};
 
         Scanner scanner = new Scanner(System.in);
 
         //user is asked for desired coordinates of all boats
-        for (UserShipCreatorHelper currentShip : ships) {
+        for (ShipData currentShip : ships) {
             for (int j = 1; j <= currentShip.shipAmount; j++) {
                 if (currentShip.shipAmount == 1) {// to ask for "Carrier" instead of "Carrier 1" when only 1 is needed
-                    System.out.println("Please enter the position of your " + currentShip.shipName + ": ");
+                    System.out.println("Please enter the position of your " + currentShip.shipType.getName() + ": ");
                 } else {// if more than 1 boat of same type are needed
-                    System.out.println("Please enter the position of your " + currentShip.shipName + " " + j + ": ");
+                    System.out.println("Please enter the position of your " + currentShip.shipType.getName() + " " + j + ": ");
                 }
 
                 String input = scanner.nextLine();
@@ -60,20 +65,24 @@ public class Game {
                     j--;
                     continue;
                 }
+
                 try {
-                    board.addToBoard(currentShip.shipType, input.substring(0, spacebar), input.substring(spacebar + 1));
+                    board.addToBoard(getShipType(currentShip.shipType), input.substring(0, spacebar), input.substring(spacebar + 1));
                 } catch (InvalidInputException InvalidInput) {
                     j--;
                 }
             }
         }
+        scanner.close();
     }
 
-    private UserShipCreatorHelper newShip(String shipName, int shipAmount, Ship shipType)  {
-        UserShipCreatorHelper current = new UserShipCreatorHelper();
-        current.shipName = shipName;
-        current.shipAmount = shipAmount;
-        current.shipType = shipType;
-        return current;
+    private Ship getShipType(Ship shipType) {
+        return switch (shipType.toString()) {
+            case "C" -> new Carrier();
+            case "B" -> new Battleship();
+            case "S" -> new Submarine();
+            case "P" -> new PatrolBoat();
+            default -> null;
+        };
     }
 }

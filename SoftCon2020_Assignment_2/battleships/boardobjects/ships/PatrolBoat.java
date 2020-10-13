@@ -10,4 +10,8 @@ public class PatrolBoat extends Ship {
     public String toString() {
         return "P";
     }
+
+    public String getName() {
+        return "Patrol boat";
+    }
 }

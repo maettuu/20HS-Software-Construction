@@ -25,6 +25,8 @@ public abstract class Ship implements BoardObject {
 
     public abstract String toString();
 
+    public abstract String getName();
+
     public void dealDamage() {
         this.intact = isIntact();
     };

@@ -10,4 +10,8 @@ public class Battleship extends Ship {
     public String toString() {
         return "B";
     }
+
+    public String getName() {
+        return "Battleship";
+    }
 }

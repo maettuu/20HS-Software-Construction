@@ -10,4 +10,8 @@ public class Carrier extends Ship {
     public String toString() {
         return "C";
     }
+
+    public String getName() {
+        return "Carrier";
+    }
 }
