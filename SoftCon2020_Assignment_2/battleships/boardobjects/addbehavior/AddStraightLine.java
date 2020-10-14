@@ -35,10 +35,15 @@ public class AddStraightLine implements AddBehavior {
         int row = start[0];
         int col = start[1];
 
+        // check all fields
         for (BoardField field : fields) {
             if (!board.fieldIsEmpty(row, col)) {
                 throw new PositionAlreadyOccupiedException();
             }
+        }
+        // add all fields
+        for (BoardField field : fields) {
+
             board.setField(row, col, field);
             row += rowStep; // add vertical step
             col += colStep; // add horizontal step
