@@ -1,8 +1,13 @@
 package SoftCon2020_Assignment_2.battleships.exceptions;
 
 public class InvalidSizeException extends InvalidInputException {
-    public InvalidSizeException() {
-        System.out.println("Please respect the given lengths for boats:");
-        System.out.println("Carrier: 6\nBattleship: 4\nSubmarine: 3\nPatrol Boats: 2");
+    public InvalidSizeException(String shipName, int shipSize) {
+        switch (shipName) {
+            case "C" -> System.out.println("A Carrier must have a size of " + shipSize + ". Please try again!");
+            case "B" -> System.out.println("A Battleship must have a size of " + shipSize + ". Please try again!");
+            case "S" -> System.out.println("A Submarine must have a size of " + shipSize + ". Please try again!");
+            case "P" -> System.out.println("A Patrol boat must have a size of " + shipSize + ". Please try again!");
+            default -> System.out.println("Please respect the given lengths for ships");
+        }
     }
 }

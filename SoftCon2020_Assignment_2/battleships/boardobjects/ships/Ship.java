@@ -51,7 +51,7 @@ public abstract class Ship implements BoardObject {
         }
         // check for length
         if (Math.abs(start[0] - end[0]) + Math.abs(start[1] - end[1]) != this.getLength() - 1) {
-            throw new InvalidSizeException();
+            throw new InvalidSizeException(this.toString(), this.getLength());
         }
         addBehavior.addToBoard(board, fields, start, end);
     }

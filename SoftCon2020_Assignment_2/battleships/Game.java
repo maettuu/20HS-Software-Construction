@@ -14,7 +14,6 @@ import java.util.Scanner;
  */
 public class Game {
     private Board board;
-    private ArrayList<BoardObject> ships;
 
     /**
      * The class ShipData is used to create objects which simplify the user input loops
@@ -50,19 +49,19 @@ public class Game {
 
         Scanner scanner = new Scanner(System.in);
 
-        //user is asked for desired coordinates of all boats
+        //user is asked for desired coordinates of all ships
         for (ShipData currentShip : ships) {
             for (int j = 1; j <= currentShip.shipAmount; j++) {
-                if (currentShip.shipAmount == 1) {// to ask for "Carrier" instead of "Carrier 1" when only 1 is needed
+                if (currentShip.shipAmount == 1) {// to ask for "Carrier" instead of "Carrier 1" when only 1 ship is needed
                     System.out.println("Please enter the position of your " + currentShip.shipType.getName() + ": ");
-                } else {// if more than 1 boat of same type are needed
+                } else {// if more than 1 ship of same type are needed
                     System.out.println("Please enter the position of your " + currentShip.shipType.getName() + " " + j + ": ");
                 }
 
-                String input = scanner.nextLine();
+                String input = scanner.nextLine();// scanner for reading user input
 
                 try{
-                    if (!input.matches("[A-Z]\\d\\s[A-Z]\\d")){
+                    if (!input.matches("[A-Z]\\d\\s[A-Z]\\d")){// check for right format (eg. A0 A5)
                         throw new InvalidInputFormatException();
                     }
                 }
@@ -71,15 +70,9 @@ public class Game {
                     continue;
                 }
 
+                int spacebar = input.indexOf(" ");// used for correct split of coordinates
 
-                int spacebar = input.indexOf(" ");
-                /*if (spacebar == -1) {
-                    System.out.println("Please respect the given pattern!");
-                    j--;
-                    continue;
-                }*/
-
-                try {
+                try {// add ship to board
                     board.addToBoard(getShipType(currentShip.shipType), input.substring(0, spacebar), input.substring(spacebar + 1));
                 } catch (InvalidInputException InvalidInput) {
                     j--;
@@ -89,6 +82,7 @@ public class Game {
         scanner.close();
     }
 
+    // method used to create a new instance of the given type of ship when adding to board
     private Ship getShipType(Ship shipType) {
         return switch (shipType.toString()) {
             case "C" -> new Carrier();
