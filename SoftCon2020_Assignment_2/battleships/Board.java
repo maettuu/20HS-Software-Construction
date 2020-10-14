@@ -3,6 +3,7 @@ package SoftCon2020_Assignment_2.battleships;
 import SoftCon2020_Assignment_2.battleships.boardobjects.BoardField;
 import SoftCon2020_Assignment_2.battleships.boardobjects.BoardObject;
 import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
+import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputFormatException;
 import SoftCon2020_Assignment_2.battleships.exceptions.PositionAlreadyOccupiedException;
 import SoftCon2020_Assignment_2.battleships.exceptions.PositionOutOfBoardException;
 
@@ -80,6 +81,8 @@ public class Board {
      * Converts a string of shape i.e. B5 into seprate coordinates
      */
     int[] stringToCoordinates(String string) throws InvalidInputException {
+
+
         int col = (int) string.charAt(0) - 64; // 64 is the start of uppercase letters in the ASCI alphabet
         col -= 1; // subtract 1 because our arrays start at 0 not 1
         if (col < 0 || col >= columnLength) {

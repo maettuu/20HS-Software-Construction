@@ -3,6 +3,7 @@ package SoftCon2020_Assignment_2.battleships;
 import SoftCon2020_Assignment_2.battleships.boardobjects.BoardObject;
 import SoftCon2020_Assignment_2.battleships.boardobjects.ships.*;
 import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
+import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputFormatException;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -59,12 +60,24 @@ public class Game {
                 }
 
                 String input = scanner.nextLine();
-                int spacebar = input.indexOf(" ");
-                if (spacebar == -1) {
-                    System.out.println("Please respect the given pattern!");
+
+                try{
+                    if (!input.matches("[A-Z]\\d\\s[A-Z]\\d")){
+                        throw new InvalidInputFormatException();
+                    }
+                }
+                catch (InvalidInputException InvalidInput){
                     j--;
                     continue;
                 }
+
+
+                int spacebar = input.indexOf(" ");
+                /*if (spacebar == -1) {
+                    System.out.println("Please respect the given pattern!");
+                    j--;
+                    continue;
+                }*/
 
                 try {
                     board.addToBoard(getShipType(currentShip.shipType), input.substring(0, spacebar), input.substring(spacebar + 1));
