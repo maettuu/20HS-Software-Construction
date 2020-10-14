@@ -5,3 +5,8 @@ Assignment 2
 ### Architecture
 
 #### Diagram
+
+![OpenPDFModelFolder](OpenPDFModelFolder.png)
+
+#### Description
+
