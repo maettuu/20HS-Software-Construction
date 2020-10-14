@@ -4,9 +4,7 @@ Assignment 2
 
 ### Architecture
 
-#### Diagram
+#### `com.lowagie.rups.model` UML diagram
 
 ![OpenPDFModelFolder](OpenPDFModelFolder.png)
-
-#### Description
 
