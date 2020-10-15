@@ -1,4 +1,6 @@
 .idea
+*/.idea/
 *.iml
+
 out/
-swc-group10.iml
+*/out/
