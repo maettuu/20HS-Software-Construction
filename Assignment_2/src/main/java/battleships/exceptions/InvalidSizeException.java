@@ -1,4 +1,4 @@
-package SoftCon2020_Assignment_2.battleships.exceptions;
+package battleships.exceptions;
 
 public class InvalidSizeException extends InvalidInputException {
     public InvalidSizeException(String shipName, int shipSize) {

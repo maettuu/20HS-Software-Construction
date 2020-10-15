@@ -1,10 +1,10 @@
-package SoftCon2020_Assignment_2.battleships.boardobjects.addbehavior;
+package battleships.boardobjects.addbehavior;
 
 import java.util.List;
 
-import SoftCon2020_Assignment_2.battleships.Board;
-import SoftCon2020_Assignment_2.battleships.boardobjects.BoardField;
-import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
+import battleships.Board;
+import battleships.boardobjects.BoardField;
+import battleships.exceptions.InvalidInputException;
 
 /**
  * An AddBehavior for adding BoardObjects diagonally.

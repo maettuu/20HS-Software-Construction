@@ -1,6 +1,6 @@
-package SoftCon2020_Assignment_2.battleships;
+package battleships;
 
-import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
+import battleships.exceptions.InvalidInputException;
 
 public class Run {
     public static void main(String args[]) throws InvalidInputException {

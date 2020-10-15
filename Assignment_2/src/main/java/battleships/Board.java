@@ -1,11 +1,10 @@
-package SoftCon2020_Assignment_2.battleships;
+package battleships;
 
-import SoftCon2020_Assignment_2.battleships.boardobjects.BoardField;
-import SoftCon2020_Assignment_2.battleships.boardobjects.BoardObject;
-import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
-import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputFormatException;
-import SoftCon2020_Assignment_2.battleships.exceptions.PositionAlreadyOccupiedException;
-import SoftCon2020_Assignment_2.battleships.exceptions.PositionOutOfBoardException;
+import battleships.boardobjects.BoardField;
+import battleships.boardobjects.BoardObject;
+import battleships.exceptions.InvalidInputException;
+import battleships.exceptions.PositionAlreadyOccupiedException;
+import battleships.exceptions.PositionOutOfBoardException;
 
 /**
  * A Board has a matrix for the fields and can be printed.

@@ -1,15 +1,15 @@
-package SoftCon2020_Assignment_2.battleships.boardobjects.ships;
+package battleships.boardobjects.ships;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import SoftCon2020_Assignment_2.battleships.Board;
-import SoftCon2020_Assignment_2.battleships.boardobjects.BoardField;
-import SoftCon2020_Assignment_2.battleships.boardobjects.BoardObject;
-import SoftCon2020_Assignment_2.battleships.boardobjects.addbehavior.AddBehavior;
-import SoftCon2020_Assignment_2.battleships.boardobjects.addbehavior.AddStraightLine;
-import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
-import SoftCon2020_Assignment_2.battleships.exceptions.InvalidSizeException;
+import battleships.Board;
+import battleships.boardobjects.BoardField;
+import battleships.boardobjects.BoardObject;
+import battleships.boardobjects.addbehavior.AddBehavior;
+import battleships.boardobjects.addbehavior.AddStraightLine;
+import battleships.exceptions.InvalidInputException;
+import battleships.exceptions.InvalidSizeException;
 
 public abstract class Ship implements BoardObject {
     protected boolean intact;

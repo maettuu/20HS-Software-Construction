@@ -1,12 +1,9 @@
-package SoftCon2020_Assignment_2.battleships;
+package battleships;
 
-import SoftCon2020_Assignment_2.battleships.boardobjects.BoardObject;
-import SoftCon2020_Assignment_2.battleships.boardobjects.ships.*;
-import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
-import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputFormatException;
+import battleships.boardobjects.ships.*;
+import battleships.exceptions.InvalidInputException;
+import battleships.exceptions.InvalidInputFormatException;
 
-import java.lang.reflect.Constructor;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**

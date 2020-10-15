@@ -1,7 +1,7 @@
-package SoftCon2020_Assignment_2.battleships.boardobjects.ships;
+package battleships.boardobjects.ships;
 
-import SoftCon2020_Assignment_2.battleships.boardobjects.BoardField;
-import SoftCon2020_Assignment_2.battleships.boardobjects.BoardObject;
+import battleships.boardobjects.BoardField;
+import battleships.boardobjects.BoardObject;
 
 public class ShipPart implements BoardField {
     private boolean intact;

@@ -1,7 +1,7 @@
-package SoftCon2020_Assignment_2.battleships.boardobjects;
+package battleships.boardobjects;
 
-import SoftCon2020_Assignment_2.battleships.Board;
-import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
+import battleships.Board;
+import battleships.exceptions.InvalidInputException;
 
 /**
  * A board object consists of BoardFields. An example would be Ship who consists

@@ -1,13 +1,12 @@
-package SoftCon2020_Assignment_2.battleships.boardobjects.addbehavior;
+package battleships.boardobjects.addbehavior;
 
 import java.util.List;
 
-import SoftCon2020_Assignment_2.battleships.Board;
-import SoftCon2020_Assignment_2.battleships.boardobjects.BoardField;
-import SoftCon2020_Assignment_2.battleships.exceptions.InvalidInputException;
-import SoftCon2020_Assignment_2.battleships.exceptions.NotInStraightLineException;
-import SoftCon2020_Assignment_2.battleships.exceptions.PositionAlreadyOccupiedException;
-import SoftCon2020_Assignment_2.battleships.exceptions.PositionOutOfBoardException;
+import battleships.Board;
+import battleships.boardobjects.BoardField;
+import battleships.exceptions.InvalidInputException;
+import battleships.exceptions.NotInStraightLineException;
+import battleships.exceptions.PositionAlreadyOccupiedException;
 
 /**
  * An AddBehavior for adding BoardObjects in a straight line.

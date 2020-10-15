@@ -1,4 +1,4 @@
-package SoftCon2020_Assignment_2.battleships.exceptions;
+package battleships.exceptions;
 
 public class NotInStraightLineException extends InvalidInputException {
     public NotInStraightLineException() {

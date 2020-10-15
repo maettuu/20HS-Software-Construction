@@ -1,4 +1,4 @@
-package SoftCon2020_Assignment_2.battleships.boardobjects.ships;
+package battleships.boardobjects.ships;
 
 public class Battleship extends Ship {
 
