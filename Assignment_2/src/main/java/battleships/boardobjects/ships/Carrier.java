@@ -1,4 +1,4 @@
-package battleships.boardobjects.ships;
+package main.java.battleships.boardobjects.ships;
 
 public class Carrier extends Ship {
 

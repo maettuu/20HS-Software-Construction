@@ -1,4 +1,4 @@
-package battleships.boardobjects;
+package main.java.battleships.boardobjects;
 
 public interface BoardField {
 

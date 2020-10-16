@@ -1,7 +1,7 @@
-package battleships.boardobjects.ships;
+package main.java.battleships.boardobjects.ships;
 
-import battleships.boardobjects.BoardField;
-import battleships.boardobjects.BoardObject;
+import main.java.battleships.boardobjects.BoardField;
+import main.java.battleships.boardobjects.BoardObject;
 
 public class ShipPart implements BoardField {
     private boolean intact;

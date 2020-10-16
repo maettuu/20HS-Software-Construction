@@ -1,4 +1,4 @@
-package battleships.exceptions;
+package main.java.battleships.exceptions;
 
 public class PositionOutOfBoardException extends InvalidInputException {
     public PositionOutOfBoardException() {

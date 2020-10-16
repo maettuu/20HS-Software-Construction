@@ -1,8 +1,8 @@
-package battleships.boardobjects.addbehavior;
+package main.java.battleships.boardobjects.addbehavior;
 
-import battleships.boardobjects.BoardField;
-import battleships.Board;
-import battleships.exceptions.InvalidInputException;
+import main.java.battleships.boardobjects.BoardField;
+import main.java.battleships.Board;
+import main.java.battleships.exceptions.InvalidInputException;
 import java.util.List;
 
 /**

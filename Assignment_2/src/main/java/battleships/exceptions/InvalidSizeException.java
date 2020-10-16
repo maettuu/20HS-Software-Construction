@@ -1,4 +1,4 @@
-package battleships.exceptions;
+package main.java.battleships.exceptions;
 
 public class InvalidSizeException extends InvalidInputException {
     public InvalidSizeException(String shipName, int shipSize) {

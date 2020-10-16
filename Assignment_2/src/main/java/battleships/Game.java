@@ -1,8 +1,8 @@
-package battleships;
+package main.java.battleships;
 
-import battleships.boardobjects.ships.*;
-import battleships.exceptions.InvalidInputException;
-import battleships.exceptions.InvalidInputFormatException;
+import main.java.battleships.boardobjects.ships.*;
+import main.java.battleships.exceptions.InvalidInputException;
+import main.java.battleships.exceptions.InvalidInputFormatException;
 
 import java.util.Scanner;
 

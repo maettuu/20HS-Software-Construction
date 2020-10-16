@@ -1,4 +1,4 @@
-package battleships;
+/*package main.java.battleships;
 
 import org.junit.jupiter.api.Test;
 
@@ -11,4 +11,4 @@ class BoardTest {
         System.out.println("Hi");
     }
 
-}
+}*/

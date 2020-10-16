@@ -1,6 +1,6 @@
-package battleships;
+package main.java.battleships;
 
-import battleships.exceptions.InvalidInputException;
+import main.java.battleships.exceptions.InvalidInputException;
 
 public class Run {
     public static void main(String args[]) throws InvalidInputException {

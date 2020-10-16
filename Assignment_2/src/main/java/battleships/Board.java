@@ -1,10 +1,10 @@
-package battleships;
+package main.java.battleships;
 
-import battleships.boardobjects.BoardField;
-import battleships.boardobjects.BoardObject;
-import battleships.exceptions.InvalidInputException;
-import battleships.exceptions.PositionAlreadyOccupiedException;
-import battleships.exceptions.PositionOutOfBoardException;
+import main.java.battleships.boardobjects.BoardField;
+import main.java.battleships.boardobjects.BoardObject;
+import main.java.battleships.exceptions.InvalidInputException;
+import main.java.battleships.exceptions.PositionAlreadyOccupiedException;
+import main.java.battleships.exceptions.PositionOutOfBoardException;
 
 /**
  * A Board has a matrix for the fields and can be printed.
