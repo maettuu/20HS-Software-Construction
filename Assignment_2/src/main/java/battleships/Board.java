@@ -25,7 +25,7 @@ public class Board {
 
     /** If you use System.out.println(board) this method gets called */
     public String toString() {
-        String boardString = "Your board is:\n\n";
+        String boardString = "";
 
         // Adding First row for column names
         boardString += "    | ";
