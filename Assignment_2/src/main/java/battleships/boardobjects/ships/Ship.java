@@ -18,20 +18,15 @@ import main.java.battleships.exceptions.InvalidSizeException;
  */
 public abstract class Ship implements BoardObject {
     protected boolean intact;
-    protected int id;
     protected List<BoardField> fields;
     protected AddBehavior addBehavior;
 
-    Ship(int id) {
-        this.id = id;
+    Ship() {
         this.intact = true;
         this.fields = new ArrayList<BoardField>();
         this.addBehavior = new AddStraightLine();
     }
 
-    public int getId(){
-        return this.id;
-    }
 
     public abstract int getLength();
 
