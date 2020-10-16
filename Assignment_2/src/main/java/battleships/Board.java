@@ -21,11 +21,6 @@ public class Board {
         // Row Major
         board = new BoardField[rowLength][columnLength];
 
-        for (int row = 0; row < rowLength; row++) {
-            for (int col = 0; col < columnLength; col++) {
-                board[row][col] = null;
-            }
-        }
     }
 
     /** If you use System.out.println(board) this method gets called */
@@ -77,7 +72,7 @@ public class Board {
     }
 
     /**
-     * Converts a string of shape i.e. B5 into seprate coordinates
+     * Converts a string of shape i.e. B5 into seperate coordinates
      */
     int[] stringToCoordinates(String string) throws InvalidInputException {
 

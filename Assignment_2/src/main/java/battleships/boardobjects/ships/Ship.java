@@ -11,15 +11,26 @@ import main.java.battleships.boardobjects.addbehavior.AddStraightLine;
 import main.java.battleships.exceptions.InvalidInputException;
 import main.java.battleships.exceptions.InvalidSizeException;
 
+/**
+ * Abstract class ship
+ *
+ * Defines behaviour which is identical on all ships
+ */
 public abstract class Ship implements BoardObject {
     protected boolean intact;
+    protected int id;
     protected List<BoardField> fields;
     protected AddBehavior addBehavior;
 
-    Ship() {
+    Ship(int id) {
+        this.id = id;
         this.intact = true;
         this.fields = new ArrayList<BoardField>();
         this.addBehavior = new AddStraightLine();
+    }
+
+    public int getId(){
+        return this.id;
     }
 
     public abstract int getLength();

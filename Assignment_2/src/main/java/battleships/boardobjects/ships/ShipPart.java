@@ -3,6 +3,9 @@ package main.java.battleships.boardobjects.ships;
 import main.java.battleships.boardobjects.BoardField;
 import main.java.battleships.boardobjects.BoardObject;
 
+/**
+ * Each Ship consists of ship parts and each ShipPart can get destroyed
+ */
 public class ShipPart implements BoardField {
     private boolean intact;
     private BoardObject ship;
