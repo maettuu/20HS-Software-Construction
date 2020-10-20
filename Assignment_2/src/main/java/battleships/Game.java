@@ -4,7 +4,6 @@ import main.java.battleships.boardobjects.ships.*;
 import main.java.battleships.exceptions.InvalidInputException;
 import main.java.battleships.exceptions.InvalidInputFormatException;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -70,10 +69,10 @@ public class Game {
             for (int j = 1; j <= currentShip.shipAmount; j++) {
 
                 if (currentShip.shipAmount == 1) {// to ask for "Carrier" instead of "Carrier 1" when only 1 ship is needed
-                    System.out.println("Please enter the position of your " + currentShip.shipType.getName() +                             " of length " + currentShip.shipType.getLength() + ":");
-                } else {// if more than 1 ship of same type are needed
-                    System.out.println("Please enter the position of your " + currentShip.shipType.getName() + " " + j +
-                            " of length " + currentShip.shipType.getLength() + ":");
+                    System.out.println("Please enter the position of your " + currentShip.shipType.getName() + ": ");
+                }
+                else {// if more than 1 ship of same type are needed
+                    System.out.println("Please enter the position of your " + currentShip.shipType.getName() + " " + j + ": ");
                 }
 
                 String input = scanner.nextLine();// scanner for reading user input
@@ -90,7 +89,7 @@ public class Game {
                 int spacebar = input.indexOf(" ");// used for correct split of coordinates
 
                 try {// add ship to board
-                    board.addToBoard(currentShip.shipType, input.substring(0, spacebar), input.substring(spacebar + 1));
+                    board.addToBoard(getShipType(currentShip.shipType), input.substring(0, spacebar), input.substring(spacebar + 1));
                 } catch (InvalidInputException InvalidInput) {
                     j--;
                 }
@@ -102,5 +101,15 @@ public class Game {
         System.out.println("Input process finished.");
 
         scanner.close();
+    }
+
+    private Ship getShipType(Ship shipType) {
+        return switch (shipType.toString()) {
+            case "C" -> new Carrier();
+            case "B" -> new Battleship();
+            case "S" -> new Submarine();
+            case "P" -> new PatrolBoat();
+            default -> null;
+        };
     }
 }
