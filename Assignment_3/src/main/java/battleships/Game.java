@@ -11,6 +11,7 @@ import java.util.Scanner;
  */
 public class Game {
     private Board board;
+    private static Game uniqueGameInstance;
 
     /**
      * The class ShipData is used to create objects which simplify the user input loops
@@ -26,8 +27,7 @@ public class Game {
     }
 
     // Default setup
-    public Game() {
-
+    private Game() {
         board = new Board(10, 10);
         this.askUserForShips();
     }
@@ -47,6 +47,13 @@ public class Game {
         board.addToBoard(new PatrolBoat(), "F5", "F6");
         board.addToBoard(new PatrolBoat(), "A7", "B7");
         System.out.println(board);
+    }
+
+    public static Game getInstance() {
+        if (uniqueGameInstance == null) {
+            uniqueGameInstance = new Game();
+        }
+        return uniqueGameInstance;
     }
 
     public void askUserForShips() {

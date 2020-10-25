@@ -13,6 +13,6 @@ public class Run {
             Game game = new Game("example");
             System.out.println("Now you can create your own board.");
         }
-        Game game = new Game();
+        Game game = Game.getInstance();
     }
 }
