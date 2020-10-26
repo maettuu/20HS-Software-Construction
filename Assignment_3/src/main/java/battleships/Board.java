@@ -72,7 +72,6 @@ public class Board {
     }
 
     public boolean isOccupied(int row, int column) {
-
         return board[row][column].isOccupied();
     }
 

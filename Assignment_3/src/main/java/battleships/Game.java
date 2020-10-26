@@ -48,18 +48,24 @@ public class Game {
         }
 
         p1 = new HumanPlayer(new Board(10, 10), shipList);
-        bot = new HumanPlayer(new Board(10, 10), shipList);
+        bot = new BotPlayer(new Board(10, 10), shipList);
 
         gameHasStarted = true;
         while(true){
-            if(!p1.hasLost()){
-                p1.attack(bot);
-                p1.printBoard();
-                bot.printBoardHidden();
-            }
-            if(!bot.hasLost()){
-                bot.attack(p1);
-            }
+            p1.attack(bot);
+            if(bot.hasLost()){break;}
+
+            bot.attack(p1);
+            if(bot.hasLost()){break;}
+
+            System.out.println("Your board is:\n");
+            p1.printBoard();
+            System.out.println("The opponents board is:\n");
+            bot.printBoardHidden();
+            System.out.println("Your scoreboard:\nPlayer remaining boats: " + p1.shipsAlive() +
+                    "\nEnemy boats alive: " + bot.shipsAlive());
+
+
         }
     }
 
@@ -70,20 +76,21 @@ public class Game {
 
 
         int i = 0;
-        while(i < 100){
+        while(i < 10){
 //        while(true){
             bot2.attack(bot);
-            if(bot.hasLost()){
-                break;
-            }
+            if(bot.hasLost()){break;}
 
             bot.attack(bot2);
-            if(bot2.hasLost()){
-                break;
-            }
+            if(bot2.hasLost()){break;}
+
             i++;
         }
+        Player winner = bot2.hasLost() ? bot : bot2;
+        System.out.println("The winner is " + winner.getName());
+        System.out.println("How " + winner.getName() + " sees his board.");
         bot.printBoard();
+        System.out.println("How " + winner.getName() + " sees his  opponent's board.");
         bot.printBoardHidden();
         System.out.println("Game over!");
 

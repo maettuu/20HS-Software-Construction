@@ -24,22 +24,27 @@ public class HumanPlayer extends Player {
 
     public void addShips(){
         System.out.println("Player " + this.name + ". Place your ships.");
+
         for(Map.Entry<String, ArrayList<BoardObject>> ships: this.ships.entrySet()){
+            Scanner scanner = new Scanner(System.in);
             for(BoardObject ship: ships.getValue()){
                 System.out.println("Enter Ship Coordinates for " + ship.getName());
-
-                boolean valid = false;
-                while(!valid){
+                String c = "";
+                int spaceIdx = 0;
+                while(!c.matches("[A-Z]\\d{1,3}\\s[A-Z]\\d{1,3}")){
+                    c = scanner.nextLine();
+                    spaceIdx = c.indexOf(" ");
+                    String startStr = c.substring(0, spaceIdx);
+                    String endStr = c.substring(spaceIdx+1);
                     try{
-                        Coordinate start = new Coordinate(board);
-                        Coordinate end = new Coordinate(board);
+                        Coordinate start = new Coordinate(board, startStr);
+                        Coordinate end = new Coordinate(board, endStr);
                         ship.addToBoard(board, start, end);
-                        valid = true;
                     }catch(InvalidInputException e){
+                        c = "";
                         System.out.println(e);
                     }
                 }
-                System.out.println(board);
             }
         }
     }

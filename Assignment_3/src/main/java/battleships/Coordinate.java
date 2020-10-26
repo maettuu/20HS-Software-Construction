@@ -2,6 +2,7 @@ package main.java.battleships;
 
 import main.java.battleships.Board;
 import main.java.battleships.exceptions.InvalidInputException;
+import main.java.battleships.exceptions.InvalidInputFormatException;
 import main.java.battleships.exceptions.PositionOutOfBoardException;
 
 import java.util.Scanner;
@@ -14,7 +15,6 @@ public class Coordinate {
 
     // Asks user for coordinate input until valid coordinates have been provided
     public Coordinate(Board board){
-        this.strCoord = strCoord;
         this.board = board;
         Scanner scanner = new Scanner(System.in);
         int[] coords;
@@ -41,8 +41,6 @@ public class Coordinate {
             valid = true;
 
         }
-//        scanner.close();
-
     }
 
     public Coordinate(Board board, String coordinates) throws InvalidInputException {
@@ -52,7 +50,7 @@ public class Coordinate {
         strCoord = coordinates;
 
         if(!strCoord.matches("[A-Z]\\d{1,3}")){
-            System.out.println("Invalid coordinate pattern. Try again.");
+            throw new InvalidInputFormatException();
         }
 
         try{
@@ -75,9 +73,6 @@ public class Coordinate {
 
     }
 
-
-
-
     int[] stringToCoordinates(String string) throws InvalidInputException {
 
 
@@ -92,6 +87,10 @@ public class Coordinate {
         }
 
         return new int[] { row, col };
+    }
+
+    public String coordinatesToString(){
+       return ""; // TODO
     }
 
     public int getRow(){

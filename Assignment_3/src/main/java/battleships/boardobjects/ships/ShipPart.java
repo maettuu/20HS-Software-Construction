@@ -2,6 +2,7 @@ package main.java.battleships.boardobjects.ships;
 
 import main.java.battleships.boardobjects.BoardField;
 import main.java.battleships.boardobjects.BoardObject;
+import main.java.battleships.exceptions.PositionAlreadyHit;
 
 /**
  * Each Ship consists of ship parts and each ShipPart can get destroyed
@@ -31,7 +32,10 @@ public class ShipPart implements BoardField {
     @Override
     public boolean isOccupied(){return true;}
 
-    public void destroy() {
+    public void destroy() throws PositionAlreadyHit {
+        if(!this.isIntact()){
+            throw new PositionAlreadyHit();
+        }
         this.intact = false;
         this.ship.dealDamage();
     }
@@ -45,12 +49,19 @@ public class ShipPart implements BoardField {
     }
 
     public String toStringHidden(){
-        // TODO if ship is not intact return this.getShip().toString()
-        if(!this.isIntact()){
-            return "X";
+        if(getShip().isIntact()){
+            if(this.isIntact()){
+                return " ";
+            }else{
+                return "X";
+            }
+        }else{
+            if(this.isIntact()){
+                return " ";
+            }else{
+                return ship.toString();
+            }
         }
-        return " ";
-
     }
 
 

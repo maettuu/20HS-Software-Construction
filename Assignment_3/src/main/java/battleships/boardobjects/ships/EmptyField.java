@@ -2,6 +2,7 @@ package main.java.battleships.boardobjects.ships;
 
 import main.java.battleships.boardobjects.BoardField;
 import main.java.battleships.boardobjects.BoardObject;
+import main.java.battleships.exceptions.PositionAlreadyHit;
 
 public class EmptyField implements BoardField {
     private boolean intact;
@@ -34,7 +35,10 @@ public class EmptyField implements BoardField {
     }
 
     @Override
-    public void destroy() {
+    public void destroy() throws PositionAlreadyHit {
+        if(!this.isIntact()){
+            throw new PositionAlreadyHit();
+        }
         this.intact = false;
     }
 

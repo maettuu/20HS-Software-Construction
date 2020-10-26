@@ -6,6 +6,7 @@ import main.java.battleships.boardobjects.BoardObject;
 import main.java.battleships.boardobjects.ships.ShipFactory;
 import main.java.battleships.exceptions.InvalidInputException;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -17,9 +18,9 @@ public abstract class Player {
 
 
     public void attack(Player player){
-        System.out.println("Please enter coordinates!");
-        Coordinate c = new Coordinate(board);
+        System.out.println("Enter the position you want to attack!");
         try{
+            Coordinate c = new Coordinate(board);
             player.takeHit(c);
         }catch(InvalidInputException e){
             System.out.println(e);
@@ -45,17 +46,29 @@ public abstract class Player {
         }
     }
 
+    public int shipsAlive(){
+        int size = 0;
+        for(ArrayList<BoardObject> shipList: ships.values()){
+            for(BoardObject ship: shipList){
+                if (ship.isIntact()){
+                    size++;
+                }
+            }
+        }
+        return size;
+    }
+
     public abstract void addShips();
     
     public boolean hasLost(){
         for(ArrayList<BoardObject> ships: ships.values()){
             for(BoardObject ship: ships){
                 if(ship.isIntact()){
-                    return true;
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
 
     public void printBoard(){
@@ -64,6 +77,10 @@ public abstract class Player {
 
     public void printBoardHidden(){
         System.out.println(board.toString(true));
+    }
+
+    public String getName(){
+        return this.name;
     }
 
 }

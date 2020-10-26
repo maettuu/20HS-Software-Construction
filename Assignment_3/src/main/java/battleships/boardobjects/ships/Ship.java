@@ -52,7 +52,7 @@ public abstract class Ship implements BoardObject {
     }
 
     public void addToBoard(Board board, Coordinate start, Coordinate end) throws InvalidInputException {
-        List<BoardField> fields = new ArrayList<BoardField>();
+        fields = new ArrayList<BoardField>();
         for (int i = 0; i < this.getLength(); i++) {
             fields.add(new ShipPart(this));
         }

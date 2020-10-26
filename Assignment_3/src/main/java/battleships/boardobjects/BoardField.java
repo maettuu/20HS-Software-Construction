@@ -1,5 +1,7 @@
 package main.java.battleships.boardobjects;
 
+import main.java.battleships.exceptions.PositionAlreadyHit;
+
 /**
  * A Board Field
  */
@@ -13,7 +15,7 @@ public interface BoardField {
 
     public boolean isOccupied();
 
-    public void destroy();
+    public void destroy() throws PositionAlreadyHit;
 
     Object toStringHidden();
 }
