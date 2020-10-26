@@ -3,6 +3,7 @@ package main.java.battleships.boardobjects.addbehavior;
 import java.util.List;
 
 import main.java.battleships.Board;
+import main.java.battleships.Coordinate;
 import main.java.battleships.boardobjects.BoardField;
 import main.java.battleships.exceptions.InvalidInputException;
 import main.java.battleships.exceptions.NotInStraightLineException;
@@ -14,13 +15,13 @@ import main.java.battleships.exceptions.PositionAlreadyOccupiedException;
 public class AddStraightLine implements AddBehavior {
 
     @Override
-    public void addToBoard(Board board, List<BoardField> fields, int[] start, int[] end) throws InvalidInputException {
+    public void addToBoard(Board board, List<BoardField> fields, Coordinate start, Coordinate end) throws InvalidInputException {
 
         int amountShipFields = fields.size();
 
         // the amount fields we have to move in each direction
-        int rowMoves = end[0] - start[0];
-        int colMoves = end[1] - start[1];
+        int rowMoves = end.getRow() - start.getRow();
+        int colMoves = end.getCol() - start.getCol();
 
         // check if it is a straight line
         if (rowMoves != 0 && colMoves != 0) {
@@ -31,15 +32,21 @@ public class AddStraightLine implements AddBehavior {
         int colStep = colMoves / (amountShipFields - 1); // horizontal steps
         int rowStep = rowMoves / (amountShipFields - 1); // vertical steps
 
-        int row = start[0];
-        int col = start[1];
+        int row = start.getRow();
+        int col = start.getCol();
 
         // check all fields
         for (BoardField field : fields) {
-            if (!board.fieldIsEmpty(row, col)) {
+            if (board.isOccupied(row, col)) {
                 throw new PositionAlreadyOccupiedException();
             }
+            row += rowStep;
+            col += colStep;
         }
+
+        row = start.getRow();
+        col = start.getCol();
+
         // add all fields
         for (BoardField field : fields) {
 

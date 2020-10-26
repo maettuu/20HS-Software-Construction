@@ -1,6 +1,7 @@
 package main.java.battleships.boardobjects;
 
 import main.java.battleships.Board;
+import main.java.battleships.Coordinate;
 import main.java.battleships.exceptions.InvalidInputException;
 
 /**
@@ -15,7 +16,9 @@ public interface BoardObject {
 
     public void dealDamage();
 
-    public void addToBoard(Board board, int[] start, int[] end) throws InvalidInputException;
+    public void addToBoard(Board board, Coordinate start, Coordinate end) throws InvalidInputException;
 
-    public void addPart(Board board, BoardField field);
+    String getName();
+
+    boolean isIntact();
 }

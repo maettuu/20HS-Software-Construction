@@ -2,6 +2,7 @@ package main.java.battleships;
 
 import main.java.battleships.boardobjects.BoardField;
 import main.java.battleships.boardobjects.BoardObject;
+import main.java.battleships.boardobjects.ships.EmptyField;
 import main.java.battleships.exceptions.InvalidInputException;
 import main.java.battleships.exceptions.PositionAlreadyOccupiedException;
 import main.java.battleships.exceptions.PositionOutOfBoardException;
@@ -21,72 +22,70 @@ public class Board {
         // Row Major
         board = new BoardField[rowLength][columnLength];
 
+        for(int i = 0; i<rowLength; i++){
+            for(int j = 0; j < columnLength; j++){
+                board[i][j] = new EmptyField();
+            }
+        }
     }
 
-    /** If you use System.out.println(board) this method gets called */
-    public String toString() {
-        String boardString = "";
+    public String toString(boolean shipsHidden) {
+        StringBuilder boardString = new StringBuilder();
 
         // Adding First row for column names
-        boardString += "    | ";
+        boardString.append("    | ");
         for (int i = 0; i < columnLength; i++) {
-            boardString += " " + String.valueOf((char) (65 + i)) + " ";
+            boardString.append(" ").append(String.valueOf((char) (65 + i))).append(" ");
         }
-        boardString += "\n";
+        boardString.append("\n");
 
         // Adding dashed line
-        boardString += "----|-";
+        boardString.append("----|-");
         for (int i = 0; i < rowLength; i++) {
-            boardString += "---";
+            boardString.append("---");
         }
-        boardString += "\n";
+        boardString.append("\n");
 
         // Adding Rows
         for (int row = 0; row < rowLength; row++) {
             // Adding row name
-            boardString += String.format("[%d] | ", row);
+            boardString.append(String.format("[%d] | ", row));
             // Adding row values
             for (int col = 0; col < columnLength; col++) {
-                boardString += this.board[row][col] == null ? "[ ]" : String.format("[%s]", board[row][col].getShip());
+                if(shipsHidden){
+                    boardString.append(String.format("[%s]", board[row][col].toStringHidden()));
+                }else{
+                    boardString.append(String.format("[%s]", board[row][col].toString()));
+                }
+
             }
-            boardString += "\n";
+            boardString.append("\n");
         }
-        return boardString;
+        return boardString.toString();
     };
 
-    public void addToBoard(BoardObject boardObject, String start, String end) throws InvalidInputException {
-        boardObject.addToBoard(this, stringToCoordinates(start), stringToCoordinates(end));
-    }
 
-    public void setField(int row, int column, BoardField boardField) throws InvalidInputException {
-        if (this.board[row][column] != null)
+    public void setField(int row, int col, BoardField boardField) throws InvalidInputException {
+        if (row < 0 || row > this.rowLength || col < 0 || col > this.columnLength)
             throw new PositionAlreadyOccupiedException();
-        this.board[row][column] = boardField;
+        this.board[row][col] = boardField;
     }
 
-    public boolean fieldIsEmpty(int row, int column) {
-        if (board[row][column] != null) {
-            return false;
-        }
-        return true;
+    public boolean isOccupied(int row, int column) {
+
+        return board[row][column].isOccupied();
     }
 
-    /**
-     * Converts a string of shape i.e. B5 into seperate coordinates
-     */
-    int[] stringToCoordinates(String string) throws InvalidInputException {
 
+    public void hit(Coordinate c) throws InvalidInputException {
+        board[c.getRow()][c.getCol()].destroy();
+    }
 
-        int col = (int) string.charAt(0) - 64; // 64 is the start of uppercase letters in the ASCI alphabet
-        col -= 1; // subtract 1 because our arrays start at 0 not 1
-        if (col < 0 || col >= columnLength) {
-            throw new PositionOutOfBoardException();
-        }
-        int row = Integer.parseInt(string.substring(1));
-        if (row < 0 || row >= rowLength) {
-            throw new PositionOutOfBoardException();
-        }
+    public int getColLen(){
+        return this.columnLength;
+    }
 
-        return new int[] { row, col };
+    public int getRowLen(){
+        return this.rowLength;
     }
 }

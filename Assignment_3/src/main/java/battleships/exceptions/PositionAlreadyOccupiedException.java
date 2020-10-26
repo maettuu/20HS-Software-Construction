@@ -4,4 +4,8 @@ public class PositionAlreadyOccupiedException extends InvalidInputException {
     public PositionAlreadyOccupiedException() {
         System.out.println("Boats are not allowed to overlap, please try again!");
     }
+
+    public PositionAlreadyOccupiedException(String m) {
+        // muted version
+    }
 }
