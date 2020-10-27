@@ -1,6 +1,7 @@
 package battleships;
 
 import battleships.boardobjects.BoardField;
+import battleships.boardobjects.RandomEmptyCoordinateIterator;
 import battleships.boardobjects.ships.EmptyField;
 import battleships.exceptions.InvalidInputException;
 import battleships.exceptions.PositionAlreadyOccupiedException;
@@ -85,5 +86,9 @@ public class Board {
 
     public int getRowLen(){
         return this.rowLength;
+    }
+
+    public RandomEmptyCoordinateIterator genereateCoordinateIterator(){
+        return new RandomEmptyCoordinateIterator(this.board, this);
     }
 }

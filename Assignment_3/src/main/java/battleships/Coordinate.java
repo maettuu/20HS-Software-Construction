@@ -16,9 +16,7 @@ public class Coordinate {
         this.board = board;
         this.row = row;
         this.col = col;
-
     }
-
 
     public int getRow(){
         return this.row;
@@ -27,6 +25,5 @@ public class Coordinate {
     public int getCol(){
         return this.col;
     }
-
 
 }
