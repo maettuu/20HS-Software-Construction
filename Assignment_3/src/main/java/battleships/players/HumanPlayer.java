@@ -32,19 +32,18 @@ public class HumanPlayer extends Player {
     public void addShips(){
         System.out.println("Player " + this.name + ". Place your ships.");
 
+        CoordinateReader coordinateReader = new CoordinateReader(this.board, this.input, 2);
         for(Map.Entry<String, ArrayList<BoardObject>> ships: this.ships.entrySet()){
             for(BoardObject ship: ships.getValue()){
                 boolean valid = false;
                 while(!valid){
                     System.out.println("Enter Ship Coordinates for " + ship.getName());
-                    CoordinateReader coordinateReader = new CoordinateReader(this.board, this.input, 2);
                     coordinateReader.readInput();
                     try {
                         ship.addToBoard(
                                 board,
                                 coordinateReader.getCoordinate(0),
                                 coordinateReader.getCoordinate(1));
-                        coordinateReader.destroy();
                     }
                     catch (InvalidInputException e){
                         System.out.println(e);
@@ -55,6 +54,7 @@ public class HumanPlayer extends Player {
                 }
             }
         }
+        coordinateReader.destroy();
     }
 
     public void attack(Player player){

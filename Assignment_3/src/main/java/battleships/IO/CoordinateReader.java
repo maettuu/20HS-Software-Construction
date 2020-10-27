@@ -33,7 +33,7 @@ public class CoordinateReader extends InputObserver {
 
     @Override
     public void readInput() {
-
+        this.coordinates = new ArrayList<>();
         boolean valid = false;
         while (!valid){
             super.readInput();
