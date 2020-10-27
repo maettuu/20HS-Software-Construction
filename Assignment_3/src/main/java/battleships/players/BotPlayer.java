@@ -1,9 +1,9 @@
 package battleships.players;
 
 import battleships.Board;
-import battleships.Coordinate;
+import battleships.coordinates.Coordinate;
 import battleships.boardobjects.BoardObject;
-import battleships.boardobjects.RandomEmptyCoordinateIterator;
+import battleships.coordinates.CoordinateIterator;
 import battleships.exceptions.InvalidInputException;
 
 import java.util.*;
@@ -22,7 +22,7 @@ public class BotPlayer extends Player {
 
     public void attack(Player player) {
         try{
-            RandomEmptyCoordinateIterator itr = this.board.genereateCoordinateIterator();
+            CoordinateIterator itr = this.board.generateCoordinateIterator(true, true);
             Coordinate c = itr.next();
             //Coordinate c = new Coordinate(board, (int) (Math.random() * 10), (int) (Math.random() * 10));
             player.takeHit(c);

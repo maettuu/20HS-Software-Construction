@@ -1,5 +1,6 @@
-package battleships;
+package battleships.coordinates;
 
+import battleships.Board;
 import battleships.exceptions.InvalidInputException;
 import battleships.exceptions.PositionOutOfBoardException;
 

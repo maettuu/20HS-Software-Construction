@@ -1,6 +1,6 @@
 package battleships.boardobjects.addbehavior;
 
-import battleships.Coordinate;
+import battleships.coordinates.Coordinate;
 import battleships.boardobjects.BoardField;
 import battleships.Board;
 import battleships.exceptions.InvalidInputException;

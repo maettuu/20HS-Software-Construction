@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import battleships.Board;
-import battleships.Coordinate;
+import battleships.coordinates.Coordinate;
 import battleships.boardobjects.BoardField;
 import battleships.boardobjects.BoardObject;
 import battleships.boardobjects.addbehavior.AddBehavior;

@@ -1,10 +1,9 @@
 package unit;
 
 import battleships.Board;
-import battleships.Coordinate;
+import battleships.coordinates.Coordinate;
 import battleships.boardobjects.ships.Battleship;
 import battleships.exceptions.InvalidInputException;
-import battleships.players.HumanPlayer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 

@@ -1,7 +1,7 @@
 package battleships.boardobjects;
 
 import battleships.Board;
-import battleships.Coordinate;
+import battleships.coordinates.Coordinate;
 import battleships.exceptions.InvalidInputException;
 
 /**

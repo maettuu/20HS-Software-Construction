@@ -29,8 +29,14 @@ We are using a standard observer subject pattern, where an ``InputObserver``
 can subscribe to the ``Input`` object, by calling the method ``Input.subscribe()``. 
 In case the Observer is not interested in the inputs anymore, it can call ``Input.unsubscribe()``.
 
- 
 
 ### Singleton pattern
 
+TODO
+
 ### Iterator pattern
+
+src.main.java.battleships.Board.genereateCoordinateIterator
+src.main.java.battleships.coordinates.CoordinateIterator
+
+TODO
