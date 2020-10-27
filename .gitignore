@@ -2,5 +2,11 @@
 */.idea/
 *.iml
 
+# Gradle
+*/.gradle
+!gradle-wrapper.jar
+.gradletasknamecache
+*/build/
+
 out/
 */out/

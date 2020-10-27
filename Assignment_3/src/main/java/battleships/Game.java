@@ -56,7 +56,7 @@ public class Game {
             if(bot.hasLost()){break;}
 
             bot.attack(p1);
-            if(bot.hasLost()){break;}
+            if(p1.hasLost()){break;}
 
             System.out.println("Your board is:\n");
             p1.printBoard();
