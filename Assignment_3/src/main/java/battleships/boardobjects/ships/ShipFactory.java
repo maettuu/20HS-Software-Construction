@@ -1,4 +1,4 @@
-package main.java.battleships.boardobjects.ships;
+package battleships.boardobjects.ships;
 
 public class ShipFactory {
     public static Ship get(String ship) {

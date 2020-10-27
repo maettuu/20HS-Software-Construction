@@ -1,18 +1,12 @@
-package main.java.battleships;
+package battleships;
 
-import main.java.battleships.IO.Input;
-import main.java.battleships.boardobjects.ships.*;
-import main.java.battleships.exceptions.InvalidInputException;
-import main.java.battleships.exceptions.InvalidInputFormatException;
-import main.java.battleships.players.BotPlayer;
-import main.java.battleships.players.HumanPlayer;
-import main.java.battleships.players.Player;
+import battleships.IO.Input;
+import battleships.players.BotPlayer;
+import battleships.players.HumanPlayer;
+import battleships.players.Player;
 
-import java.io.InputStream;
-import java.io.PrintStream;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.Scanner;
+
 
 /**
  * The class Game has a Board and Ships. It can be used to initiate a game.

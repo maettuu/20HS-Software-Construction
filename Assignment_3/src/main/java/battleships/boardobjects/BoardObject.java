@@ -1,8 +1,8 @@
-package main.java.battleships.boardobjects;
+package battleships.boardobjects;
 
-import main.java.battleships.Board;
-import main.java.battleships.Coordinate;
-import main.java.battleships.exceptions.InvalidInputException;
+import battleships.Board;
+import battleships.Coordinate;
+import battleships.exceptions.InvalidInputException;
 
 /**
  * A board object consists of BoardFields. An example would be Ship who consists

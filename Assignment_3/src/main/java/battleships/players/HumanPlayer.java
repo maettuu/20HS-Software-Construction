@@ -1,14 +1,14 @@
-package main.java.battleships.players;
+package battleships.players;
 
-import main.java.battleships.Board;
-import main.java.battleships.Coordinate;
-import main.java.battleships.IO.CoordinateReader;
-import main.java.battleships.IO.Input;
-import main.java.battleships.IO.StringReader;
-import main.java.battleships.boardobjects.BoardObject;
-import main.java.battleships.boardobjects.ships.Ship;
-import main.java.battleships.boardobjects.ships.ShipFactory;
-import main.java.battleships.exceptions.InvalidInputException;
+import battleships.Board;
+import battleships.Coordinate;
+import battleships.IO.CoordinateReader;
+import battleships.IO.Input;
+import battleships.IO.StringReader;
+import battleships.boardobjects.BoardObject;
+import battleships.boardobjects.ships.Ship;
+import battleships.boardobjects.ships.ShipFactory;
+import battleships.exceptions.InvalidInputException;
 
 import java.util.*;
 
@@ -56,6 +56,19 @@ public class HumanPlayer extends Player {
                     valid = true;
                 }
             }
+        }
+    }
+
+    public void attack(Player player){
+        System.out.println("Enter the position you want to attack!");
+        try{
+            CoordinateReader coordinateReader = new CoordinateReader(this.board, this.input, 1);
+            coordinateReader.readInput();
+            player.takeHit(coordinateReader.getCoordinate(0));
+            coordinateReader.destroy();
+        }catch(InvalidInputException e){
+            System.out.println(e);
+            attack(player);
         }
     }
 }

@@ -1,13 +1,14 @@
-package main.java.battleships.IO;
+package battleships.IO;
 
-import main.java.battleships.Board;
-import main.java.battleships.Coordinate;
-import main.java.battleships.exceptions.InvalidInputException;
-import main.java.battleships.exceptions.PositionOutOfBoardException;
+import battleships.Board;
+import battleships.Coordinate;
+import battleships.exceptions.InvalidInputException;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
+/**
+ * The Coordinate reader can read one or several coordinates from an InputStream
+ */
 public class CoordinateReader extends InputObserver {
 
     private ArrayList<Coordinate> coordinates;
@@ -54,7 +55,8 @@ public class CoordinateReader extends InputObserver {
                 String[] coordsString = line.split("\\s");
                 for (String coord : coordsString){
                     int[] coordsInt = stringToInts(coord);
-                    this.coordinates.add(new Coordinate(this.board,coordsInt[0], coordsInt[1]));
+                    this.coordinates.add(
+                            new Coordinate(this.board,coordsInt[0], coordsInt[1]));
                 }
             }
             catch(InvalidInputException e){
@@ -63,7 +65,6 @@ public class CoordinateReader extends InputObserver {
             }
 
             valid = true;
-
         }
     }
 

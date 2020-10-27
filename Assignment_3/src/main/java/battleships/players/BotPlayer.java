@@ -1,9 +1,9 @@
-package main.java.battleships.players;
+package battleships.players;
 
-import main.java.battleships.Board;
-import main.java.battleships.Coordinate;
-import main.java.battleships.boardobjects.BoardObject;
-import main.java.battleships.exceptions.InvalidInputException;
+import battleships.Board;
+import battleships.Coordinate;
+import battleships.boardobjects.BoardObject;
+import battleships.exceptions.InvalidInputException;
 
 import java.util.*;
 
@@ -19,7 +19,6 @@ public class BotPlayer extends Player {
         this.addShips();
     }
 
-    @Override
     public void attack(Player player) {
         try{
             Coordinate c = new Coordinate(board, (int) (Math.random() * 10), (int) (Math.random() * 10));
@@ -28,7 +27,6 @@ public class BotPlayer extends Player {
             // try again
             attack(player);
         }
-
     }
 
     public void addShips() {

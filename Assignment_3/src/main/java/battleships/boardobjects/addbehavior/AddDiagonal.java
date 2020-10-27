@@ -1,11 +1,11 @@
-package main.java.battleships.boardobjects.addbehavior;
+package battleships.boardobjects.addbehavior;
 
 import java.util.List;
 
-import main.java.battleships.Board;
-import main.java.battleships.Coordinate;
-import main.java.battleships.boardobjects.BoardField;
-import main.java.battleships.exceptions.InvalidInputException;
+import battleships.Board;
+import battleships.Coordinate;
+import battleships.boardobjects.BoardField;
+import battleships.exceptions.InvalidInputException;
 
 /**
  * An AddBehavior for adding BoardObjects diagonally.

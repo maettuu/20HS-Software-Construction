@@ -1,8 +1,8 @@
-package main.java.battleships.boardobjects.ships;
+package battleships.boardobjects.ships;
 
-import main.java.battleships.boardobjects.BoardField;
-import main.java.battleships.boardobjects.BoardObject;
-import main.java.battleships.exceptions.PositionAlreadyHit;
+import battleships.boardobjects.BoardField;
+import battleships.boardobjects.BoardObject;
+import battleships.exceptions.PositionAlreadyHit;
 
 public class EmptyField implements BoardField {
     private boolean intact;

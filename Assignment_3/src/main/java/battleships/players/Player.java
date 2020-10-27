@@ -1,10 +1,10 @@
-package main.java.battleships.players;
+package battleships.players;
 
-import main.java.battleships.Board;
-import main.java.battleships.Coordinate;
-import main.java.battleships.boardobjects.BoardObject;
-import main.java.battleships.boardobjects.ships.ShipFactory;
-import main.java.battleships.exceptions.InvalidInputException;
+import battleships.Board;
+import battleships.Coordinate;
+import battleships.boardobjects.BoardObject;
+import battleships.boardobjects.ships.ShipFactory;
+import battleships.exceptions.InvalidInputException;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -17,16 +17,7 @@ public abstract class Player {
     protected LinkedHashMap<String, ArrayList<BoardObject>> ships;
 
 
-    public void attack(Player player){
-        System.out.println("Enter the position you want to attack!");
-        try{
-            Coordinate c = new Coordinate(board);
-            player.takeHit(c);
-        }catch(InvalidInputException e){
-            System.out.println(e);
-            attack(player);
-        }
-    }
+    public abstract void attack(Player palyer);
 
     public void takeHit(Coordinate coordinates) throws InvalidInputException {
         board.hit(coordinates);

@@ -1,9 +1,9 @@
-package main.java.battleships;
+package battleships;
 
-import main.java.battleships.exceptions.InvalidInputException;
-import main.java.battleships.players.BotPlayer;
-import main.java.battleships.players.HumanPlayer;
-import main.java.battleships.players.Player;
+import battleships.exceptions.InvalidInputException;
+import battleships.players.BotPlayer;
+import battleships.players.HumanPlayer;
+import battleships.players.Player;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
