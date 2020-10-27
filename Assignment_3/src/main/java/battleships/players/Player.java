@@ -17,7 +17,7 @@ public abstract class Player {
     protected LinkedHashMap<String, ArrayList<BoardObject>> ships;
 
 
-    public abstract void attack(Player palyer);
+    public abstract void attack(Player player);
 
     public void takeHit(Coordinate coordinates) throws InvalidInputException {
         board.hit(coordinates);

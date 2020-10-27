@@ -44,7 +44,7 @@ public class Game {
             return;
         }
 
-        p1 = new HumanPlayer(new Board(10, 10), shipList, new Input());
+        p1 = new HumanPlayer(new Board(10, 10), shipList);
         bot = new BotPlayer(new Board(10, 10), shipList);
 
         gameHasStarted = true;

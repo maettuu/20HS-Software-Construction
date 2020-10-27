@@ -1,11 +1,10 @@
 package battleships;
 
 import battleships.boardobjects.BoardField;
-import battleships.boardobjects.BoardObject;
 import battleships.boardobjects.ships.EmptyField;
 import battleships.exceptions.InvalidInputException;
 import battleships.exceptions.PositionAlreadyOccupiedException;
-import battleships.exceptions.PositionOutOfBoardException;
+
 
 /**
  * A Board has a matrix for the fields and can be printed.

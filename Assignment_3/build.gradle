@@ -11,6 +11,7 @@ repositories {
 dependencies {
     testImplementation(platform('org.junit:junit-bom:5.7.0'))
     testImplementation('org.junit.jupiter:junit-jupiter')
+    testCompile('com.github.stefanbirkner:system-rules:1.19.0')
 }
 
 test {
@@ -18,4 +19,5 @@ test {
     testLogging {
         events "passed", "skipped", "failed"
     }
+    enableAssertions = true
 }

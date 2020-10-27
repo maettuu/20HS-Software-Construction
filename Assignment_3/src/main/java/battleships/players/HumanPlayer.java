@@ -1,13 +1,10 @@
 package battleships.players;
 
 import battleships.Board;
-import battleships.Coordinate;
 import battleships.IO.CoordinateReader;
 import battleships.IO.Input;
 import battleships.IO.StringReader;
 import battleships.boardobjects.BoardObject;
-import battleships.boardobjects.ships.Ship;
-import battleships.boardobjects.ships.ShipFactory;
 import battleships.exceptions.InvalidInputException;
 
 import java.util.*;
@@ -15,11 +12,12 @@ import java.util.*;
 public class HumanPlayer extends Player {
 
     Input input;
-    public HumanPlayer(Board board, LinkedHashMap<String, Integer> ships, Input input){
-        this.input = input;
-        //Scanner scanner = new Scanner(System.in);
+    public HumanPlayer(Board board, LinkedHashMap<String, Integer> ships){
+
+        this.input = new Input();
 
         System.out.println("Enter your name.");
+
         StringReader nameReader = new StringReader(input);
         nameReader.readInput();
         this.name = nameReader.getString();
