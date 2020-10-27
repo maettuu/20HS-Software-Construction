@@ -6,7 +6,6 @@ import battleships.boardobjects.BoardObject;
 import battleships.boardobjects.ships.ShipFactory;
 import battleships.exceptions.InvalidInputException;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;

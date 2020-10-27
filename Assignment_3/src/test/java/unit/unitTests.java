@@ -4,14 +4,8 @@ import battleships.Board;
 import battleships.Coordinate;
 import battleships.boardobjects.ships.Battleship;
 import battleships.exceptions.InvalidInputException;
-import battleships.players.BotPlayer;
-import battleships.players.HumanPlayer;
-import org.junit.contrib.java.lang.system.SystemOutRule;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
-
-import java.io.ByteArrayInputStream;
-import java.util.LinkedHashMap;
 
 
 class unitTests {
