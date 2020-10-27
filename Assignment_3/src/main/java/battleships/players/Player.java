@@ -1,6 +1,7 @@
 package battleships.players;
 
 import battleships.Board;
+import battleships.IO.Input;
 import battleships.coordinates.Coordinate;
 import battleships.boardobjects.BoardObject;
 import battleships.boardobjects.ships.ShipFactory;
@@ -13,6 +14,7 @@ import java.util.LinkedHashMap;
 public abstract class Player {
     protected String name;
     protected Board board;
+    protected Input input;
     protected LinkedHashMap<String, ArrayList<BoardObject>> ships;
 
 

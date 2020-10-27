@@ -44,8 +44,9 @@ public class Game {
             return;
         }
 
-        p1 = new HumanPlayer(new Board(10, 10), shipList);
-        bot = new BotPlayer(new Board(10, 10), shipList);
+        Input input = new Input();
+        p1 = new HumanPlayer(new Board(10, 10), shipList, input);
+        bot = new BotPlayer(new Board(10, 10), shipList, input);
 
         gameHasStarted = true;
         while(true){
@@ -68,8 +69,9 @@ public class Game {
 
     // for testing
     public void startBotFight(){
-        bot = new BotPlayer(new Board(10, 10), shipList);
-        bot2 = new BotPlayer(new Board(10, 10), shipList);
+        Input input = new Input();
+        bot = new BotPlayer(new Board(10, 10), shipList, input);
+        bot2 = new BotPlayer(new Board(10, 10), shipList, input);
 
 
         int i = 0;

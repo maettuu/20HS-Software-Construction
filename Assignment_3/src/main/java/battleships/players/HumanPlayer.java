@@ -11,10 +11,9 @@ import java.util.*;
 
 public class HumanPlayer extends Player {
 
-    Input input;
-    public HumanPlayer(Board board, LinkedHashMap<String, Integer> ships){
+    public HumanPlayer(Board board, LinkedHashMap<String, Integer> ships, Input input){
 
-        this.input = new Input();
+        this.input = input;
 
         System.out.println("Enter your name.");
 

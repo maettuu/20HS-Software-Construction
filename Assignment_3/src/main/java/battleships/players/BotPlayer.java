@@ -1,6 +1,8 @@
 package battleships.players;
 
 import battleships.Board;
+import battleships.IO.Input;
+import battleships.IO.StringReader;
 import battleships.coordinates.Coordinate;
 import battleships.boardobjects.BoardObject;
 import battleships.coordinates.CoordinateIterator;
@@ -10,10 +12,17 @@ import java.util.*;
 
 public class BotPlayer extends Player {
 
-    public BotPlayer(Board board, LinkedHashMap<String, Integer> ships) {
-        Scanner scanner = new Scanner(System.in);
+    public BotPlayer(Board board, LinkedHashMap<String, Integer> ships, Input input) {
+
+        this.input = input;
+
         System.out.println("Give your opponent a name.");
-        this.name = scanner.nextLine();
+
+        StringReader nameReader = new StringReader(input);
+        nameReader.readInput();
+        this.name = nameReader.getString();
+        nameReader.destroy();
+
         this.ships = new LinkedHashMap<String, ArrayList<BoardObject>>();
         this.board = board;
         this.setShips(ships);

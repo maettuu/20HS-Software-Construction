@@ -10,6 +10,6 @@ public class StringReader extends InputObserver {
     }
 
     public String getString(){
-        return this.inputs.get(this.inputs.size()-1);
+        return this.inputs.remove(this.inputs.size()-1);
     }
 }
