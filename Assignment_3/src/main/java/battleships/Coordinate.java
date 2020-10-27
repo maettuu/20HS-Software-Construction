@@ -1,6 +1,7 @@
 package main.java.battleships;
 
-import main.java.battleships.Board;
+import main.java.battleships.IO.Input;
+import main.java.battleships.IO.InputObserver;
 import main.java.battleships.exceptions.InvalidInputException;
 import main.java.battleships.exceptions.InvalidInputFormatException;
 import main.java.battleships.exceptions.PositionOutOfBoardException;
@@ -8,6 +9,7 @@ import main.java.battleships.exceptions.PositionOutOfBoardException;
 import java.util.Scanner;
 
 public class Coordinate {
+
     private int row;
     private int col;
     private String strCoord;
@@ -100,5 +102,6 @@ public class Coordinate {
     public int getCol(){
         return this.col;
     }
+
 
 }

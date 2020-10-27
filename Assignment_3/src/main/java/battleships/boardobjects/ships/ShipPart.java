@@ -63,6 +63,4 @@ public class ShipPart implements BoardField {
             }
         }
     }
-
-
 }

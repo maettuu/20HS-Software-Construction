@@ -1,5 +1,6 @@
 package main.java.battleships;
 
+import main.java.battleships.IO.Input;
 import main.java.battleships.boardobjects.ships.*;
 import main.java.battleships.exceptions.InvalidInputException;
 import main.java.battleships.exceptions.InvalidInputFormatException;
@@ -7,6 +8,8 @@ import main.java.battleships.players.BotPlayer;
 import main.java.battleships.players.HumanPlayer;
 import main.java.battleships.players.Player;
 
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Scanner;
@@ -47,7 +50,7 @@ public class Game {
             return;
         }
 
-        p1 = new HumanPlayer(new Board(10, 10), shipList);
+        p1 = new HumanPlayer(new Board(10, 10), shipList, new Input());
         bot = new BotPlayer(new Board(10, 10), shipList);
 
         gameHasStarted = true;

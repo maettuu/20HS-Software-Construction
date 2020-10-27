@@ -2,6 +2,9 @@ package main.java.battleships.players;
 
 import main.java.battleships.Board;
 import main.java.battleships.Coordinate;
+import main.java.battleships.IO.CoordinateReader;
+import main.java.battleships.IO.Input;
+import main.java.battleships.IO.StringReader;
 import main.java.battleships.boardobjects.BoardObject;
 import main.java.battleships.boardobjects.ships.Ship;
 import main.java.battleships.boardobjects.ships.ShipFactory;
@@ -11,11 +14,17 @@ import java.util.*;
 
 public class HumanPlayer extends Player {
 
+    Input input;
+    public HumanPlayer(Board board, LinkedHashMap<String, Integer> ships, Input input){
+        this.input = input;
+        //Scanner scanner = new Scanner(System.in);
 
-    public HumanPlayer(Board board, LinkedHashMap<String, Integer> ships){
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Enter your name.");
-        this.name = scanner.nextLine();
+        StringReader nameReader = new StringReader(input);
+        nameReader.readInput();
+        this.name = nameReader.getString();
+        nameReader.destroy();
+
         this.ships = new LinkedHashMap<String, ArrayList<BoardObject>>();
         this.board = board;
         this.setShips(ships);
@@ -26,24 +35,25 @@ public class HumanPlayer extends Player {
         System.out.println("Player " + this.name + ". Place your ships.");
 
         for(Map.Entry<String, ArrayList<BoardObject>> ships: this.ships.entrySet()){
-            Scanner scanner = new Scanner(System.in);
             for(BoardObject ship: ships.getValue()){
-                System.out.println("Enter Ship Coordinates for " + ship.getName());
-                String c = "";
-                int spaceIdx = 0;
-                while(!c.matches("[A-Z]\\d{1,3}\\s[A-Z]\\d{1,3}")){
-                    c = scanner.nextLine();
-                    spaceIdx = c.indexOf(" ");
-                    String startStr = c.substring(0, spaceIdx);
-                    String endStr = c.substring(spaceIdx+1);
-                    try{
-                        Coordinate start = new Coordinate(board, startStr);
-                        Coordinate end = new Coordinate(board, endStr);
-                        ship.addToBoard(board, start, end);
-                    }catch(InvalidInputException e){
-                        c = "";
-                        System.out.println(e);
+                boolean valid = false;
+                while(!valid){
+                    System.out.println("Enter Ship Coordinates for " + ship.getName());
+                    CoordinateReader coordinateReader = new CoordinateReader(this.board, this.input, 2);
+                    coordinateReader.readInput();
+                    try {
+                        ship.addToBoard(
+                                board,
+                                coordinateReader.getCoordinate(0),
+                                coordinateReader.getCoordinate(1));
+                        coordinateReader.destroy();
                     }
+                    catch (InvalidInputException e){
+                        System.out.println(e);
+                        valid = false;
+                        continue;
+                    }
+                    valid = true;
                 }
             }
         }
