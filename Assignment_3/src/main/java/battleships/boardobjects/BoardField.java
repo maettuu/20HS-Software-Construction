@@ -15,7 +15,7 @@ public interface BoardField {
 
     public boolean isOccupied();
 
-    public void destroy() throws PositionAlreadyHit;
+    public boolean destroy() throws PositionAlreadyHit;
 
     Object toStringHidden();
 }

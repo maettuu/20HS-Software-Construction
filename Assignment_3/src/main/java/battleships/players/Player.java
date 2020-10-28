@@ -20,8 +20,8 @@ public abstract class Player {
 
     public abstract void attack(Player player);
 
-    public void takeHit(Coordinate coordinates) throws InvalidInputException {
-        board.hit(coordinates);
+    public boolean takeHit(Coordinate coordinates) throws InvalidInputException {
+        return board.hit(coordinates);
     }
 
     public void setShips(LinkedHashMap<String, Integer> ships) {

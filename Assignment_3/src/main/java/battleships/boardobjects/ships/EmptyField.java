@@ -35,11 +35,12 @@ public class EmptyField implements BoardField {
     }
 
     @Override
-    public void destroy() throws PositionAlreadyHit {
+    public boolean destroy() throws PositionAlreadyHit {
         if(!this.isIntact()){
             throw new PositionAlreadyHit();
         }
         this.intact = false;
+        return false;
     }
 
     @Override

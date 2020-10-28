@@ -29,7 +29,10 @@ public class HumanPlayer extends Player {
     }
 
     public void addShips(){
-        System.out.println("Hello " + this.name + ". To play Battleship you must first create your own board and place your ships.");
+        System.out.println("Hello " + this.name + ". To play Battleship you must first create your own board to place your ships.");
+        System.out.println("For this you need to enter the desired coordinates (e.g. A5 A0)");
+        System.out.println("This is your empty board:\n");
+        this.printBoard();
 
         CoordinateReader coordinateReader = new CoordinateReader(this.board, this.input, 2);
         for(Map.Entry<String, ArrayList<BoardObject>> ships: this.ships.entrySet()){
@@ -39,10 +42,10 @@ public class HumanPlayer extends Player {
                 boolean valid = false;
                 while(!valid){
                     if (shipAmount == 1) {
-                        System.out.println("Please enter the desired ship coordinates for your " + ship.getName() + ".");
+                        System.out.println("Please enter the desired coordinates for your " + ship.getName() + ".");
                     }
                     else {
-                        System.out.println("Please enter the desired ship coordinates for your " + ship.getName() +
+                        System.out.println("Please enter the desired coordinates for your " + ship.getName() +
                                 " " + shipCounter + ".");
                     }
                     coordinateReader.readInput();
@@ -60,17 +63,27 @@ public class HumanPlayer extends Player {
                     valid = true;
                 }
                 shipCounter++;
+
+                System.out.println("Input accepted. This is your current board:\n");
+                this.printBoard();
             }
         }
         coordinateReader.destroy();
+
+        System.out.println("Thank you! Your board is now complete.\n");
     }
 
     public void attack(Player player){
-        System.out.println("Enter the position you want to attack!");
+        System.out.println("Please enter the coordinates you would like to hit on the opponent's board (e.g. A0)");
         try{
             CoordinateReader coordinateReader = new CoordinateReader(this.board, this.input, 1);
             coordinateReader.readInput();
-            player.takeHit(coordinateReader.getCoordinate(0));
+            if (player.takeHit(coordinateReader.getCoordinate(0))) {
+                System.out.println("Hit!\n");
+            }
+            else {
+                System.out.println("Miss.\n");
+            }
             coordinateReader.destroy();
         }catch(InvalidInputException e){
             System.out.println(e);

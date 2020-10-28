@@ -16,7 +16,7 @@ public class BotPlayer extends Player {
 
         this.input = input;
 
-        System.out.println("Give your opponent a name.");
+        System.out.println("Please enter the name of your virtual opponent.");
 
         StringReader nameReader = new StringReader(input);
         nameReader.readInput();
@@ -29,22 +29,9 @@ public class BotPlayer extends Player {
         this.addShips();
     }
 
-    public void attack(Player player) {
-        try{
-            CoordinateIterator itr = this.board.generateCoordinateIterator(true, true);
-            Coordinate c = itr.next();
-            //Coordinate c = new Coordinate(board, (int) (Math.random() * 10), (int) (Math.random() * 10));
-            player.takeHit(c);
-        }catch(InvalidInputException e){
-            // try again
-            attack(player);
-        }
-    }
-
     public void addShips() {
-        System.out.println("Player " + this.name + " is placing his ships...");
+        System.out.println(this.name + " is working on his/her board...");
         for (Map.Entry<String, ArrayList<BoardObject>> ships : this.ships.entrySet()) {
-
             for (BoardObject ship : ships.getValue()) {
                 boolean valid = false;
                 while (!valid) {
@@ -70,6 +57,20 @@ public class BotPlayer extends Player {
                     }
                 }
             }
+        }
+        System.out.println(this.name + " has finished.\n");
+    }
+
+    public void attack(Player player) {
+        System.out.println(this.name + " is attacking...\n");
+        try{
+            CoordinateIterator itr = this.board.generateCoordinateIterator(true, true);
+            Coordinate c = itr.next();
+            //Coordinate c = new Coordinate(board, (int) (Math.random() * 10), (int) (Math.random() * 10));
+            player.takeHit(c);
+        }catch(InvalidInputException e){
+            // try again
+            attack(player);
         }
     }
 }

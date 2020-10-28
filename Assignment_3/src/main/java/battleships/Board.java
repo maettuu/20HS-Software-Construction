@@ -77,8 +77,8 @@ public class Board {
     }
 
 
-    public void hit(Coordinate c) throws InvalidInputException {
-        board[c.getRow()][c.getCol()].destroy();
+    public boolean hit(Coordinate c) throws InvalidInputException {
+        return board[c.getRow()][c.getCol()].destroy();
     }
 
     public int getColLen(){

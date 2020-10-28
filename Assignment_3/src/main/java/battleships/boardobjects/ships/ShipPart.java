@@ -32,12 +32,13 @@ public class ShipPart implements BoardField {
     @Override
     public boolean isOccupied(){return true;}
 
-    public void destroy() throws PositionAlreadyHit {
+    public boolean destroy() throws PositionAlreadyHit {
         if(!this.isIntact()){
             throw new PositionAlreadyHit();
         }
         this.intact = false;
         this.ship.dealDamage();
+        return true;
     }
     @Override
     public String toString(){
