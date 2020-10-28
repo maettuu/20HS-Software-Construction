@@ -1,6 +1,6 @@
-package main.java.battleships.boardobjects;
+package battleships.boardobjects;
 
-import main.java.battleships.exceptions.PositionAlreadyHit;
+import battleships.exceptions.PositionAlreadyHit;
 
 /**
  * A Board Field

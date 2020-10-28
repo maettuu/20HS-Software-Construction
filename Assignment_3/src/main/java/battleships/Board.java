@@ -1,11 +1,12 @@
-package main.java.battleships;
+package battleships;
 
-import main.java.battleships.boardobjects.BoardField;
-import main.java.battleships.boardobjects.BoardObject;
-import main.java.battleships.boardobjects.ships.EmptyField;
-import main.java.battleships.exceptions.InvalidInputException;
-import main.java.battleships.exceptions.PositionAlreadyOccupiedException;
-import main.java.battleships.exceptions.PositionOutOfBoardException;
+import battleships.boardobjects.BoardField;
+import battleships.coordinates.Coordinate;
+import battleships.coordinates.CoordinateIterator;
+import battleships.boardobjects.ships.EmptyField;
+import battleships.exceptions.InvalidInputException;
+import battleships.exceptions.PositionAlreadyOccupiedException;
+
 
 /**
  * A Board has a matrix for the fields and can be printed.
@@ -86,5 +87,9 @@ public class Board {
 
     public int getRowLen(){
         return this.rowLength;
+    }
+
+    public CoordinateIterator generateCoordinateIterator(boolean random, boolean onlyEmpty){
+        return new CoordinateIterator(this.board, this, random, onlyEmpty);
     }
 }

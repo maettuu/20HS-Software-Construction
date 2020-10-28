@@ -1,13 +1,18 @@
-package main.java.battleships.boardobjects.ships;
+package battleships.boardobjects.ships;
 
 public class ShipFactory {
     public static Ship get(String ship) {
-        return switch (ship) {
-            case "Carrier" -> new Carrier();
-            case "Battleship" -> new Battleship();
-            case "Submarine" -> new Submarine();
-            case "Patrol Boat" -> new PatrolBoat();
-            default -> null;
-        };
+        switch (ship) {
+            case "Carrier":
+                return new Carrier();
+            case "Battleship":
+                return new Battleship();
+            case "Submarine":
+                return new Submarine();
+            case "Patrol Boat":
+                return new PatrolBoat();
+            default:
+                return null;
+        }
     }
 }

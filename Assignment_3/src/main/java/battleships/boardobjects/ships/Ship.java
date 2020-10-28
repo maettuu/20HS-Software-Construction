@@ -1,16 +1,16 @@
-package main.java.battleships.boardobjects.ships;
+package battleships.boardobjects.ships;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import main.java.battleships.Board;
-import main.java.battleships.Coordinate;
-import main.java.battleships.boardobjects.BoardField;
-import main.java.battleships.boardobjects.BoardObject;
-import main.java.battleships.boardobjects.addbehavior.AddBehavior;
-import main.java.battleships.boardobjects.addbehavior.AddStraightLine;
-import main.java.battleships.exceptions.InvalidInputException;
-import main.java.battleships.exceptions.InvalidSizeException;
+import battleships.Board;
+import battleships.coordinates.Coordinate;
+import battleships.boardobjects.BoardField;
+import battleships.boardobjects.BoardObject;
+import battleships.boardobjects.addbehavior.AddBehavior;
+import battleships.boardobjects.addbehavior.AddStraightLine;
+import battleships.exceptions.InvalidInputException;
+import battleships.exceptions.InvalidSizeException;
 
 /**
  * Abstract class ship
