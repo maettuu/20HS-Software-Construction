@@ -15,7 +15,7 @@ public class HumanPlayer extends Player {
 
         this.input = input;
 
-        System.out.println("Enter your name.");
+        System.out.println("Please enter your name.");
 
         StringReader nameReader = new StringReader(input);
         nameReader.readInput();
@@ -29,14 +29,22 @@ public class HumanPlayer extends Player {
     }
 
     public void addShips(){
-        System.out.println("Player " + this.name + ". Place your ships.");
+        System.out.println("Hello " + this.name + ". To play Battleship you must first create your own board and place your ships.");
 
         CoordinateReader coordinateReader = new CoordinateReader(this.board, this.input, 2);
         for(Map.Entry<String, ArrayList<BoardObject>> ships: this.ships.entrySet()){
+            int shipAmount = ships.getValue().size();
+            int shipCounter = 1;
             for(BoardObject ship: ships.getValue()){
                 boolean valid = false;
                 while(!valid){
-                    System.out.println("Enter Ship Coordinates for " + ship.getName());
+                    if (shipAmount == 1) {
+                        System.out.println("Please enter the desired ship coordinates for your " + ship.getName() + ".");
+                    }
+                    else {
+                        System.out.println("Please enter the desired ship coordinates for your " + ship.getName() +
+                                " " + shipCounter + ".");
+                    }
                     coordinateReader.readInput();
                     try {
                         ship.addToBoard(
@@ -51,6 +59,7 @@ public class HumanPlayer extends Player {
                     }
                     valid = true;
                 }
+                shipCounter++;
             }
         }
         coordinateReader.destroy();

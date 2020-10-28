@@ -40,9 +40,10 @@ public class Game {
 
     public void start(){
         if(gameHasStarted){
-            System.out.println("Game is already in progress!");
+            System.out.println("The game is already in progress!");
             return;
         }
+        System.out.println("Welcome to Battleship!!");
 
         Input input = new Input();
         p1 = new HumanPlayer(new Board(10, 10), shipList, input);
