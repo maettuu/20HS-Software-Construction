@@ -79,10 +79,10 @@ public class HumanPlayer extends Player {
             CoordinateReader coordinateReader = new CoordinateReader(this.board, this.input, 1);
             coordinateReader.readInput();
             if (player.takeHit(coordinateReader.getCoordinate(0))) {
-                System.out.println("Hit!\n");
+                System.out.println("Hit!");
             }
             else {
-                System.out.println("Miss.\n");
+                System.out.println("Miss.");
             }
             coordinateReader.destroy();
         }catch(InvalidInputException e){

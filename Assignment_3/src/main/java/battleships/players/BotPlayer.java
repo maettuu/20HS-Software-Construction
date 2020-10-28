@@ -62,12 +62,18 @@ public class BotPlayer extends Player {
     }
 
     public void attack(Player player) {
-        System.out.println(this.name + " is attacking...\n");
+        System.out.println(this.name + " is attacking...");
         try{
             CoordinateIterator itr = this.board.generateCoordinateIterator(true, true);
             Coordinate c = itr.next();
+            System.out.println(this.name + " attacked " + c.toString());
             //Coordinate c = new Coordinate(board, (int) (Math.random() * 10), (int) (Math.random() * 10));
-            player.takeHit(c);
+            if(player.takeHit(c)) {
+                System.out.println("Hit.");
+            }
+            else {
+                System.out.println("Miss!");
+            }
         }catch(InvalidInputException e){
             // try again
             attack(player);

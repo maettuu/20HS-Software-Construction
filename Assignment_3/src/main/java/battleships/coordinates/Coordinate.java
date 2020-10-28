@@ -27,4 +27,8 @@ public class Coordinate {
         return this.col;
     }
 
+    public String toString() {
+        return "" + (char)(this.col + 65) + this.row;
+    }
+
 }

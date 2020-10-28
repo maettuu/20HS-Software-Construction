@@ -52,13 +52,13 @@ public class Game {
 
         System.out.println("The game now starts. Both of you take turns to attack the other player's board.\n" +
                 "Hits are marked with an \"X\" and misses with an \"O\" on the board. The first one to sink all the" +
-                " opponent's ships wins! For this you will be shown the empty board of your opponent where you are able to" +
-                " see your own progress as well as your own board on which the opponent attacks.");
+                " opponent's ships wins!\nFor this you will be shown the empty board of your opponent where you are able to" +
+                " see your own progress\nas well as your own board on which the opponent attacks.\n");
 
         while(true){
             p1.attack(bot);
             if(bot.hasLost()){break;}
-            System.out.println("Your opponent's board now is:\n");
+            System.out.println("Here is what you know about your opponent's board:\n");
             bot.printBoardHidden();
 
             bot.attack(p1);
@@ -67,7 +67,7 @@ public class Game {
             p1.printBoard();
 
             System.out.println("Your scoreboard:\nPlayer remaining boats: " + p1.shipsAlive() +
-                    "\nEnemy boats alive: " + bot.shipsAlive());
+                    "\nEnemy boats alive: " + bot.shipsAlive() + "\n");
 
 
         }
