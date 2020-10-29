@@ -9,10 +9,10 @@ if there are any issues, try deleting your local copies of
 
 ## Example of Board Creation
 Compared to the board creation in the project of the second assignment we changed quite a bit.
-Since each player now has his/her own board the ships get added to it by calling the method `ship.addToBoard`.
-We included the option for a human player to print a suggestion for a playing board. The method `example` can
+Since each player now has his/her own board the ships get added to it by calling the method `ship.addToBoard()`.
+We included the option for a human player to print a suggestion for a playing board. The method `example()` can
 be found in the `HumanPlayer` class. For this an instance of the `BotPlayer` class gets generated with which
-a random board is generated. This can be found in the `addShips` method of that class.
+a random board is generated. This can be found in the `addShips()` method of that class.
  
 ## Design Patterns
 ### Observer pattern
