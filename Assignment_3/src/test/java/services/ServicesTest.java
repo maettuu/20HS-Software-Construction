@@ -1,4 +1,4 @@
-package unit;
+package services;
 
 import battleships.Board;
 import battleships.coordinates.Coordinate;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 
-class unitTests {
+class ServicesTest {
 
     @Test
     public void emptyBoardTest() throws InvalidInputException {
