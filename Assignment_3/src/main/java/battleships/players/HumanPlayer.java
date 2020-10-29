@@ -90,7 +90,7 @@ public class HumanPlayer extends Player {
             CoordinateReader coordinateReader = new CoordinateReader(this.board, this.input, 1);
             coordinateReader.readInput();
             if (player.takeHit(coordinateReader.getCoordinate(0))) {
-                System.out.println("Hit!");
+                System.out.println("You hit a ship!");
             }
             else {
                 System.out.println("Miss.");

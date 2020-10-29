@@ -78,10 +78,10 @@ public class BotPlayer extends Player {
             System.out.println(this.name + " attacked " + c.toString());
             //Coordinate c = new Coordinate(board, (int) (Math.random() * 10), (int) (Math.random() * 10));
             if(player.takeHit(c)) {
-                System.out.println("Hit.");
+                System.out.println("Your ship was hit.");
             }
             else {
-                System.out.println("Miss!");
+                System.out.println(this.name + " has missed!");
             }
         }catch(InvalidInputException e){
             // try again

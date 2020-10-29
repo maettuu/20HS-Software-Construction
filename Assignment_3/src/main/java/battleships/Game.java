@@ -78,13 +78,17 @@ public class Game {
         while(true) {
             p1.attack(bot);
             if (bot.hasLost()) {
+                System.out.println("Congratulations, you won! Here's your opponent's board:\n");
+                bot.printBoard();
                 break;
             }
-            System.out.println("Here is what you know about your opponent's board:\n");
+            System.out.println("Here's what you know about your opponent's board:\n");
             bot.printBoardHidden();
 
             bot.attack(p1);
             if (p1.hasLost()) {
+                System.out.println("Your opponent has hit all your ships. You lost :( Here's your board:\n");
+                p1.printBoard();
                 break;
             }
             System.out.println("Your board now is:\n");
