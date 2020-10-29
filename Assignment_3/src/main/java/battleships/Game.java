@@ -6,6 +6,7 @@ import battleships.players.HumanPlayer;
 import battleships.players.Player;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 
 /**
@@ -44,6 +45,15 @@ public class Game {
             return;
         }
         System.out.println("\nWelcome to Battleship!!");
+        System.out.println("For this game the selected ships are as follows:");
+        for (Map.Entry<String, Integer> ship : shipList.entrySet()) {
+            if (ship.getValue() == 1) {
+                System.out.println(" - " + ship.getValue() + " " + ship.getKey());
+            }
+            else {
+                System.out.println(" - " + ship.getValue() + " " + ship.getKey() + "s");
+            }
+        }
 
         Input input = new Input();
         p1 = new HumanPlayer(new Board(10, 10), shipList, input);

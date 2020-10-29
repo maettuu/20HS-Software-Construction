@@ -47,7 +47,7 @@ public class CoordinateReader extends InputObserver {
             }
 
             if(!line.matches(regex)){
-                System.out.println("Invalid coordinate pattern. Try again.");
+                System.out.println("Invalid coordinate pattern, please try again.");
                 continue;
             }
 

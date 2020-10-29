@@ -26,11 +26,21 @@ public class BotPlayer extends Player {
         this.ships = new LinkedHashMap<String, ArrayList<BoardObject>>();
         this.board = board;
         this.setShips(ships);
+        System.out.println(this.name + " is working on his/her board...");
         this.addShips();
+        System.out.println(this.name + " has finished.\n");
+    }
+
+    public BotPlayer(Board board, LinkedHashMap<String, ArrayList<BoardObject>> ships, Input input, String name) {
+        this.input = input;
+        this.name = name;
+        this.ships = ships;
+        this.board = board;
+        this.addShips();
+        this.printBoard();
     }
 
     public void addShips() {
-        System.out.println(this.name + " is working on his/her board...");
         for (Map.Entry<String, ArrayList<BoardObject>> ships : this.ships.entrySet()) {
             for (BoardObject ship : ships.getValue()) {
                 boolean valid = false;
@@ -58,7 +68,6 @@ public class BotPlayer extends Player {
                 }
             }
         }
-        System.out.println(this.name + " has finished.\n");
     }
 
     public void attack(Player player) {

@@ -4,6 +4,7 @@ import battleships.Board;
 import battleships.IO.CoordinateReader;
 import battleships.IO.Input;
 import battleships.IO.StringReader;
+import battleships.players.BotPlayer;
 import battleships.boardobjects.BoardObject;
 import battleships.exceptions.InvalidInputException;
 
@@ -15,9 +16,8 @@ public class HumanPlayer extends Player {
 
         this.input = input;
 
-        System.out.println("Please enter your name.");
-
-        StringReader nameReader = new StringReader(input);
+        System.out.println("\nPlease enter your name.");
+        StringReader nameReader = new StringReader(this.input);
         nameReader.readInput();
         this.name = nameReader.getString();
         nameReader.destroy();
@@ -25,15 +25,27 @@ public class HumanPlayer extends Player {
         this.ships = new LinkedHashMap<String, ArrayList<BoardObject>>();
         this.board = board;
         this.setShips(ships);
+        this.example();
+        System.out.println("Please keep in mind that to enter the desired coordinates you must follow a pattern (e.g. A5 A0).");
         this.addShips();
     }
 
-    public void addShips(){
-        System.out.println("Hello " + this.name + ". To play Battleship you must first create your own board to place your ships.");
-        System.out.println("For this you need to enter the desired coordinates (e.g. A5 A0)");
+    public void example() {
+        System.out.println("Hello " + this.name + ". To play Battleship you must first place all your ships on your board.");
         System.out.println("This is your empty board:\n");
         this.printBoard();
+        System.out.println("Before you start placing your ships, would you like to see a suggestion for a board? (y)");
+        StringReader answer = new StringReader(this.input);
+        answer.readInput();
+        if (answer.getString().equals("y")) {
+            System.out.println("This is an example of how the board could look like:\n");
+            Player bot = new BotPlayer(new Board(10, 10), this.ships, this.input, "ExampleBot");
+            System.out.println("Now you can start placing the ships on your own board.");
+        }
+        answer.destroy();
+    }
 
+    public void addShips(){
         CoordinateReader coordinateReader = new CoordinateReader(this.board, this.input, 2);
         for(Map.Entry<String, ArrayList<BoardObject>> ships: this.ships.entrySet()){
             int shipAmount = ships.getValue().size();
@@ -56,7 +68,6 @@ public class HumanPlayer extends Player {
                                 coordinateReader.getCoordinate(1));
                     }
                     catch (InvalidInputException e){
-                        System.out.println(e);
                         valid = false;
                         continue;
                     }
@@ -86,7 +97,6 @@ public class HumanPlayer extends Player {
             }
             coordinateReader.destroy();
         }catch(InvalidInputException e){
-            System.out.println(e);
             attack(player);
         }
     }
