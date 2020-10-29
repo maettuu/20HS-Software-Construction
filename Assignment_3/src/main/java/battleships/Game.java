@@ -44,6 +44,12 @@ public class Game {
             System.out.println("The game is already in progress!");
             return;
         }
+        welcome();
+        playerGeneration();
+        play();
+    }
+
+    private void welcome() {
         System.out.println("\nWelcome to Battleship!!");
         System.out.println("For this game the selected ships are as follows:");
         for (Map.Entry<String, Integer> ship : shipList.entrySet()) {
@@ -54,7 +60,9 @@ public class Game {
                 System.out.println(" - " + ship.getValue() + " " + ship.getKey() + "s");
             }
         }
+    }
 
+    private void playerGeneration() {
         Input input = new Input();
         p1 = new HumanPlayer(new Board(10, 10), shipList, input);
         bot = new BotPlayer(new Board(10, 10), shipList, input);
@@ -64,22 +72,26 @@ public class Game {
                 "Hits are marked with an \"X\" and misses with an \"O\" on the board. The first one to sink all the" +
                 " opponent's ships wins!\nFor this you will be shown the empty board of your opponent where you are able to" +
                 " see your own progress\nas well as your own board on which the opponent attacks.\n");
+    }
 
-        while(true){
+    private void play() {
+        while(true) {
             p1.attack(bot);
-            if(bot.hasLost()){break;}
+            if (bot.hasLost()) {
+                break;
+            }
             System.out.println("Here is what you know about your opponent's board:\n");
             bot.printBoardHidden();
 
             bot.attack(p1);
-            if(p1.hasLost()){break;}
+            if (p1.hasLost()) {
+                break;
+            }
             System.out.println("Your board now is:\n");
             p1.printBoard();
 
-            System.out.println("Your scoreboard:\nPlayer remaining boats: " + p1.shipsAlive() +
-                    "\nEnemy boats alive: " + bot.shipsAlive() + "\n");
-
-
+            System.out.println("Your scoreboard:\n - Player remaining boats: " + p1.shipsAlive() +
+                    "\n - Enemy boats destroyed: " + (10-bot.shipsAlive()) + "\n");
         }
     }
 
