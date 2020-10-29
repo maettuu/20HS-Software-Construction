@@ -101,6 +101,10 @@ public class Game {
         }
     }
 
+    public void end() {
+        uniqueGameInstance = null;
+    }
+
     // for testing
     public void startBotFight(){
         Input input = new Input();

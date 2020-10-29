@@ -12,6 +12,7 @@ public class Run {
     public static void main(String args[]) throws InvalidInputException {
         Game g = Game.getInstance();
         g.start();
+        g.end();
         // g.startBotFight(); // if you just want to see a game between bots.
     }
 }
