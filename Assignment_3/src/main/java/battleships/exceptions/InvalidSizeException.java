@@ -1,23 +1,26 @@
 package battleships.exceptions;
 
 public class InvalidSizeException extends InvalidInputException {
+    String shipName;
+    int shipSize;
 
-    public InvalidSizeException(String shipName, int shipSize) {
-        switch (shipName) {
+    public InvalidSizeException(String shipName,  int shipSize){
+        this.shipName = shipName;
+        this.shipSize = shipSize;
+    }
+
+    public String toString(){
+        switch (this.shipName) {
             case "C" :
-                System.out.println("A Carrier must have a size of " + shipSize + ". Please try again!");
-                break;
+                return("A Carrier must have a size of " + shipSize + ". Please try again!");
             case "B" :
-                System.out.println("A Battleship must have a size of " + shipSize + ". Please try again!");
-                break;
+                return("A Battleship must have a size of " + shipSize + ". Please try again!");
             case "S" :
-                System.out.println("A Submarine must have a size of " + shipSize + ". Please try again!");
-                break;
+                return("A Submarine must have a size of " + shipSize + ". Please try again!");
             case "P" :
-                System.out.println("A Patrol boat must have a size of " + shipSize + ". Please try again!");
-                break;
+                return("A Patrol boat must have a size of " + shipSize + ". Please try again!");
             default :
-                System.out.println("Please respect the given lengths for ships");
+                return("Please respect the given lengths for ships");
         }
     }
 }
