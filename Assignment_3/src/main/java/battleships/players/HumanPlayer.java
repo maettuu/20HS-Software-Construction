@@ -55,11 +55,12 @@ public class HumanPlayer extends Player {
                 boolean valid = false;
                 while(!valid){
                     if (shipAmount == 1) {
-                        System.out.println("Please enter the desired coordinates for your " + ship.getName() + ".");
+                        System.out.println("Please enter the desired coordinates for your " + ship.getName() +
+                                " (length: " + ship.getLength() + ").");
                     }
                     else {
                         System.out.println("Please enter the desired coordinates for your " + ship.getName() +
-                                " " + shipCounter + ".");
+                                " " + shipCounter + " (length: " + ship.getLength() + ").");
                     }
                     coordinateReader.readInput();
                     try {
