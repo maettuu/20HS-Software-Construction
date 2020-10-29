@@ -77,7 +77,6 @@ public class Game {
     private void play() {
         while(true) {
             p1.attack(bot);
-            bot.isShipDestroyed();
             if (bot.hasLost()) {
                 System.out.println("Congratulations, you won! Here's your opponent's board:\n");
                 bot.printBoard();
@@ -87,7 +86,6 @@ public class Game {
             bot.printBoardHidden();
 
             bot.attack(p1);
-            p1.isShipDestroyed();
             if (p1.hasLost()) {
                 System.out.println("Your opponent has hit all your ships. You lost :( Here's your board:\n");
                 p1.printBoard();

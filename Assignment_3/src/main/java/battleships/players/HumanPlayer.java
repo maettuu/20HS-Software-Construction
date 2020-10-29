@@ -92,7 +92,9 @@ public class HumanPlayer extends Player {
             CoordinateReader coordinateReader = new CoordinateReader(this.board, this.input, 1);
             coordinateReader.readInput();
             if (player.takeHit(coordinateReader.getCoordinate(0))) {
-                System.out.println("You hit a ship!");
+                if (!player.isShipDestroyed()) {
+                    System.out.println("You hit a ship!");
+                }
             }
             else {
                 System.out.println("Miss.");
@@ -104,12 +106,14 @@ public class HumanPlayer extends Player {
         }
     }
 
-    public void isShipDestroyed() {
+    public boolean isShipDestroyed() {
+        boolean shipDestroyed = false;
         for(HashMap.Entry<String, ArrayList<BoardObject>> shipPair: this.ships.entrySet()){
             Iterator<BoardObject> shipIterator = shipPair.getValue().iterator();
             while(shipIterator.hasNext()) {
                 BoardObject currentShip = shipIterator.next();
                 if (!currentShip.isIntact()){
+                    shipDestroyed = true;
                     if(!this.sunkShips.containsKey(shipPair.getKey())) {
                         this.sunkShips.put(shipPair.getKey(), new ArrayList<BoardObject>());
                     }
@@ -122,5 +126,6 @@ public class HumanPlayer extends Player {
                 this.ships.remove(shipPair.getKey());
             }
         }
+        return shipDestroyed;
     }
 }

@@ -79,7 +79,9 @@ public class BotPlayer extends Player {
             System.out.println(this.name + " attacked " + c.toString());
             //Coordinate c = new Coordinate(board, (int) (Math.random() * 10), (int) (Math.random() * 10));
             if(player.takeHit(c)) {
-                System.out.println("Your ship was hit.");
+                if (!player.isShipDestroyed()) {
+                    System.out.println("Your ship was hit.");
+                }
             }
             else {
                 System.out.println(this.name + " has missed!");
@@ -90,12 +92,14 @@ public class BotPlayer extends Player {
         }
     }
 
-    public void isShipDestroyed() {
+    public boolean isShipDestroyed() {
+        boolean shipDestroyed = false;
         for(HashMap.Entry<String, ArrayList<BoardObject>> shipPair: this.ships.entrySet()){
             Iterator<BoardObject> shipIterator = shipPair.getValue().iterator();
             while(shipIterator.hasNext()) {
                 BoardObject currentShip = shipIterator.next();
                 if (!currentShip.isIntact()){
+                    shipDestroyed = true;
                     if(!this.sunkShips.containsKey(shipPair.getKey())) {
                         this.sunkShips.put(shipPair.getKey(), new ArrayList<BoardObject>());
                     }
@@ -108,5 +112,6 @@ public class BotPlayer extends Player {
                 this.ships.remove(shipPair.getKey());
             }
         }
+        return shipDestroyed;
     }
 }

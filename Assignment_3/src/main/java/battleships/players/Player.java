@@ -22,7 +22,7 @@ public abstract class Player {
 
     public abstract void attack(Player player);
 
-    public abstract void isShipDestroyed();
+    public abstract boolean isShipDestroyed();
 
     public boolean takeHit(Coordinate coordinates) throws InvalidInputException {
         return board.hit(coordinates);
