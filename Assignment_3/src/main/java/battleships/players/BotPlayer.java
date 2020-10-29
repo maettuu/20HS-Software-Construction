@@ -24,6 +24,7 @@ public class BotPlayer extends Player {
         nameReader.destroy();
 
         this.ships = new LinkedHashMap<String, ArrayList<BoardObject>>();
+        this.sunkShips = new LinkedHashMap<String, ArrayList<BoardObject>>();
         this.board = board;
         this.setShips(ships);
         System.out.println(this.name + " is working on his/her board...");
@@ -86,6 +87,26 @@ public class BotPlayer extends Player {
         }catch(InvalidInputException e){
             // try again
             attack(player);
+        }
+    }
+
+    public void isShipDestroyed() {
+        for(HashMap.Entry<String, ArrayList<BoardObject>> shipPair: this.ships.entrySet()){
+            Iterator<BoardObject> shipIterator = shipPair.getValue().iterator();
+            while(shipIterator.hasNext()) {
+                BoardObject currentShip = shipIterator.next();
+                if (!currentShip.isIntact()){
+                    if(!this.sunkShips.containsKey(shipPair.getKey())) {
+                        this.sunkShips.put(shipPair.getKey(), new ArrayList<BoardObject>());
+                    }
+                    this.sunkShips.get(shipPair.getKey()).add(currentShip);
+                    System.out.println("You destroyed a " + currentShip.getName());
+                    shipIterator.remove();
+                }
+            }
+            if (shipPair.getKey().isEmpty()) {
+                this.ships.remove(shipPair.getKey());
+            }
         }
     }
 }

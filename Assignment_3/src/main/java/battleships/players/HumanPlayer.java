@@ -23,6 +23,7 @@ public class HumanPlayer extends Player {
         nameReader.destroy();
 
         this.ships = new LinkedHashMap<String, ArrayList<BoardObject>>();
+        this.sunkShips = new LinkedHashMap<String, ArrayList<BoardObject>>();
         this.board = board;
         this.setShips(ships);
         this.example();
@@ -31,10 +32,10 @@ public class HumanPlayer extends Player {
     }
 
     public void example() {
-        System.out.println("Hello " + this.name + ". To play Battleship you must first place all your ships on your board.");
+        System.out.println("Hello " + this.name + ". To play Battleship you must first place all ships on your board.");
         System.out.println("This is your empty board:\n");
         this.printBoard();
-        System.out.println("Before you start placing your ships, would you like to see a suggestion for a board? (y)");
+        System.out.println("Before you start placing your ships, would you like to see a suggestion for a board? (y/n)");
         StringReader answer = new StringReader(this.input);
         answer.readInput();
         if (answer.getString().equals("y")) {
@@ -68,6 +69,7 @@ public class HumanPlayer extends Player {
                                 coordinateReader.getCoordinate(1));
                     }
                     catch (InvalidInputException e){
+                        System.out.println(e);
                         valid = false;
                         continue;
                     }
@@ -97,7 +99,28 @@ public class HumanPlayer extends Player {
             }
             coordinateReader.destroy();
         }catch(InvalidInputException e){
+            System.out.println(e);
             attack(player);
+        }
+    }
+
+    public void isShipDestroyed() {
+        for(HashMap.Entry<String, ArrayList<BoardObject>> shipPair: this.ships.entrySet()){
+            Iterator<BoardObject> shipIterator = shipPair.getValue().iterator();
+            while(shipIterator.hasNext()) {
+                BoardObject currentShip = shipIterator.next();
+                if (!currentShip.isIntact()){
+                    if(!this.sunkShips.containsKey(shipPair.getKey())) {
+                        this.sunkShips.put(shipPair.getKey(), new ArrayList<BoardObject>());
+                    }
+                    this.sunkShips.get(shipPair.getKey()).add(currentShip);
+                    System.out.println("Your " + currentShip.getName() + " was destroyed.");
+                    shipIterator.remove();
+                }
+            }
+            if (shipPair.getKey().isEmpty()) {
+                this.ships.remove(shipPair.getKey());
+            }
         }
     }
 }

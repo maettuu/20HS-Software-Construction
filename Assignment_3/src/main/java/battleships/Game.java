@@ -6,7 +6,7 @@ import battleships.players.HumanPlayer;
 import battleships.players.Player;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.HashMap;
 
 
 /**
@@ -52,7 +52,7 @@ public class Game {
     private void welcome() {
         System.out.println("\nWelcome to Battleship!!");
         System.out.println("For this game the selected ships are as follows:");
-        for (Map.Entry<String, Integer> ship : shipList.entrySet()) {
+        for (HashMap.Entry<String, Integer> ship : shipList.entrySet()) {
             if (ship.getValue() == 1) {
                 System.out.println(" - " + ship.getValue() + " " + ship.getKey());
             }
@@ -77,6 +77,7 @@ public class Game {
     private void play() {
         while(true) {
             p1.attack(bot);
+            bot.isShipDestroyed();
             if (bot.hasLost()) {
                 System.out.println("Congratulations, you won! Here's your opponent's board:\n");
                 bot.printBoard();
@@ -86,6 +87,7 @@ public class Game {
             bot.printBoardHidden();
 
             bot.attack(p1);
+            p1.isShipDestroyed();
             if (p1.hasLost()) {
                 System.out.println("Your opponent has hit all your ships. You lost :( Here's your board:\n");
                 p1.printBoard();
@@ -95,7 +97,7 @@ public class Game {
             p1.printBoard();
 
             System.out.println("Your scoreboard:\n - Player remaining boats: " + p1.shipsAlive() +
-                    "\n - Enemy boats destroyed: " + (10-bot.shipsAlive()) + "\n");
+                    "\n - Enemy boats destroyed: " + bot.shipsDestroyed() + "\n");
         }
     }
 
@@ -119,9 +121,9 @@ public class Game {
         }
         Player winner = bot2.hasLost() ? bot : bot2;
         System.out.println("The winner is " + winner.getName());
-        System.out.println("How " + winner.getName() + " sees his board.");
+        System.out.println("How " + winner.getName() + " sees the own board.");
         bot.printBoard();
-        System.out.println("How " + winner.getName() + " sees his  opponent's board.");
+        System.out.println("How " + winner.getName() + " sees the opponent's board.");
         bot.printBoardHidden();
         System.out.println("Game over!");
 
