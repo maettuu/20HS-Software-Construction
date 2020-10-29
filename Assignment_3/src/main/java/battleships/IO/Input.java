@@ -13,7 +13,7 @@ import java.util.Scanner;
  * It will notify all subscribed observer objects when there is
  * a new input read.
  */
-public class Input extends Thread {
+public class Input {
 
     ArrayList<InputObserver> observers;
     InputStream input;
@@ -29,7 +29,7 @@ public class Input extends Thread {
     }
 
     /**
-     * Constructor with custom InputStream, can be used for example in testing
+     * Constructor with custom InputStream, can be used to read file instead of user input
      * @param in Custom InputStream
      */
     public Input(InputStream in){
