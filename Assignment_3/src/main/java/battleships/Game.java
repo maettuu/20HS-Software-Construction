@@ -18,6 +18,8 @@ public class Game {
     private Player p1;
     private Player bot;
     private Player bot2;
+    private int rowLen = 10;
+    private int colLen = 10;
     private LinkedHashMap<String, Integer> shipList;
 
 
@@ -64,8 +66,8 @@ public class Game {
 
     private void playerGeneration() {
         Input input = new Input();
-        p1 = new HumanPlayer(new Board(10, 10), shipList, input);
-        bot = new BotPlayer(new Board(10, 10), shipList, input);
+        p1 = new HumanPlayer(new Board(rowLen, colLen), shipList, input);
+        bot = new BotPlayer(new Board(rowLen, colLen), shipList, input);
         gameHasStarted = true;
 
         System.out.println("The game now starts. Both of you take turns to attack the other player's board.\n" +
