@@ -91,7 +91,6 @@ public class Game {
 
             System.out.println(bot.getName() + " is attacking...");
             bot.attack(p1);
-            bot.sleep();
             if (p1.hasLost()) {
                 System.out.println("Your opponent has hit all your ships. You lost :( Here's your board:\n");
                 p1.printBoard();

@@ -93,6 +93,7 @@ public class BotPlayer extends Player {
             // try again
             attack(player);
         }
+        this.sleep();
     }
 
     public boolean isShipDestroyed() {

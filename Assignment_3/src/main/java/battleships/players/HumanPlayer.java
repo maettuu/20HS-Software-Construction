@@ -107,6 +107,7 @@ public class HumanPlayer extends Player {
             System.out.println(e);
             attack(player);
         }
+        this.sleep();
     }
 
     public boolean isShipDestroyed() {
