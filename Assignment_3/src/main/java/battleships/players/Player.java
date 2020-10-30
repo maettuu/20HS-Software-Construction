@@ -63,7 +63,7 @@ public abstract class Player {
 
     public void sleep() {
         try {
-            TimeUnit.SECONDS.sleep(2);
+            TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             System.out.println(e);
         }

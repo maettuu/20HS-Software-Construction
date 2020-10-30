@@ -49,6 +49,7 @@ public class Game {
         welcome();
         playerGeneration();
         play();
+        //startBotFight();
     }
 
     private void welcome() {
@@ -79,7 +80,6 @@ public class Game {
     private void play() {
         while(true) {
             p1.attack(bot);
-            p1.sleep();
             if (bot.hasLost()) {
                 System.out.println("Congratulations, you won! Here's your opponent's board:\n");
                 bot.printBoard();
@@ -89,6 +89,7 @@ public class Game {
             bot.printBoardHidden();
             p1.sleep();
 
+            System.out.println(bot.getName() + " is attacking...");
             bot.attack(p1);
             bot.sleep();
             if (p1.hasLost()) {
@@ -116,19 +117,19 @@ public class Game {
 
 
         int i = 0;
-        while(i < 10){
-//        while(true){
+//        while(i < 10){
+        while(true){
             bot2.attack(bot);
             if(bot.hasLost()){break;}
 
             bot.attack(bot2);
             if(bot2.hasLost()){break;}
 
-            i++;
+//            i++;
         }
         Player winner = bot2.hasLost() ? bot : bot2;
         System.out.println("The winner is " + winner.getName());
-        System.out.println("How " + winner.getName() + " sees the own board.");
+        System.out.println("How " + winner.getName() + " sees his/her board.");
         bot.printBoard();
         System.out.println("How " + winner.getName() + " sees the opponent's board.");
         bot.printBoardHidden();

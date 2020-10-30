@@ -74,7 +74,6 @@ public class BotPlayer extends Player {
     }
 
     public void attack(Player player) {
-        System.out.println(this.name + " is attacking...");
         this.sleep();
         try{
             CoordinateIterator itr = this.board.generateCoordinateIterator(true, true);
@@ -98,7 +97,9 @@ public class BotPlayer extends Player {
 
     public boolean isShipDestroyed() {
         boolean shipDestroyed = false;
-        for(HashMap.Entry<String, ArrayList<BoardObject>> shipPair: this.ships.entrySet()){
+        Iterator<HashMap.Entry<String, ArrayList<BoardObject>>> shipPairIterator = this.ships.entrySet().iterator();
+        while(shipPairIterator.hasNext()){
+            HashMap.Entry<String, ArrayList<BoardObject>> shipPair = shipPairIterator.next();
             Iterator<BoardObject> shipIterator = shipPair.getValue().iterator();
             while(shipIterator.hasNext()) {
                 BoardObject currentShip = shipIterator.next();
@@ -108,12 +109,12 @@ public class BotPlayer extends Player {
                         this.sunkShips.put(shipPair.getKey(), new ArrayList<BoardObject>());
                     }
                     this.sunkShips.get(shipPair.getKey()).add(currentShip);
-                    System.out.println("You destroyed a " + currentShip.getName());
+                    System.out.println("You destroyed a " + currentShip.getName() + "!");
                     shipIterator.remove();
                 }
             }
-            if (shipPair.getKey().isEmpty()) {
-                this.ships.remove(shipPair.getKey());
+            if (shipPair.getValue().isEmpty()) {
+                shipPairIterator.remove();
             }
         }
         return shipDestroyed;

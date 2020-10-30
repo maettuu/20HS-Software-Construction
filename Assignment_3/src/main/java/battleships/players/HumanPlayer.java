@@ -111,7 +111,9 @@ public class HumanPlayer extends Player {
 
     public boolean isShipDestroyed() {
         boolean shipDestroyed = false;
-        for(HashMap.Entry<String, ArrayList<BoardObject>> shipPair: this.ships.entrySet()){
+        Iterator<HashMap.Entry<String, ArrayList<BoardObject>>> shipPairIterator = this.ships.entrySet().iterator();
+        while(shipPairIterator.hasNext()){
+            HashMap.Entry<String, ArrayList<BoardObject>> shipPair = shipPairIterator.next();
             Iterator<BoardObject> shipIterator = shipPair.getValue().iterator();
             while(shipIterator.hasNext()) {
                 BoardObject currentShip = shipIterator.next();
@@ -125,8 +127,8 @@ public class HumanPlayer extends Player {
                     shipIterator.remove();
                 }
             }
-            if (shipPair.getKey().isEmpty()) {
-                this.ships.remove(shipPair.getKey());
+            if (shipPair.getValue().isEmpty()) {
+                shipPairIterator.remove();
             }
         }
         return shipDestroyed;
