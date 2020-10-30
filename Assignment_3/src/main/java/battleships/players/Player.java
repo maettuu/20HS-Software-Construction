@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.concurrent.TimeUnit;
 
 public abstract class Player {
     protected String name;
@@ -59,6 +60,14 @@ public abstract class Player {
     }
 
     public abstract void addShips();
+
+    public void sleep() {
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
     
     public boolean hasLost(){
         return ships.isEmpty();

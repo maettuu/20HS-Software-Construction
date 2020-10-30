@@ -9,6 +9,7 @@ import battleships.boardobjects.BoardObject;
 import battleships.exceptions.InvalidInputException;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class HumanPlayer extends Player {
 
@@ -85,6 +86,7 @@ public class HumanPlayer extends Player {
         coordinateReader.destroy();
 
         System.out.println("Thank you! Your board is now complete.\n");
+        this.sleep();
     }
 
     public void attack(Player player){

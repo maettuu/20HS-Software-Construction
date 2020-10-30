@@ -16,7 +16,7 @@ public class BotPlayer extends Player {
 
         this.input = input;
 
-        System.out.println("Please enter the name of your virtual opponent.");
+        System.out.println("Now please enter the name of your virtual opponent.");
 
         StringReader nameReader = new StringReader(input);
         nameReader.readInput();
@@ -28,8 +28,10 @@ public class BotPlayer extends Player {
         this.board = board;
         this.setShips(ships);
         System.out.println(this.name + " is working on his/her board...");
+        this.sleep();
         this.addShips();
         System.out.println(this.name + " has finished.\n");
+        this.sleep();
     }
 
     public BotPlayer(Board board, LinkedHashMap<String, ArrayList<BoardObject>> ships, Input input, String name) {
@@ -73,6 +75,7 @@ public class BotPlayer extends Player {
 
     public void attack(Player player) {
         System.out.println(this.name + " is attacking...");
+        this.sleep();
         try{
             CoordinateIterator itr = this.board.generateCoordinateIterator(true, true);
             Coordinate c = itr.next();
