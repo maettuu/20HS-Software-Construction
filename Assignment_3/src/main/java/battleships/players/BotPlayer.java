@@ -76,7 +76,7 @@ public class BotPlayer extends Player {
     public void attack(Player player) {
         this.sleep();
         try{
-            CoordinateIterator itr = this.board.generateCoordinateIterator(true, true);
+            CoordinateIterator itr = this.board.generateCoordinateIterator(true, false);
             Coordinate c = itr.next();
             //Coordinate c = new Coordinate(board, (int) (Math.random() * 10), (int) (Math.random() * 10));
             boolean hit = player.takeHit(c);
