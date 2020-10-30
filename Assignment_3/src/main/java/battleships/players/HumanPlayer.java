@@ -40,7 +40,7 @@ public class HumanPlayer extends Player {
         answer.readInput();
         if (answer.getString().equals("y")) {
             System.out.println("This is an example of how the board could look like:\n");
-            Player bot = new BotPlayer(new Board(10, 10), this.ships, this.input, "ExampleBot");
+            Player bot = new BotPlayer(new Board(this.board.getRowLen(), this.board.getColLen()), this.ships, this.input, "ExampleBot");
             System.out.println("Now you can start placing the ships on your own board.");
         }
         answer.destroy();
