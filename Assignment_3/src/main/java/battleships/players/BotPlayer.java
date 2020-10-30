@@ -76,9 +76,10 @@ public class BotPlayer extends Player {
         try{
             CoordinateIterator itr = this.board.generateCoordinateIterator(true, true);
             Coordinate c = itr.next();
-            System.out.println(this.name + " attacked " + c.toString());
             //Coordinate c = new Coordinate(board, (int) (Math.random() * 10), (int) (Math.random() * 10));
-            if(player.takeHit(c)) {
+            boolean hit = player.takeHit(c);
+            System.out.println(this.name + " attacked " + c.toString());
+            if (hit) {
                 if (!player.isShipDestroyed()) {
                     System.out.println("Your ship was hit.");
                 }
