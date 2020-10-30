@@ -108,8 +108,8 @@ public class Game {
     // for testing
     public void startBotFight(){
         Input input = new Input();
-        bot = new BotPlayer(new Board(10, 10), shipList, input);
-        bot2 = new BotPlayer(new Board(10, 10), shipList, input);
+        bot = new BotPlayer(new Board(rowLen, colLen), shipList, input);
+        bot2 = new BotPlayer(new Board(rowLen, colLen), shipList, input);
 
 
         int i = 0;
