@@ -43,6 +43,10 @@ In case the Observer is not interested in the inputs anymore, it can call ``Inpu
 For the uniqueness of each game we added the singleton pattern. Like that, there is only one instance of the class `Game` at a time.
 A new game can be started once the old one was ended.
 
+#### How
+To make a Singleton out of the class `Game`, we introduced a private static instance `uniqueGameInstance` which is declared in the `getInstance()` method,
+whenever no other instance already exists otherwise the method returns the current instance.
+
 
 ### Iterator pattern
 src.main.java.battleships.Board.genereateCoordinateIterator
