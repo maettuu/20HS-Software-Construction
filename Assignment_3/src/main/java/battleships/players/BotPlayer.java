@@ -75,23 +75,27 @@ public class BotPlayer extends Player {
 
     public void attack(Player player) {
         this.sleep();
-        try{
-            CoordinateIterator itr = this.board.generateCoordinateIterator(true, false);
-            Coordinate c = itr.next();
-            //Coordinate c = new Coordinate(board, (int) (Math.random() * 10), (int) (Math.random() * 10));
-            boolean hit = player.takeHit(c);
-            System.out.println(this.name + " attacked " + c.toString());
-            if (hit) {
-                if (!player.isShipDestroyed()) {
-                    System.out.println("Your ship was hit.");
+        CoordinateIterator itr = this.board.generateCoordinateIterator(true, false);
+        Boolean valid = false;
+        while (!valid){
+            valid = true;
+            try{
+                Coordinate c = itr.next();
+                //Coordinate c = new Coordinate(board, (int) (Math.random() * 10), (int) (Math.random() * 10));
+                boolean hit = player.takeHit(c);
+                System.out.println(this.name + " attacked " + c.toString());
+                if (hit) {
+                    if (!player.isShipDestroyed()) {
+                        System.out.println("Your ship was hit.");
+                    }
                 }
+                else {
+                    System.out.println(this.name + " has missed!");
+                }
+            }catch(InvalidInputException e){
+                // try again
+                valid = false;
             }
-            else {
-                System.out.println(this.name + " has missed!");
-            }
-        }catch(InvalidInputException e){
-            // try again
-            attack(player);
         }
         this.sleep();
     }

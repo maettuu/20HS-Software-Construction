@@ -18,6 +18,7 @@ a random board is generated. This can be found in the `addShips()` method of tha
 ### Observer pattern
 - **Observer**: src.main.java.battleships.IO.InputObserver
 - **Subject**: src.main.java.battleships.IO.Input
+- **Implementation**: src.main.java.battleships.players.HumanPlayer.HumanPlayer (among others)
 
 #### Why
 User inputs are used in many places in the battleship game. 
@@ -45,8 +46,19 @@ A new game can be started once the old one was ended.
 
 
 ### Iterator pattern
-src.main.java.battleships.Board.genereateCoordinateIterator
+- **Generator**: src.main.java.battleships.Board.generateCoordinateIterator
+- **Iterator**: src.main.java.battleships.coordinates.CoordinateIterator
+- **Implementation**: src.main.java.battleships.players.BotPlayer.attack
 
-src.main.java.battleships.coordinates.CoordinateIterator
+#### Why
 
-TODO
+Many of our game logic algorithms are based on brute force algorithms, where we for example pick a
+random coordinate on the board, then check weather it was already hit before, if no we repeat, 
+otherwise it counts a as valid approach. At this place it makes a lot of sense go iterate over the
+board fields with an iterator. 
+
+#### How
+
+``generateCoordinateIterator`` returns a ``CoordinateIterator`` instance upon calling it,
+which can then be used to pick a coordinate, it can also be random by passing ``random = true`` 
+to the method. The ``CoordinateIterator``implements the java ``Iterator``.
