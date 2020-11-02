@@ -18,7 +18,7 @@ a random board is generated. This can be found in the `addShips()` method of tha
 ### Observer pattern
 - **Observer**: src.main.java.battleships.IO.InputObserver
 - **Subject**: src.main.java.battleships.IO.Input
-- **Implementation**: src.main.java.battleships.players.HumanPlayer.HumanPlayer (among others)
+- **Usage**: src.main.java.battleships.players.HumanPlayer.HumanPlayer (among others)
 
 #### Why
 User inputs are used in many places in the battleship game. 
@@ -52,7 +52,7 @@ whenever no other instance already exists otherwise the method returns the curre
 ### Iterator pattern
 - **Generator**: src.main.java.battleships.Board.generateCoordinateIterator
 - **Iterator**: src.main.java.battleships.coordinates.CoordinateIterator
-- **Implementation**: src.main.java.battleships.players.BotPlayer.attack
+- **Usage**: src.main.java.battleships.players.BotPlayer.attack
 
 #### Why
 
