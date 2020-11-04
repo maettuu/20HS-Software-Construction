@@ -1,4 +1,4 @@
 package bank.employees;
 
-public abstract class RegularEmployee extends bank.employees.Employee {
+public class RegularEmployee extends bank.employees.Employee {
 }
