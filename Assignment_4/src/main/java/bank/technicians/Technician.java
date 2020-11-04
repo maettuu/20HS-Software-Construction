@@ -1,4 +1,4 @@
-package main.java.technicians;
+package bank.technicians;
 
 public abstract class Technician {
 }

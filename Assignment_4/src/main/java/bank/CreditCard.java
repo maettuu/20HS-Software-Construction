@@ -1,6 +1,7 @@
-package main.java;
+package bank;
 
-import main.java.customers.Customer;
+
+import bank.customers.Customer;
 
 public class CreditCard {
     private Customer customer;
