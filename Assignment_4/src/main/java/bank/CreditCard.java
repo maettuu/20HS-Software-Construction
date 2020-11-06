@@ -22,6 +22,10 @@ public class CreditCard {
     }
 
     public void pay(float amount){
+        if (new Date().getTime() > this.expirationDate.getTime()){
+            System.out.println("Expiration date reached, payment denied");
+            return;
+        }
         if(amount <= this.limit){
             this.debt += amount;
             return;

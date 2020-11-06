@@ -45,9 +45,11 @@ public class Customer extends Person {
     }
 
     public void pay(float amount){
-        if (this.withdraw(amount) != amount){
+        if (this.savings < amount){
             System.out.println("Not enough savings");
+            return;
         }
+        this.withdraw(amount);
     }
 
     public void payCreditCard(float amount){
