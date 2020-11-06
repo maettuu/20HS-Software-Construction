@@ -6,7 +6,8 @@ import bank.customers.Level;
 public class SectionChief extends RegularEmployee {
     private String city;
 
-    SectionChief(String city){
+    SectionChief(String name, String surname, int id, String city){
+        super(name, surname, id);
         this.city = city;
     }
 

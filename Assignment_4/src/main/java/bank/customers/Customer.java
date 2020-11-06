@@ -13,7 +13,11 @@ public class Customer extends Person {
     private CreditCard creditCard;
     private Level level;
 
-    public Customer(Level level){
+    public Customer(String name, String surname, int id, int accountNumber, Level level, CreditCard creditCard){
+        super(name, surname, id);
+        this.accountNumber = accountNumber;
+        this.creditCard = creditCard;
+        this.creditCard.setCustomer(this);
         this.setLevel(level);
     }
 
@@ -23,12 +27,12 @@ public class Customer extends Person {
      */
     public void setLevel(Level level){
         this.level = level;
-        switch (level){
-            case REGULAR: this.setCreditCard(new CreditCard(2000));
+        switch (this.level){
+            case REGULAR: this.creditCard.setLimit(2000);
                 break;
-            case GOLDEN:this.setCreditCard(new CreditCard(5000));
+            case GOLDEN: this.creditCard.setLimit(5000);
                 break;
-            case PLATINUM:this.setCreditCard(new CreditCard(10000));
+            case PLATINUM: this.creditCard.setLimit(10000);
                 break;
         }
     }

@@ -15,6 +15,11 @@ public class RegularEmployee extends Person {
 
     protected ArrayList<Customer> customers;
 
+    RegularEmployee(String name, String surname, int id){
+        super(name, surname, id);
+        this.customers = new ArrayList<>();
+    }
+
     void upgradeCustomer(int id){
         for (Customer customer : customers){
             if (customer.getId() == id && customer.getLevel() == Level.REGULAR){

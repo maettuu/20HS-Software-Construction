@@ -5,24 +5,32 @@ import bank.customers.Customer;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
+import java.util.Calendar;
 
+/**
+ * TODO: What happens with money paid by credit card???
+ */
 @Getter
 @Setter
 public class CreditCard {
     private Customer customer;
     private int serial;
     private int security;
-    private Date expirationDate;
+    private Calendar expirationDate;
     private float limit;
     private float debt;
 
-    public CreditCard(float limit){
-        this.limit = limit;
+    public CreditCard(Calendar expirationDate, int serial, int security){
+        this.limit = 2000;
+        this.expirationDate = expirationDate;
+        this.serial = serial;
+        this.security = security;
+
     }
 
     public void pay(float amount){
-        if (new Date().getTime() > this.expirationDate.getTime()){
+        if (this.expirationDate.compareTo(Calendar.getInstance()) < 0){
             System.out.println("Expiration date reached, payment denied");
             return;
         }

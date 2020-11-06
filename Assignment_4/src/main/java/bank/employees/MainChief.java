@@ -4,6 +4,10 @@ import bank.customers.Customer;
 import bank.customers.Level;
 
 public class MainChief extends RegularEmployee {
+    MainChief(String name, String surname, int id) {
+        super(name, surname, id);
+    }
+
     void downgradeCustomer(int id){
         for (Customer customer : customers){
             if (customer.getId() == id && customer.getLevel() == Level.GOLDEN){

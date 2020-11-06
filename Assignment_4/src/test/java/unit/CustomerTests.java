@@ -1,21 +1,46 @@
 package unit;
 
+import bank.CreditCard;
 import bank.customers.Customer;
 import bank.customers.Level;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class CustomerTests {
     @Test
     public void CustomerDepositTest(){
-        Customer customer = new Customer(Level.REGULAR);
+        Calendar expDate = Calendar.getInstance();
+        expDate.add(Calendar.MONTH,1);
+        CreditCard creditCard = new CreditCard(expDate, 123, 1542);
+        Customer customer = new Customer(
+                "name",
+                "surname",
+                1,
+                1,
+                Level.REGULAR,
+                creditCard
+        );
+
         customer.deposit(1000);
         Assertions.assertEquals(1000, customer.getSavings());
     }
 
     @Test
     public void CustomerWithdrawTest(){
-        Customer customer = new Customer(Level.REGULAR);
+        Calendar expDate = Calendar.getInstance();
+        expDate.add(Calendar.MONTH,1);
+        CreditCard creditCard = new CreditCard(expDate, 123, 1542);
+        Customer customer = new Customer(
+                "name",
+                "surname",
+                1,
+                1,
+                Level.REGULAR,
+                creditCard
+        );
         customer.deposit(1000);
         Assertions.assertEquals(1000, customer.getSavings());
         customer.withdraw(400);
@@ -28,7 +53,17 @@ public class CustomerTests {
 
     @Test
     public void CustomerPaymentTest(){
-        Customer customer = new Customer(Level.REGULAR);
+        Calendar expDate = Calendar.getInstance();
+        expDate.add(Calendar.MONTH,1);
+        CreditCard creditCard = new CreditCard(expDate, 123, 1542);
+        Customer customer = new Customer(
+                "name",
+                "surname",
+                1,
+                1,
+                Level.REGULAR,
+                creditCard
+        );
         customer.deposit(1000);
         Assertions.assertEquals(1000, customer.getSavings());
 
