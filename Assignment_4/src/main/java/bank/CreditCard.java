@@ -21,11 +21,11 @@ public class CreditCard {
         this.limit = limit;
     }
 
-    public Boolean pay(float amount){
+    public void pay(float amount){
         if(amount <= this.limit){
             this.debt += amount;
-            return true;
+            return;
         }
-        return false;
+        System.out.println("Amount exceeded limit, payment denied!");
     }
 }
