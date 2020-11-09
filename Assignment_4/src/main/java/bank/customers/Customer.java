@@ -14,6 +14,7 @@ public class Customer extends Person {
     private Level level;
 
     public Customer(String name, String surname, int id, int accountNumber, Level level, CreditCard creditCard){
+        // TODO check if ID is unique
         super(name, surname, id);
         this.accountNumber = accountNumber;
         this.creditCard = creditCard;

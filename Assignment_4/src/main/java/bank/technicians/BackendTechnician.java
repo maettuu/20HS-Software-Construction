@@ -1,5 +1,7 @@
 package bank.technicians;
 
-public class BackendTechnician extends Technician {
-    // TODO
+public class BackendTechnician implements Technician {
+    public void fix(int technicianId){
+        System.out.println("fixed!");
+    }
 }

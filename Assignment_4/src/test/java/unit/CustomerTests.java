@@ -78,4 +78,10 @@ public class CustomerTests {
         customer.pay(400);
         Assertions.assertEquals(600, customer.getSavings());
     }
+
+    @Test
+    public void testIdIsUnique(){
+        // TODO
+        Assertions.assertEquals(1, 0);
+    }
 }
