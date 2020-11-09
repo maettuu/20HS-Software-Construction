@@ -3,12 +3,14 @@ package bank.employees;
 import bank.customers.Customer;
 import bank.customers.Level;
 
+import java.util.UUID;
+
 public class MainChief extends RegularEmployee {
-    MainChief(String name, String surname, int id) {
-        super(name, surname, id);
+    MainChief(String name, String surname) {
+        super(name, surname);
     }
 
-    void downgradeCustomer(int id){
+    void downgradeCustomer(UUID id){
         for (Customer customer : customers){
             if (customer.getId() == id && customer.getLevel() == Level.GOLDEN){
                 customer.setLevel(Level.REGULAR);
@@ -24,7 +26,7 @@ public class MainChief extends RegularEmployee {
     }
 
     @Override
-    void upgradeCustomer(int id){
+    void upgradeCustomer(UUID id){
         for (Customer customer : customers){
             if (customer.getId() == id && customer.getLevel() == Level.REGULAR){
                 customer.setLevel(Level.GOLDEN);

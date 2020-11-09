@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -15,12 +16,12 @@ public class RegularEmployee extends Person {
 
     protected ArrayList<Customer> customers;
 
-    RegularEmployee(String name, String surname, int id){
-        super(name, surname, id);
+    RegularEmployee(String name, String surname){
+        super(name, surname);
         this.customers = new ArrayList<>();
     }
 
-    void upgradeCustomer(int id){
+    void upgradeCustomer(UUID id){
         for (Customer customer : customers){
             if (customer.getId() == id && customer.getLevel() == Level.REGULAR){
                 customer.setLevel(Level.GOLDEN);

@@ -5,6 +5,8 @@ import bank.Person;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+
 @Getter
 @Setter
 public class Customer extends Person {
@@ -13,11 +15,10 @@ public class Customer extends Person {
     private CreditCard creditCard;
     private Level level;
 
-    public Customer(String name, String surname, int id, int accountNumber, Level level, CreditCard creditCard){
-        // TODO check if ID is unique
-        super(name, surname, id);
+    public Customer(String name, String surname, int accountNumber, Level level, CreditCard creditCard){
+        super(name, surname);
         this.accountNumber = accountNumber;
-        this.creditCard = creditCard;
+        this.creditCard = new CreditCard(creditCard);
         this.creditCard.setCustomer(this);
         this.setLevel(level);
     }

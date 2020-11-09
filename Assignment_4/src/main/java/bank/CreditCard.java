@@ -26,7 +26,13 @@ public class CreditCard {
         this.expirationDate = expirationDate;
         this.serial = serial;
         this.security = security;
-
+    }
+    // a copy constructor to avoid several customers pointing to the same credit card
+    public CreditCard(CreditCard c){
+        this.limit = c.getLimit();
+        this.expirationDate = c.getExpirationDate();
+        this.serial = c.getSerial();
+        this.security = c.getSecurity();
     }
 
     public void pay(float amount){

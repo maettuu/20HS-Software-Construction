@@ -3,16 +3,18 @@ package bank;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 public abstract class Person {
     protected String name;
     protected String surname;
-    protected int id;
+    protected UUID id;
 
-    public Person(String name, String surname, int id){
+    public Person(String name, String surname){
         this.name = name;
         this.surname = surname;
-        this.id = id;
+        this.id = UUID.randomUUID();
     }
 }
