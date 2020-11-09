@@ -14,7 +14,7 @@ class WebTechnicianTest {
         this.technician = new WebTechnician();
     }
 
-    // TODO this test increases the execution time by a lot and doesn't make much sense. Remove it if possible.
+    // TODO This test is kind of retarded. Is this really necessary?
     @Test
     void fix() throws InterruptedException {
         long start = System.nanoTime();
