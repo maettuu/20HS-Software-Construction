@@ -11,7 +11,7 @@ class WebTechnicianTest {
 
     @BeforeEach
     public void beforeEach() {
-        this.technician = new WebTechnician();
+        this.technician = new WebTechnician("Jin", "Sakai");
     }
 
     // TODO This test is kind of retarded. Is this really necessary?

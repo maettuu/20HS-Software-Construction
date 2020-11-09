@@ -10,7 +10,7 @@ class BackendTechnicianTest {
 
     @BeforeEach
     public void createTechnician(){
-        this.technician = new BackendTechnician();
+        this.technician = new BackendTechnician("Yuna", "");
     }
 
     @Test
