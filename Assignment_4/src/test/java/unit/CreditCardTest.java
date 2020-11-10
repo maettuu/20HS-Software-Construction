@@ -8,12 +8,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class CreditCardTest {
     Customer regularCustomer;
-    Customer goldCustomer;
-    Customer platinCustomer;
+    Customer goldenCustomer;
+    Customer platinumCustomer;
 
 
     @BeforeEach
@@ -22,8 +21,8 @@ public class CreditCardTest {
         expDate.add(Calendar.MONTH,1);
         CreditCard creditCard = new CreditCard(expDate, 123, 1542);
         regularCustomer = getCustomerHelper(Level.REGULAR, creditCard);
-        goldCustomer = getCustomerHelper(Level.GOLDEN, creditCard);
-        platinCustomer = getCustomerHelper(Level.PLATINUM, creditCard);
+        goldenCustomer = getCustomerHelper(Level.GOLDEN, creditCard);
+        platinumCustomer = getCustomerHelper(Level.PLATINUM, creditCard);
     }
 
     @Test
@@ -41,27 +40,27 @@ public class CreditCardTest {
 
     @Test
     public void CreditCardLimitGoldenTest(){
-        goldCustomer.payCreditCard(3000);
-        Assertions.assertEquals(3000, goldCustomer.getCreditCard().getDebt());
+        goldenCustomer.payCreditCard(3000);
+        Assertions.assertEquals(3000, goldenCustomer.getCreditCard().getDebt());
 
         /**
          * Exceeds limit, does not change debt
          */
-        goldCustomer.payCreditCard(6000);
-        Assertions.assertEquals(3000, goldCustomer.getCreditCard().getDebt());
+        goldenCustomer.payCreditCard(6000);
+        Assertions.assertEquals(3000, goldenCustomer.getCreditCard().getDebt());
 
     }
 
     @Test
     public void CreditCardLimitPlatinumTest(){
-        platinCustomer.payCreditCard(7000);
-        Assertions.assertEquals(7000, platinCustomer.getCreditCard().getDebt());
+        platinumCustomer.payCreditCard(7000);
+        Assertions.assertEquals(7000, platinumCustomer.getCreditCard().getDebt());
 
         /**
          * Exceeds limit, does not change debt
          */
-        platinCustomer.payCreditCard(15000);
-        Assertions.assertEquals(7000, platinCustomer.getCreditCard().getDebt());
+        platinumCustomer.payCreditCard(15000);
+        Assertions.assertEquals(7000, platinumCustomer.getCreditCard().getDebt());
 
     }
 

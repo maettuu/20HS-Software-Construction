@@ -12,37 +12,47 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RegularEmployeeTest {
-    RegularEmployee regEmp;
-    Customer regCustomer;
+    RegularEmployee regularEmp;
+    Customer regularCustomer;
     Customer goldenCustomer;
 
     @BeforeEach
     public void beforeEach(){
         Calendar expDate = Calendar.getInstance();
         expDate.add(Calendar.MONTH,1);
-        CreditCard c = new CreditCard(expDate, 123, 1234);
-        regCustomer = new Customer("c", "a", 5, Level.REGULAR, c);
-        goldenCustomer = new Customer("c", "a", 5, Level.GOLDEN, c);
-        regEmp = new RegularEmployee("name", "surname");
-        regEmp.addCustomer(regCustomer);
+        CreditCard creditCard = new CreditCard(expDate, 123, 1234);
+        regularCustomer = getCustomerHelper(Level.REGULAR, creditCard);
+        goldenCustomer = getCustomerHelper(Level.GOLDEN, creditCard);
+        regularEmp = new RegularEmployee("name", "surname");
+        regularEmp.addCustomer(regularCustomer);
     }
 
     @Test
     public void testUpgradeToGOLDEN(){
-        regEmp.upgradeCustomer(regCustomer.getId());
-        assertEquals(Level.GOLDEN, regCustomer.getLevel());
+        regularEmp.upgradeCustomer(regularCustomer.getId());
+        assertEquals(Level.GOLDEN, regularCustomer.getLevel());
     }
 
     @Test
-    public void testDontUpgradeGOLDEN(){
-        regEmp.upgradeCustomer(goldenCustomer.getId());
+    public void testNotUpgradeGOLDEN(){
+        regularEmp.upgradeCustomer(goldenCustomer.getId());
         assertEquals(Level.GOLDEN, goldenCustomer.getLevel());
     }
 
     @Test
     public void testUpgradeNonexistentCustomer(){
-        regEmp.upgradeCustomer(UUID.randomUUID());
+        regularEmp.upgradeCustomer(UUID.randomUUID());
         assertEquals(Level.GOLDEN, goldenCustomer.getLevel());
-        assertEquals(Level.REGULAR, regCustomer.getLevel());
+        assertEquals(Level.REGULAR, regularCustomer.getLevel());
+    }
+
+    public Customer getCustomerHelper(Level level, CreditCard creditCard){
+        return new Customer(
+                "name",
+                "surname",
+                1,
+                level,
+                creditCard
+        );
     }
 }
