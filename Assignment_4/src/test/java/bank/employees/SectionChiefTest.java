@@ -25,7 +25,7 @@ class SectionChiefTest {
         regularCustomer = getCustomerHelper(Level.REGULAR, creditCard);
         goldenCustomer = getCustomerHelper(Level.GOLDEN, creditCard);
         platinumCustomer = getCustomerHelper(Level.PLATINUM, creditCard);
-        SecChief = new SectionChief("name", "surname", "zurich");
+        SecChief = new SectionChief("name", "surname", "city");
         SecChief.addCustomer(regularCustomer);
         SecChief.addCustomer(goldenCustomer);
     }
@@ -57,6 +57,13 @@ class SectionChiefTest {
     @Test
     public void testUpgradeNonexistentCustomer(){
         SecChief.upgradeCustomer(UUID.randomUUID());
+        assertEquals(Level.GOLDEN, goldenCustomer.getLevel());
+        assertEquals(Level.PLATINUM, platinumCustomer.getLevel());
+    }
+
+    @Test
+    public void testDowngradeNonexistentCustomer(){
+        SecChief.downgradeCustomer(UUID.randomUUID());
         assertEquals(Level.GOLDEN, goldenCustomer.getLevel());
         assertEquals(Level.PLATINUM, platinumCustomer.getLevel());
     }

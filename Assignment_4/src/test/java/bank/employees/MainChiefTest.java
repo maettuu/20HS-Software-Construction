@@ -60,6 +60,13 @@ class MainChiefTest {
         assertEquals(Level.PLATINUM, platinumCustomer.getLevel());
     }
 
+    @Test
+    public void testDowngradeNonexistentCustomer(){
+        MainChief.downgradeCustomer(UUID.randomUUID());
+        assertEquals(Level.GOLDEN, goldenCustomer.getLevel());
+        assertEquals(Level.PLATINUM, platinumCustomer.getLevel());
+    }
+
     public Customer getCustomerHelper(Level level, CreditCard creditCard){
         return new Customer(
                 "name",
