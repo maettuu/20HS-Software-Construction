@@ -58,6 +58,16 @@ class SectionChiefTest {
     }
 
     /**
+     * This test checks whether the level upgrade (done by a Section Chief)
+     * from a platinum customer is not accepted
+     */
+    @Test
+    public void testNotUpgradePLATINUM(){
+        SecChief.upgradeCustomer(platinumCustomer.getId());
+        assertEquals(Level.PLATINUM, platinumCustomer.getLevel());
+    }
+
+    /**
      * This test checks whether the level downgrade (done by a Section Chief)
      * from a golden to a regular customer works correctly
      */
@@ -76,6 +86,16 @@ class SectionChiefTest {
     public void testNotDowngradePLATINUM(){
         SecChief.downgradeCustomer(platinumCustomer.getId());
         assertEquals(Level.PLATINUM, platinumCustomer.getLevel());
+    }
+
+    /**
+     * This test checks whether the level downgrade (done by a Section Chief)
+     * from a regular customer is not accepted
+     */
+    @Test
+    public void testNotDowngradeREGULAR(){
+        SecChief.downgradeCustomer(regularCustomer.getId());
+        assertEquals(Level.REGULAR, regularCustomer.getLevel());
     }
 
     /**
