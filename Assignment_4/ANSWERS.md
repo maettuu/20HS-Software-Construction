@@ -1,4 +1,7 @@
 ## Assignment 4
+This project now uses gradle. In order for it to work, you will have to import the gradle projects. 
+
+Make sure to open the folder Assignment_4 directly and if there are any issues, try deleting your local copies of .gradle and .idea before reopening the project.
 
 #### Person
 The abstract class `Person` was chosen, which gets extended by `Employee`, `Customer` and the different Technicians.
