@@ -11,6 +11,10 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * The class RegularEmployeeTest consists of tests checking all functionalities
+ * a Regular Employee has
+ */
 class RegularEmployeeTest {
     RegularEmployee regularEmp;
     Customer regularCustomer;

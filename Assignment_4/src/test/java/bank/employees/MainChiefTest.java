@@ -12,6 +12,10 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * The class MainChiefTest consists of tests checking all functionalities
+ * a Main Chief has
+ */
 class MainChiefTest {
     MainChief MainChief;
     Customer regularCustomer;

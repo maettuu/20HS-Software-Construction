@@ -11,6 +11,10 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * The class SectionChiefTest consists of tests checking all functionalities
+ * a Section Chief has
+ */
 class SectionChiefTest {
     SectionChief SecChief;
     Customer regularCustomer;
