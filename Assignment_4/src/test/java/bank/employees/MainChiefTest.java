@@ -18,6 +18,9 @@ class MainChiefTest {
     Customer platinumCustomer;
     Customer goldenCustomer;
 
+    /**
+     * This method is used for initialization purposes before each test.
+     */
     @BeforeEach
     public void beforeEach(){
         Calendar expDate = Calendar.getInstance();
@@ -32,44 +35,77 @@ class MainChiefTest {
         MainChief.addCustomer(platinumCustomer);
     }
 
+    /**
+     * This test checks whether the level upgrade (done by a Main Chief)
+     * from a regular to a golden customer works correctly
+     */
     @Test
     public void testUpgradeToGOLDEN(){
         MainChief.upgradeCustomer(regularCustomer.getId());
         assertEquals(Level.GOLDEN, regularCustomer.getLevel());
     }
 
+    /**
+     * This test checks whether the level upgrade (done by a Main Chief)
+     * from a golden to a platinum customer works correctly
+     */
     @Test
     public void testUpgradeToPLATINUM(){
         MainChief.upgradeCustomer(goldenCustomer.getId());
         assertEquals(Level.PLATINUM, goldenCustomer.getLevel());
     }
 
+    /**
+     * This test checks whether the level downgrade (done by a Main Chief)
+     * from a golden to a regular customer works correctly
+     */
     @Test
     public void testDowngradeToREGULAR(){
         MainChief.downgradeCustomer(goldenCustomer.getId());
         assertEquals(Level.REGULAR, goldenCustomer.getLevel());
     }
 
+    /**
+     * This test checks whether the level downgrade (done by a Main Chief)
+     * from a platinum to a golden customer works correctly
+     */
     @Test
     public void testDowngradeToGOLDEN(){
         MainChief.downgradeCustomer(platinumCustomer.getId());
         assertEquals(Level.GOLDEN, platinumCustomer.getLevel());
     }
 
+    /**
+     * This test checks whether the levels of the Main Chief's customers change
+     * if a random other customer upgrades its level
+     */
     @Test
     public void testUpgradeNonexistentCustomer(){
         MainChief.upgradeCustomer(UUID.randomUUID());
+        assertEquals(Level.REGULAR, regularCustomer.getLevel());
         assertEquals(Level.GOLDEN, goldenCustomer.getLevel());
         assertEquals(Level.PLATINUM, platinumCustomer.getLevel());
     }
 
+    /**
+     * This test checks whether the levels of the Main Chief's customers change
+     * if a random other customer downgrades its level
+     */
     @Test
     public void testDowngradeNonexistentCustomer(){
         MainChief.downgradeCustomer(UUID.randomUUID());
+        assertEquals(Level.REGULAR, regularCustomer.getLevel());
         assertEquals(Level.GOLDEN, goldenCustomer.getLevel());
         assertEquals(Level.PLATINUM, platinumCustomer.getLevel());
     }
 
+    /**
+     * This method is used as a helper to simplify the customer generation
+     * @param level REGULAR, GOLDEN or PLATINUM
+     * @param creditCard a default credit card is used as dummy, since for these tests
+     *                   it's not important
+     * @return Customer to help testing
+     */
     public Customer getCustomerHelper(Level level, CreditCard creditCard){
         return new Customer(
                 "name",
