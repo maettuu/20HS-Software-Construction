@@ -3,12 +3,12 @@ package unit;
 import bank.CreditCard;
 import bank.customers.Customer;
 import bank.customers.Level;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Calendar;
-import java.util.Date;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * The class CustomerTests consists of tests checking all actions a customer can perform
@@ -39,21 +39,21 @@ public class CustomerTests {
      * This test checks whether the deposit method works correctly
      */
     @Test
-    public void customerDepositTest(){
+    public void testCustomerDeposit(){
         customer.deposit(1000);
-        Assertions.assertEquals(1000, customer.getSavings());
+        assertEquals(1000, customer.getSavings());
     }
 
     /**
      * This test checks whether the money withdrawal smaller than the total savings works correctly
      */
     @Test
-    public void customerWithdrawTest(){
+    public void testCustomerWithdraw(){
         customer.deposit(1000);
-        Assertions.assertEquals(1000, customer.getSavings());
+        assertEquals(1000, customer.getSavings());
 
         customer.withdraw(400);
-        Assertions.assertEquals(600, customer.getSavings());
+        assertEquals(600, customer.getSavings());
     }
 
     /**
@@ -61,22 +61,22 @@ public class CustomerTests {
      * are returned if the withdrawal is higher than the savings
      */
     @Test
-    public void customerTooMuchWithdrawTest(){
+    public void testCustomerTooMuchWithdraw(){
         customer.deposit(600);
 
         float amount = customer.withdraw(1000);
-        Assertions.assertEquals(600, amount);
+        assertEquals(600, amount);
     }
 
     /**
      * This test checks whether the payment of a smaller amount than the total savings works correctly
      */
     @Test
-    public void customerPaymentTest(){
+    public void testCustomerPayment(){
         customer.deposit(1000);
 
         customer.pay(400);
-        Assertions.assertEquals(600, customer.getSavings());
+        assertEquals(600, customer.getSavings());
     }
 
     /**
@@ -84,13 +84,13 @@ public class CustomerTests {
      * hence the savings staying unchanged
      */
     @Test
-    public void customerTooHighPaymentTest(){
+    public void testCustomerTooHighPayment(){
         customer.deposit(1000);
-        Assertions.assertEquals(1000, customer.getSavings());
+        assertEquals(1000, customer.getSavings());
 
         /* Try paying too much money
          */
         customer.pay(2000);
-        Assertions.assertEquals(1000, customer.getSavings());
+        assertEquals(1000, customer.getSavings());
     }
 }

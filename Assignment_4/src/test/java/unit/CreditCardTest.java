@@ -3,9 +3,10 @@ package unit;
 import bank.CreditCard;
 import bank.customers.Customer;
 import bank.customers.Level;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Calendar;
 
@@ -38,9 +39,9 @@ public class CreditCardTest {
      * not exceeding the limit
      */
     @Test
-    public void CreditCardDebtTest(){
+    public void testCreditCardDebt(){
         regularCustomer.payCreditCard(100);
-        Assertions.assertEquals(100, regularCustomer.getCreditCard().getDebt());
+        assertEquals(100, regularCustomer.getCreditCard().getDebt());
     }
 
     /**
@@ -48,12 +49,12 @@ public class CreditCardTest {
      * which exceeds the limit of level REGULAR
      */
     @Test
-    public void CreditCardLimitRegularTest(){
+    public void testCreditCardLimitRegular(){
         regularCustomer.payCreditCard(100);
-        Assertions.assertEquals(100, regularCustomer.getCreditCard().getDebt());
+        assertEquals(100, regularCustomer.getCreditCard().getDebt());
 
         regularCustomer.payCreditCard(2100);
-        Assertions.assertEquals(100, regularCustomer.getCreditCard().getDebt());
+        assertEquals(100, regularCustomer.getCreditCard().getDebt());
 
     }
 
@@ -62,12 +63,12 @@ public class CreditCardTest {
      * which exceeds the limit of level GOLD
      */
     @Test
-    public void CreditCardLimitGoldenTest(){
+    public void testCreditCardLimitGolden(){
         goldenCustomer.payCreditCard(3000);
-        Assertions.assertEquals(3000, goldenCustomer.getCreditCard().getDebt());
+        assertEquals(3000, goldenCustomer.getCreditCard().getDebt());
 
         goldenCustomer.payCreditCard(6000);
-        Assertions.assertEquals(3000, goldenCustomer.getCreditCard().getDebt());
+        assertEquals(3000, goldenCustomer.getCreditCard().getDebt());
 
     }
 
@@ -76,12 +77,12 @@ public class CreditCardTest {
      * which exceeds the limit of level PLATINUM
      */
     @Test
-    public void CreditCardLimitPlatinumTest(){
+    public void testCreditCardLimitPlatinum(){
         platinumCustomer.payCreditCard(7000);
-        Assertions.assertEquals(7000, platinumCustomer.getCreditCard().getDebt());
+        assertEquals(7000, platinumCustomer.getCreditCard().getDebt());
 
         platinumCustomer.payCreditCard(15000);
-        Assertions.assertEquals(7000, platinumCustomer.getCreditCard().getDebt());
+        assertEquals(7000, platinumCustomer.getCreditCard().getDebt());
 
     }
 
@@ -90,14 +91,14 @@ public class CreditCardTest {
      * expired
      */
     @Test
-    public void CreditCardExpirationDateTest(){
+    public void testCreditCardExpirationDate(){
         Calendar expDate = Calendar.getInstance();
         expDate.add(Calendar.MONTH,-1);
         CreditCard creditCard = new CreditCard(expDate, 123, 1542);
         Customer customer = getCustomerHelper(Level.PLATINUM, creditCard);
 
         customer.payCreditCard(100);
-        Assertions.assertEquals(0, creditCard.getDebt());
+        assertEquals(0, creditCard.getDebt());
     }
 
     /**
