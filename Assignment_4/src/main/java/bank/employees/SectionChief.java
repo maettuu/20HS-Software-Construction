@@ -8,12 +8,12 @@ import java.util.UUID;
 public class SectionChief extends RegularEmployee {
     private String city;
 
-    SectionChief(String name, String surname, String city){
+    public SectionChief(String name, String surname, String city){
         super(name, surname);
         this.city = city;
     }
 
-    void downgradeCustomer(UUID id){
+    public void downgradeCustomer(UUID id){
         Customer c = getCustomer(id);
         if (c.getLevel() == Level.GOLDEN){
             c.setLevel(Level.REGULAR);

@@ -15,6 +15,6 @@ class BackendTechnicianTest {
 
     @Test
     public void testFix(){
-        technician.fix(50);
+        technician.fix(technician.getId());
     }
 }

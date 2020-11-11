@@ -6,11 +6,11 @@ import bank.customers.Level;
 import java.util.UUID;
 
 public class MainChief extends RegularEmployee {
-    MainChief(String name, String surname) {
+    public MainChief(String name, String surname) {
         super(name, surname);
     }
 
-    void downgradeCustomer(UUID id){
+    public void downgradeCustomer(UUID id){
         for (Customer customer : customers){
             if (customer.getId() == id && customer.getLevel() == Level.GOLDEN){
                 customer.setLevel(Level.REGULAR);
