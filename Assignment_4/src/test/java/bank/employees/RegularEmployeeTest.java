@@ -16,6 +16,9 @@ class RegularEmployeeTest {
     Customer regularCustomer;
     Customer goldenCustomer;
 
+    /**
+     * This method is used for initialization purposes before each test.
+     */
     @BeforeEach
     public void beforeEach(){
         Calendar expDate = Calendar.getInstance();
@@ -27,18 +30,31 @@ class RegularEmployeeTest {
         regularEmp.addCustomer(regularCustomer);
     }
 
+    /**
+     * This test checks whether the level upgrade (done by a Regular Employee)
+     * from a regular to a golden customer works correctly
+     */
     @Test
     public void testUpgradeToGOLDEN(){
         regularEmp.upgradeCustomer(regularCustomer.getId());
         assertEquals(Level.GOLDEN, regularCustomer.getLevel());
     }
 
+    /**
+     * This test checks whether the level upgrade (done by a Regular Employee)
+     * from a golden to a platinum customer is not performed, since the clearance
+     * level is not reached
+     */
     @Test
     public void testNotUpgradeGOLDEN(){
         regularEmp.upgradeCustomer(goldenCustomer.getId());
         assertEquals(Level.GOLDEN, goldenCustomer.getLevel());
     }
 
+    /**
+     * This test checks whether the levels of the Regular Employee's customers change
+     * if a random other customer upgrades its level
+     */
     @Test
     public void testUpgradeNonexistentCustomer(){
         regularEmp.upgradeCustomer(UUID.randomUUID());
@@ -46,6 +62,13 @@ class RegularEmployeeTest {
         assertEquals(Level.REGULAR, regularCustomer.getLevel());
     }
 
+    /**
+     * This method is used as a helper to simplify the customer generation
+     * @param level REGULAR, GOLDEN or PLATINUM
+     * @param creditCard a default credit card is used as dummy, since for these tests
+     *                   it's not important
+     * @return Customer to help testing
+     */
     public Customer getCustomerHelper(Level level, CreditCard creditCard){
         return new Customer(
                 "name",
