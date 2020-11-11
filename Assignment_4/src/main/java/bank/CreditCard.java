@@ -47,6 +47,14 @@ public class CreditCard {
         System.out.println("Amount exceeded limit, payment denied!");
     }
 
+    public String getOwnerName(){
+        return this.customer.getName();
+    }
+
+    public String getOwnerSurname(){
+        return this.customer.getSurname();
+    }
+
 
     public void setLevel(Level level){
         this.level = level;
