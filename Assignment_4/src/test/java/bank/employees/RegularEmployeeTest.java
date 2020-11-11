@@ -19,6 +19,7 @@ class RegularEmployeeTest {
     RegularEmployee regularEmp;
     Customer regularCustomer;
     Customer goldenCustomer;
+    Customer unknownCustomer;
 
     /**
      * This method is used for initialization purposes before each test.
@@ -29,6 +30,7 @@ class RegularEmployeeTest {
         expDate.add(Calendar.MONTH,1);
         CreditCard creditCard = new CreditCard(expDate, 123, 1234);
         regularCustomer = getCustomerHelper(Level.REGULAR, creditCard);
+        unknownCustomer = getCustomerHelper(Level.REGULAR, creditCard);
         goldenCustomer = getCustomerHelper(Level.GOLDEN, creditCard);
         regularEmp = new RegularEmployee("name", "surname");
         regularEmp.addCustomer(regularCustomer);
@@ -53,6 +55,16 @@ class RegularEmployeeTest {
     public void testNotUpgradeGOLDEN(){
         regularEmp.upgradeCustomer(goldenCustomer.getId());
         assertEquals(Level.GOLDEN, goldenCustomer.getLevel());
+    }
+
+    /**
+     * This test checks whether the customer's level is not upgraded if the Regular Employee
+     * is not responsible for the customer
+     */
+    @Test
+    public void testNotUpgradeUnknownCustomer(){
+        regularEmp.upgradeCustomer(unknownCustomer.getId());
+        assertEquals(Level.REGULAR, unknownCustomer.getLevel());
     }
 
     /**

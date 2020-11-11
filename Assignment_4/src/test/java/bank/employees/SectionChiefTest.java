@@ -16,10 +16,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * a Section Chief has
  */
 class SectionChiefTest {
-    SectionChief SecChief;
+    SectionChief secChief;
     Customer regularCustomer;
     Customer platinumCustomer;
     Customer goldenCustomer;
+    Customer unknownCustomer;
 
     /**
      * This method is used for initialization purposes before each test.
@@ -32,9 +33,10 @@ class SectionChiefTest {
         regularCustomer = getCustomerHelper(Level.REGULAR, creditCard);
         goldenCustomer = getCustomerHelper(Level.GOLDEN, creditCard);
         platinumCustomer = getCustomerHelper(Level.PLATINUM, creditCard);
-        SecChief = new SectionChief("name", "surname", "city");
-        SecChief.addCustomer(regularCustomer);
-        SecChief.addCustomer(goldenCustomer);
+        unknownCustomer = getCustomerHelper(Level.GOLDEN, creditCard);
+        secChief = new SectionChief("name", "surname", "city");
+        secChief.addCustomer(regularCustomer);
+        secChief.addCustomer(goldenCustomer);
     }
 
     /**
@@ -43,7 +45,7 @@ class SectionChiefTest {
      */
     @Test
     public void testUpgradeToGOLDEN(){
-        SecChief.upgradeCustomer(regularCustomer.getId());
+        secChief.upgradeCustomer(regularCustomer.getId());
         assertEquals(Level.GOLDEN, regularCustomer.getLevel());
     }
 
@@ -53,7 +55,7 @@ class SectionChiefTest {
      */
     @Test
     public void testUpgradeToPLATINUM(){
-        SecChief.upgradeCustomer(goldenCustomer.getId());
+        secChief.upgradeCustomer(goldenCustomer.getId());
         assertEquals(Level.PLATINUM, goldenCustomer.getLevel());
     }
 
@@ -63,8 +65,18 @@ class SectionChiefTest {
      */
     @Test
     public void testNotUpgradePLATINUM(){
-        SecChief.upgradeCustomer(platinumCustomer.getId());
+        secChief.upgradeCustomer(platinumCustomer.getId());
         assertEquals(Level.PLATINUM, platinumCustomer.getLevel());
+    }
+
+    /**
+     * This test checks whether the customer's level is not upgraded if the Section Chief
+     * is not responsible for the customer
+     */
+    @Test
+    public void testNotUpgradeUnknownCustomer(){
+        secChief.upgradeCustomer(unknownCustomer.getId());
+        assertEquals(Level.GOLDEN, unknownCustomer.getLevel());
     }
 
     /**
@@ -73,7 +85,7 @@ class SectionChiefTest {
      */
     @Test
     public void testDowngradeToREGULAR(){
-        SecChief.downgradeCustomer(goldenCustomer.getId());
+        secChief.downgradeCustomer(goldenCustomer.getId());
         assertEquals(Level.REGULAR, goldenCustomer.getLevel());
     }
 
@@ -84,7 +96,7 @@ class SectionChiefTest {
      */
     @Test
     public void testNotDowngradePLATINUM(){
-        SecChief.downgradeCustomer(platinumCustomer.getId());
+        secChief.downgradeCustomer(platinumCustomer.getId());
         assertEquals(Level.PLATINUM, platinumCustomer.getLevel());
     }
 
@@ -94,8 +106,18 @@ class SectionChiefTest {
      */
     @Test
     public void testNotDowngradeREGULAR(){
-        SecChief.downgradeCustomer(regularCustomer.getId());
+        secChief.downgradeCustomer(regularCustomer.getId());
         assertEquals(Level.REGULAR, regularCustomer.getLevel());
+    }
+
+    /**
+     * This test checks whether the customer's level is not downgraded if the Main Chief
+     * is not responsible for the customer
+     */
+    @Test
+    public void testNotDowngradeUnknownCustomer(){
+        secChief.downgradeCustomer(unknownCustomer.getId());
+        assertEquals(Level.GOLDEN, unknownCustomer.getLevel());
     }
 
     /**
@@ -104,7 +126,7 @@ class SectionChiefTest {
      */
     @Test
     public void testUpgradeNonexistentCustomer(){
-        SecChief.upgradeCustomer(UUID.randomUUID());
+        secChief.upgradeCustomer(UUID.randomUUID());
         assertEquals(Level.GOLDEN, goldenCustomer.getLevel());
         assertEquals(Level.PLATINUM, platinumCustomer.getLevel());
     }
@@ -115,7 +137,7 @@ class SectionChiefTest {
      */
     @Test
     public void testDowngradeNonexistentCustomer(){
-        SecChief.downgradeCustomer(UUID.randomUUID());
+        secChief.downgradeCustomer(UUID.randomUUID());
         assertEquals(Level.GOLDEN, goldenCustomer.getLevel());
         assertEquals(Level.PLATINUM, platinumCustomer.getLevel());
     }
