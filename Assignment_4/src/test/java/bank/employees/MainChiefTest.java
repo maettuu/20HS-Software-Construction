@@ -21,6 +21,7 @@ class MainChiefTest {
     Customer regularCustomer;
     Customer platinumCustomer;
     Customer goldenCustomer;
+    Customer unknownCustomer;
 
     /**
      * This method is used for initialization purposes before each test.
@@ -33,6 +34,7 @@ class MainChiefTest {
         regularCustomer = getCustomerHelper(Level.REGULAR, creditCard);
         goldenCustomer = getCustomerHelper(Level.GOLDEN, creditCard);
         platinumCustomer = getCustomerHelper(Level.PLATINUM, creditCard);
+        unknownCustomer = getCustomerHelper(Level.GOLDEN, creditCard);
         MainChief = new MainChief("name", "surname");
         MainChief.addCustomer(regularCustomer);
         MainChief.addCustomer(goldenCustomer);
@@ -70,6 +72,16 @@ class MainChiefTest {
     }
 
     /**
+     * This test checks whether the customer's level is not upgraded if the Main Chief
+     * is not responsible for the customer
+     */
+    @Test
+    public void testNotUpgradeUnknownCustomer(){
+        MainChief.upgradeCustomer(unknownCustomer.getId());
+        assertEquals(Level.GOLDEN, unknownCustomer.getLevel());
+    }
+
+    /**
      * This test checks whether the level downgrade (done by a Main Chief)
      * from a golden to a regular customer works correctly
      */
@@ -97,6 +109,16 @@ class MainChiefTest {
     public void testNotDowngradeREGULAR(){
         MainChief.downgradeCustomer(regularCustomer.getId());
         assertEquals(Level.REGULAR, regularCustomer.getLevel());
+    }
+
+    /**
+     * This test checks whether the customer's level is not downgraded if the Main Chief
+     * is not responsible for the customer
+     */
+    @Test
+    public void testNotDowngradeUnknownCustomer(){
+        MainChief.downgradeCustomer(unknownCustomer.getId());
+        assertEquals(Level.GOLDEN, unknownCustomer.getLevel());
     }
 
     /**
