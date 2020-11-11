@@ -29,7 +29,7 @@ class BackendTechnicianTest {
     }
 
     /**
-     * This test checks whether the print statement is indeed printed after the method technician.fix is called
+     * This test checks whether the print statement is indeed printed after the method fix(UUID technicianId) is called
      */
     @Test
     public void testFix(){

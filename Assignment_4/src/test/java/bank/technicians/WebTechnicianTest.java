@@ -6,15 +6,25 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * The class WebTechnicianTest consists of tests checking all functionalities
+ * a Web-Technician has
+ */
 class WebTechnicianTest {
     WebTechnician technician;
 
+    /**
+     * This method is used for initialization purposes before each test.
+     */
     @BeforeEach
-    public void beforeEach() {
+    public void createTechnician() {
         this.technician = new WebTechnician("Jin", "Sakai");
     }
 
-    // TODO This test is kind of retarded. Is this really necessary?
+    /**
+     * This test checks whether the fix method really does last for 30 seconds in total
+     * @throws InterruptedException thrown if a thread gets interrupted while sleeping
+     */
     @Test
     void fix() throws InterruptedException {
         long start = System.nanoTime();
