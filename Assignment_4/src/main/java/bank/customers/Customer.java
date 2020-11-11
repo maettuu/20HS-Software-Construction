@@ -5,8 +5,6 @@ import bank.Person;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
-
 @Getter
 @Setter
 public class Customer extends Person {
@@ -29,14 +27,7 @@ public class Customer extends Person {
      */
     public void setLevel(Level level){
         this.level = level;
-        switch (this.level){
-            case REGULAR: this.creditCard.setLimit(2000);
-                break;
-            case GOLDEN: this.creditCard.setLimit(5000);
-                break;
-            case PLATINUM: this.creditCard.setLimit(10000);
-                break;
-        }
+        this.creditCard.setLevel(level);
     }
 
     public float deposit(float amount){

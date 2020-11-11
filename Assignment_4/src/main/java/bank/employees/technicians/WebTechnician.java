@@ -1,4 +1,4 @@
-package bank.technicians;
+package bank.employees.technicians;
 
 import bank.Person;
 

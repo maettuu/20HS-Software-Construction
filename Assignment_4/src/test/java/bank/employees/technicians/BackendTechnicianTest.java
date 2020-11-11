@@ -1,4 +1,4 @@
-package bank.technicians;
+package bank.employees.technicians;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

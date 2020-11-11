@@ -1,28 +1,37 @@
 ## Assignment 4
 This project now uses gradle. In order for it to work, you will have to import the gradle projects. 
 
-Make sure to open the folder Assignment_4 directly and if there are any issues, try deleting your local copies of .gradle and .idea before reopening the project.
+Make sure to open the folder Assignment_4 directly with intellij and if there are any issues, try deleting your local copies of .gradle and .idea before reopening the project.
 
 ### Class Architecture
 
 #### Person
-The abstract class `Person` was chosen, which gets extended by `Employee`, `Customer` and the different Technicians.
-Its only task is to create an ID (with the help of the `UUID` class) and store the name as well as surname.
+The class `Person` is an abstract class to represent a human being. 
+It deals with storing the name, surname and ID (using the class `UUID`) of a person.
+We chose an abstract class instead of an interface since this functionality will be exactly the same for all subclasses
+and therefore it doesn't make sense to force them to implement it themselves.
 
 #### Level
-The indivuals levels (REGUALR, GOLDEN, PLATINUM) are represented with an enum.
+The individual levels (`REGUALR`, `GOLDEN`, `PLATINUM`) are represented with an enum since we do not expect them to change frequently.
+This also reduces the amount of possible errors and avoids the antipattern Primitive Obsession.
+
+#### CreditCard
+The class `CreditCard` has a reference to a `Level` and updates itself when its level changes.
+This makes more sense than creating classes `RegularCreditCard`, `GoldenCreditCard` etc since they are too similar at the moment.
+
 
 #### Employee
 The class `RegularEmployee` extends the abstract class `Person`. Both classes `SectionChief` and `MainChief` extend the `RegularEmployee`, with the Section Chief
-additionally assigned to a city. All employees have a list including their customers. For simplicity a customer can have multiple employees.
+additionally assigned to a city.
+We used inheritance since they all share some basic functionality, which we assume potential future customer service roles 
+(for now `RegularEmployee`, `MainChief`, `SectionChief` exist) will require as well.
 
 #### Customer
-The class `Customer`extends the abstract class `Person`. Each customer own a credit card as seen in the class diagram below. For simplicity
-the money used when paying with the credit card is saved as `debt` and not substracted from the `savings`. The `debt` however cannot
-exceed the limit on the credit card.
+The class `Customer`extends the abstract class `Person`. Each customer owns a credit card as seen in the class diagram below. For simplicity
+the money used when paying with the credit card is saved as `debt` and not substracted from the `savings`.
 
 #### Technicians
-Both technicians implement the interface `Technician`. It is only there for future simplicity, since  right now
+Both technicians implement the interface `Technician`. It is only there for future simplicity, since right now
 there is extremely limited functionality in the two classes `BackendTechnician` and `WebTechnician`.
 
 ### Getters & Setters

@@ -2,15 +2,13 @@ package bank;
 
 
 import bank.customers.Customer;
+import bank.customers.Level;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.xml.crypto.dsig.spec.C14NMethodParameterSpec;
 import java.util.Calendar;
 
-/**
- * TODO: What happens with money paid by credit card???
- */
 @Getter
 @Setter
 public class CreditCard {
@@ -20,8 +18,10 @@ public class CreditCard {
     private Calendar expirationDate;
     private float limit;
     private float debt;
+    private Level level;
 
     public CreditCard(Calendar expirationDate, int serial, int security){
+        // TODO the credit card doesn't have a way to access its owners name and surname yet
         this.limit = 2000;
         this.expirationDate = expirationDate;
         this.serial = serial;
@@ -45,5 +45,18 @@ public class CreditCard {
             return;
         }
         System.out.println("Amount exceeded limit, payment denied!");
+    }
+
+
+    public void setLevel(Level level){
+        this.level = level;
+        switch (level){
+            case REGULAR: this.setLimit(2000);
+                break;
+            case GOLDEN: this.setLimit(5000);
+                break;
+            case PLATINUM: this.setLimit(10000);
+                break;
+        }
     }
 }
