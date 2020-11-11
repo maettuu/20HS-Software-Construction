@@ -102,6 +102,24 @@ public class CreditCardTest {
     }
 
     /**
+     * This test checks if a credit card returns the correct owner name.
+     */
+    @Test
+    public void testGetName(){
+        CreditCard card = regularCustomer.getCreditCard();
+        assertEquals(card.getOwnerName(), "name");
+    }
+
+    /**
+     * This test checks if the credit card returns the correct owner surname.
+     */
+    @Test
+    public void testGetSurname(){
+        CreditCard card = regularCustomer.getCreditCard();
+        assertEquals(card.getOwnerName(), "surname");
+    }
+
+    /**
      * This method is used as a helper to simplify the customer generation
      * @param level REGULAR, GOLDEN or PLATINUM
      * @param creditCard a default credit card is used as dummy, since for these tests
