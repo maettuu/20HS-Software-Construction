@@ -51,6 +51,7 @@ public class RegularEmployee extends Person {
             );
         }
 
+        System.out.println("This employee is not responsible for the given customer ID");
         return dummyCustomer;
     }
 

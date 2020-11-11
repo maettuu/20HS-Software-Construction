@@ -11,32 +11,29 @@ public class MainChief extends RegularEmployee {
     }
 
     public void downgradeCustomer(UUID id){
-        for (Customer customer : customers){
-            if (customer.getId() == id && customer.getLevel() == Level.GOLDEN){
-                customer.setLevel(Level.REGULAR);
-                return;
-            }
-            if (customer.getId() == id && customer.getLevel() == Level.PLATINUM){
-                customer.setLevel(Level.GOLDEN);
-                return;
-            }
+        Customer customer = getCustomer(id);
+        if (customer.getLevel() == Level.GOLDEN){
+            customer.setLevel(Level.REGULAR);
         }
-        System.out.println("This employee is not responsible for the given customer id " +
-                "or the customer has not an appropriate level");
+        else if (customer.getLevel() == Level.PLATINUM){
+            customer.setLevel(Level.GOLDEN);
+        }
+        else {
+            System.out.println("This customer already has the lowest level possible");
+        }
     }
 
     @Override
     public void upgradeCustomer(UUID id){
-        Customer c = getCustomer(id);
-        if (c.getLevel() == Level.REGULAR) {
-            c.setLevel(Level.GOLDEN);
-            return;
+        Customer customer = getCustomer(id);
+        if (customer.getLevel() == Level.REGULAR) {
+            customer.setLevel(Level.GOLDEN);
         }
-        else if (c.getLevel() == Level.GOLDEN){
-            c.setLevel(Level.PLATINUM);
-            return;
+        else if (customer.getLevel() == Level.GOLDEN){
+            customer.setLevel(Level.PLATINUM);
         }
-        System.out.println("This employee is not responsible for the given customer id " +
-                "or the customer has not an appropriate level");
+        else {
+            System.out.println("This customer already has the highest level possible");
+        }
     }
 }
