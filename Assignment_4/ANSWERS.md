@@ -3,6 +3,8 @@ This project now uses gradle. In order for it to work, you will have to import t
 
 Make sure to open the folder Assignment_4 directly and if there are any issues, try deleting your local copies of .gradle and .idea before reopening the project.
 
+### Class Architecture
+
 #### Person
 The abstract class `Person` was chosen, which gets extended by `Employee`, `Customer` and the different Technicians.
 Its only task is to create an ID (with the help of the `UUID` class) and store the name as well as surname.
