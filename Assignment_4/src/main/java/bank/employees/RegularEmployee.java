@@ -55,7 +55,6 @@ public class RegularEmployee extends Person {
     }
 
     public void addCustomer(Customer customer){
-        // TODO a copy constructor in customer to avoid leaking a reference? Only if multiple employees can't have the same customer.
         if(customers.contains(customer)){
             System.out.println("This employee already has this customer!");
             return;
