@@ -3,6 +3,7 @@ package bank.employees;
 import bank.CreditCard;
 import bank.customers.Customer;
 import bank.customers.Level;
+import com.sun.tools.javac.Main;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +27,9 @@ class MainChiefTest {
         goldenCustomer = getCustomerHelper(Level.GOLDEN, creditCard);
         platinumCustomer = getCustomerHelper(Level.PLATINUM, creditCard);
         MainChief = new MainChief("name", "surname");
+        MainChief.addCustomer(regularCustomer);
         MainChief.addCustomer(goldenCustomer);
+        MainChief.addCustomer(platinumCustomer);
     }
 
     @Test
