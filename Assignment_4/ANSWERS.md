@@ -22,8 +22,8 @@ there is extremely limited functionality in the two classes `BackendTechnician` 
 
 ### Getters & Setters
 For simplicity the Intellij plugin Lombok was chosen, which enables @Getter and @Setter to create simple methods for the
-respective getters and setters. It must be installed manually using IntelliJ for the code to appear without any errors.
-For more information please visit https://projectlombok.org/features/GetterSetter.
+respective getters and setters. It must be installed manually using IntelliJ for the code to appear without any errors (File->Settings->Plugins).
+For more information on the used @Getter and @Setter please visit https://projectlombok.org/features/GetterSetter.
 
 ### UML Class Diagram
 
