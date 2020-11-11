@@ -14,7 +14,7 @@ The indivuals levels (REGUALR, GOLDEN, PLATINUM) are represented with an enum.
 
 #### Employee
 The class `RegularEmployee` extends the abstract class `Person`. Both classes `SectionChief` and `MainChief` extend the `RegularEmployee`, with the Section Chief
-additionally assigned to a city. 
+additionally assigned to a city. All employees have a list including their customers. For simplicity a customer can have multiple employees.
 
 #### Customer
 The class `Customer`extends the abstract class `Person`. Each customer own a credit card as seen in the class diagram below. For simplicity
