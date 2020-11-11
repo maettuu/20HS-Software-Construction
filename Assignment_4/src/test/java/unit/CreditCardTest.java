@@ -34,7 +34,17 @@ public class CreditCardTest {
     }
 
     /**
-     * This test checks whether the debt is changes once there is a credit card payment
+     * This test checks whether the debt is changed correctly if there is a credit card payment
+     * not exceeding the limit
+     */
+    @Test
+    public void CreditCardDebtTest(){
+        regularCustomer.payCreditCard(100);
+        Assertions.assertEquals(100, regularCustomer.getCreditCard().getDebt());
+    }
+
+    /**
+     * This test checks whether the debt is changed once there is a credit card payment
      * which exceeds the limit of level REGULAR
      */
     @Test
