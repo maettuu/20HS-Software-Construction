@@ -14,30 +14,29 @@ public class SectionChief extends RegularEmployee {
     }
 
     public void downgradeCustomer(UUID id){
-        Customer c = getCustomer(id);
-        if (c.getLevel() == Level.GOLDEN){
-            c.setLevel(Level.REGULAR);
-            return;
+        Customer customer = getCustomer(id);
+        if (customer.getLevel() == Level.REGULAR){
+            System.out.println("This customer already has the lowest level possible");
         }
-
-        System.out.println("This employee is not responsible for the given customer id " +
-                "or the customer has not an appropriate level");
+        else if (customer.getLevel() == Level.GOLDEN){
+            customer.setLevel(Level.REGULAR);
+        }
+        else {
+            System.out.println("Please contact a Main Chief to perform this operation");
+        }
     }
 
     @Override
     public void upgradeCustomer(UUID id){
         Customer customer = getCustomer(id);
-
         if (customer.getLevel() == Level.REGULAR){
             customer.setLevel(Level.GOLDEN);
-            return;
         }
         else if (customer.getLevel() == Level.GOLDEN){
             customer.setLevel(Level.PLATINUM);
-            return;
         }
-
-        System.out.println("This employee is not responsible for the given customer id " +
-                "or the customer has not an appropriate level");
+        else {
+            System.out.println("This customer already has the highest level possible");
+        }
     }
 }

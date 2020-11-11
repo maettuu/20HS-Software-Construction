@@ -23,14 +23,16 @@ public class RegularEmployee extends Person {
     }
 
     public void upgradeCustomer(UUID id){
-        Customer c = getCustomer(id);
-        if(c.getLevel() == Level.REGULAR){
-            c.setLevel(Level.GOLDEN);
-            return;
+        Customer customer = getCustomer(id);
+        if (customer.getLevel() == Level.REGULAR){
+            customer.setLevel(Level.GOLDEN);
         }
-
-        System.out.println("This employee is not responsible for the given customer id " +
-                "or the customer has not an appropriate level");
+        else if (customer.getLevel() == Level.GOLDEN){
+            System.out.println("Please contact a Section Chief to perform this operation");
+        }
+        else {
+            System.out.println("Please contact a Main Chief to perform this operation");
+        }
     }
 
     protected Customer getCustomer(UUID id){
@@ -46,7 +48,7 @@ public class RegularEmployee extends Person {
                     "name",
                     "surname",
                     0,
-                    Level.REGULAR,
+                    Level.GOLDEN,
                     creditCard
             );
         }
