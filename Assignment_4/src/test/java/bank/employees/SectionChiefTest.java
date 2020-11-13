@@ -144,10 +144,10 @@ class SectionChiefTest {
 
     /**
      * This method is used as a helper to simplify the customer generation
-     * @param level REGULAR, GOLDEN or PLATINUM
-     * @param creditCard a default credit card is used as dummy, since for these tests
-     *                   it's not important
-     * @return Customer to help testing
+     * @param level REGULAR, GOLDEN or PLATINUM - the level of the customer
+     * @param creditCard the credit card assigned to this customer (a dummy in this case,
+     *                   since the card is not important)
+     * @return Customer new instance of the class Customer
      */
     public Customer getCustomerHelper(Level level, CreditCard creditCard){
         return new Customer(
