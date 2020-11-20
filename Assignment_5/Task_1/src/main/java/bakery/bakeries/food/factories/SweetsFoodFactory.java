@@ -1,9 +1,14 @@
-package bakery.bakeries.food;
+package bakery.bakeries.food.factories;
 
-import bakery.bakeries.food.toppings.*;
+import bakery.bakeries.food.Cake;
+import bakery.bakeries.food.Food;
+import bakery.bakeries.food.factories.FoodFactory;
+import bakery.bakeries.food.toppings.Chocolate;
+import bakery.bakeries.food.toppings.Cream;
+import bakery.bakeries.food.toppings.Strawberries;
 import bakery.exceptions.InvalidOrderException;
 
-public class SweetsFoodFactory implements FoodFactory{
+public class SweetsFoodFactory implements FoodFactory {
     public Food addTopping(Food f, String toppingName) {
         switch (toppingName){
             case "Strawberries":

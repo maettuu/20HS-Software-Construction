@@ -1,8 +1,7 @@
 package bakery.bakeries;
 
-import bakery.bakeries.food.SweetsFoodFactory;
+import bakery.bakeries.food.factories.SweetsFoodFactory;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class SweetsBakery extends Bakery{

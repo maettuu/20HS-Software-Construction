@@ -1,12 +1,10 @@
 package bakery.offices;
 
-import bakery.BakeryComponent;
-
 public class CentralOffice extends Office {
     private static CentralOffice instance;
 
     private CentralOffice(){
-        super("");
+        super("Central Office");
     }
 
     public static CentralOffice getInstance(){
@@ -17,9 +15,7 @@ public class CentralOffice extends Office {
     }
 
     public void printAllOffices(){
-        for(BakeryComponent child : this.children){
-            child.printAllChildrenNames();
-        }
+        this.printAllChildrenNames();
     };
 
     @Override

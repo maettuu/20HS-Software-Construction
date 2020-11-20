@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="bakery.bakeries.NormalBakeryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-19T18:26:03" hostname="DESKTOP-SHIRO" time="0.017">
+<testsuite name="bakery.bakeries.NormalBakeryTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-11-20T10:43:56" hostname="DESKTOP-SHIRO" time="0.031">
   <properties/>
-  <testcase name="testCostMultipleToppings()" classname="bakery.bakeries.NormalBakeryTest" time="0.017"/>
+  <testcase name="testWrongTopping()" classname="bakery.bakeries.NormalBakeryTest" time="0.023"/>
+  <testcase name="testMultipleToppingsWrongTopping()" classname="bakery.bakeries.NormalBakeryTest" time="0.002"/>
+  <testcase name="testAddTopping()" classname="bakery.bakeries.NormalBakeryTest" time="0.002"/>
+  <testcase name="testWrongFood()" classname="bakery.bakeries.NormalBakeryTest" time="0.001"/>
+  <testcase name="testOrderMeal()" classname="bakery.bakeries.NormalBakeryTest" time="0.0"/>
+  <testcase name="testCostMultipleToppings()" classname="bakery.bakeries.NormalBakeryTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

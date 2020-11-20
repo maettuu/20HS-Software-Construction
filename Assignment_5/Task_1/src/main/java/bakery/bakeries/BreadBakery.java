@@ -1,11 +1,7 @@
 package bakery.bakeries;
 
-import bakery.bakeries.food.BreadFoodFactory;
-import bakery.bakeries.food.Food;
-import bakery.bakeries.food.FoodFactory;
-import bakery.exceptions.InvalidOrderException;
+import bakery.bakeries.food.factories.BreadFoodFactory;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 public class BreadBakery extends Bakery{

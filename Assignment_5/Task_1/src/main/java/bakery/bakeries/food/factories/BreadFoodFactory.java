@@ -1,6 +1,11 @@
-package bakery.bakeries.food;
+package bakery.bakeries.food.factories;
 
-import bakery.bakeries.food.toppings.*;
+import bakery.bakeries.food.Food;
+import bakery.bakeries.food.Sandwich;
+import bakery.bakeries.food.toppings.Cheese;
+import bakery.bakeries.food.toppings.Ham;
+import bakery.bakeries.food.toppings.Tomatoes;
+import bakery.bakeries.food.toppings.Tuna;
 import bakery.exceptions.InvalidOrderException;
 
 public class BreadFoodFactory implements FoodFactory {

@@ -1,15 +1,11 @@
 package bakery.offices;
 
-import bakery.bakeries.Bakery;
 import bakery.bakeries.BreadBakery;
 import bakery.bakeries.NormalBakery;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CentralOfficeTest {
     CentralOffice cent;
@@ -40,10 +36,10 @@ class CentralOfficeTest {
 
     @Test
     void testPrint(){
-        cent.addBakery(city);
-        cent.addBakery(city2);
-        city.addBakery(norm);
-        city.addBakery(bread);
+        cent.addChild(city);
+        cent.addChild(city2);
+        city.addChild(norm);
+        city.addChild(bread);
         cent.printAllOffices();
     }
 }

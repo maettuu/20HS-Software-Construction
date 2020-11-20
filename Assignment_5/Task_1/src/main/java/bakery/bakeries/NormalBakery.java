@@ -1,8 +1,7 @@
 package bakery.bakeries;
 
-import bakery.bakeries.food.BreadFoodFactory;
-import bakery.bakeries.food.Food;
-import bakery.bakeries.food.SweetsFoodFactory;
+import bakery.bakeries.food.factories.BreadFoodFactory;
+import bakery.bakeries.food.factories.SweetsFoodFactory;
 
 import java.util.HashMap;
 
