@@ -3,13 +3,20 @@ package bakery.bakeries.food.toppings;
 import bakery.bakeries.food.Food;
 
 public class Ham extends Topping {
-
-    public Ham(Food f){
-        super(f);
+    /**
+     *
+     * @param food The base food this topping is decorating.
+     */
+    public Ham(Food food){
+        super(food);
     }
 
+    /**
+     *
+     * @return the added cost of the base product and this product.
+     */
     @Override
     public double cost() {
-        return f.cost() + 2;
+        return food.cost() + 2;
     }
 }

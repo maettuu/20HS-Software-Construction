@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="bakery.offices.CityOfficeTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-11-20T10:43:56" hostname="DESKTOP-SHIRO" time="0.009">
+<testsuite name="bakery.offices.CityOfficeTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-11-20T11:07:33" hostname="DESKTOP-SHIRO" time="0.026">
   <properties/>
-  <testcase name="getNonexistentBakery()" classname="bakery.offices.CityOfficeTest" time="0.006"/>
+  <testcase name="getNonexistentBakery()" classname="bakery.offices.CityOfficeTest" time="0.022"/>
   <testcase name="getAddBakery()" classname="bakery.offices.CityOfficeTest" time="0.001"/>
-  <testcase name="addingBakeryToTwoOffices()" classname="bakery.offices.CityOfficeTest" time="0.0"/>
+  <testcase name="addingBakeryToTwoOffices()" classname="bakery.offices.CityOfficeTest" time="0.001"/>
   <system-out><![CDATA[Another office is responsible for this bakery!
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -1,5 +1,6 @@
 package bakery.bakeries;
 
+import bakery.bakeries.food.Cake;
 import bakery.bakeries.food.Food;
 import bakery.exceptions.InvalidOrderException;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,6 +14,7 @@ class NormalBakeryTest {
     Bakery normal;
     Food sandwich;
     Food cake;
+    Cake cake2;
     String[] toppings;
 
     @BeforeEach

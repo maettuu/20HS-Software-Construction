@@ -8,20 +8,35 @@ import bakery.bakeries.food.toppings.Cream;
 import bakery.bakeries.food.toppings.Strawberries;
 import bakery.exceptions.InvalidOrderException;
 
+/**
+ * A Factory which only produces sweet food and adds possible toppings.
+ */
 public class SweetsFoodFactory implements FoodFactory {
-    public Food addTopping(Food f, String toppingName) {
+    /**
+     *
+     * @param food          The food which we want to add a topping to
+     * @param toppingName   The name of said topping
+     * @return              The new food with the topping on top or null if food like that doesn't exist
+     */
+    private Food addTopping(Food food, String toppingName) {
         switch (toppingName){
             case "Strawberries":
-                return new Strawberries(f);
+                return new Strawberries(food);
             case "Chocolate":
-                return new Chocolate(f);
+                return new Chocolate(food);
             case "Cream":
-                return new Cream(f);
+                return new Cream(food);
             default:
                 return null;
         }
 
     }
+    /**
+     *
+     * @param mealName  The name of the base meal (can't be a topping)
+     * @param toppings  A list of all topping names we want to add
+     * @return          The new food with all the toppings on top
+     */
     public Food createMeal(String mealName, String[] toppings) throws InvalidOrderException {
         Food f;
         switch (mealName){
