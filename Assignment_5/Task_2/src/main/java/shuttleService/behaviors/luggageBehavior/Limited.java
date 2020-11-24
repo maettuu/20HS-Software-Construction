@@ -11,6 +11,9 @@ public class Limited implements LuggageBehavior {
 
     @Override
     public String getLuggage() {
+        if (smallBags == 0 && largeBags == 0) {
+            return "no bags allowed";
+        }
         if (largeBags == 0) {
             return smallBags + " small bag(s)";
         }
