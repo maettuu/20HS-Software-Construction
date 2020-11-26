@@ -1,6 +1,11 @@
-## Exercise 1
+## Assignment 5
+This project now uses gradle. In order for it to work, you will have to import the gradle projects.
 
-### Composite Pattern
+Make sure to open the folders Task_1 and Task_2 separately with intellij and if there are any issues, try deleting your local copies of .gradle and .idea before reopening the project.
+
+### Exercise 1
+
+#### Composite Pattern
 `BakeryComponent` serves as our component interface which all offices and bakeries implement.
 `Office` represents a node and `Bakery` represents a leaf which all specific offices and bakeries
 inherit from them.
@@ -22,7 +27,7 @@ and checking for it. A `Bakery` can't have children and trying to call methods r
 creation throws an error.
 
 
-### Decorator Pattern
+#### Decorator Pattern
 We use the decorator pattern to decorate `Food` with `Topping` to calculate the new cost. `Food` is an interface which all types of
 food implements (`Cake` and `Sandwich`for now) and 
 `Topping` is an abstract class which implements Food and is extended by all toppings (`Chocolate` etc).
@@ -31,7 +36,7 @@ A `Topping` has a reference to the food it belongs to (which might be another to
 the advantage that we can stack as many toppings as we want.
 
 
-### Selling Food
+#### Selling Food
 
 As a `NormalBakery` sells both sweets and bread the creation of those has been encapsulated in factories. This allows 
 a `Bakery` to have references to multiple factories which leads to less code redundancy. More concretely a `NormalBakery` has 
@@ -42,9 +47,9 @@ the concrete classes `NormalBakery` etc and only have `Bakery` and create them i
 Bakery b = new Bakery(ArrayList<FoodFactory> factories, String name, HashMap<String, String> address);
 ```
 
-## Exercise 2
+### Exercise 2
 
-### Strategy Pattern
+#### Strategy Pattern
 Whenever an instace of the class `Customer` is created, a respective vehicle is addressed to this instance.
 Once the customer calls the `ride()` method, all stats of the vehicle are printed using the strategy pattern.
 Each vehicle inherites the instance variables of the behavioral interfaces from the abstract class `Vehicle`.
