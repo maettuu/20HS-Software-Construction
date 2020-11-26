@@ -7,6 +7,9 @@ import shuttleService.behaviors.priceBehavior.PriceBehavior;
 import shuttleService.behaviors.speedBehavior.SpeedBehavior;
 
 @Getter
+/**
+ * Abstract class Vehicle, all other vehicles extend this class
+ */
 public abstract class Vehicle {
     protected SpeedBehavior speedBehavior;
     protected CombustionBehavior combustionBehavior;
@@ -14,6 +17,9 @@ public abstract class Vehicle {
     protected LuggageBehavior luggageBehavior;
     protected String name;
 
+    /**
+     * Print out behavioural stats
+     */
     public void getStats() {
         System.out.printf("%s; %s; %s; %s; %s\n", getName(),
                 getCombustionBehavior().getCombustion(),

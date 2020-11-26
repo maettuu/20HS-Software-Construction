@@ -5,8 +5,14 @@ import shuttleService.behaviors.luggageBehavior.Limited;
 import shuttleService.behaviors.priceBehavior.PerHour;
 import shuttleService.behaviors.speedBehavior.FastSpeed;
 
+/**
+ * Super car entity
+ */
 public class SuperCar extends Vehicle {
 
+    /**
+     * Super car constructor with specific parameters
+     */
     public SuperCar() {
         combustionBehavior = new Gasoline();
         speedBehavior = new FastSpeed();

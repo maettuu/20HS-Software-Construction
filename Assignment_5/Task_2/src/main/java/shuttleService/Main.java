@@ -7,6 +7,9 @@ import shuttleService.vehicles.SuperCar;
 
 import java.util.Calendar;
 
+/**
+ * Main entry point
+ */
 public class Main {
     public static void main(String[] args) {
         Customer customerBus = new Customer(new Bus(), Calendar.getInstance());
