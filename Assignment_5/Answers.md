@@ -41,3 +41,14 @@ the concrete classes `NormalBakery` etc and only have `Bakery` and create them i
 ```
 Bakery b = new Bakery(ArrayList<FoodFactory> factories, String name, HashMap<String, String> address);
 ```
+
+## Exercise 2
+
+### Strategy Pattern
+Whenever an instace of the class `Customer` is created, a respective vehicle is addressed to this instance.
+Once the customer calls the `ride()` method, all stats of the vehicle are printed using the strategy pattern.
+Each vehicle inherites the instance variables of the behavioral interfaces from the abstract class `Vehicle`.
+The instance variables are initialized corresponding to the characteristics of the respective vehicle. Thanks to the strategy pattern
+new vehicles can be added easily and additionally the existing vehicles can change their characteristics (e.g. from gasoline
+to an electric gear) at runtime. New characteristics can be added without effecting any of the vehicles, the behaviors of a vehicle are
+encapsulated.
