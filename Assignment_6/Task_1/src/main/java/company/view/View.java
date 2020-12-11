@@ -23,8 +23,12 @@ public class View {
         while(this.isOpen){
             Scanner scanner = new Scanner(System.in);
             String line = scanner.nextLine();
-            this.controller.handleUserCommand(line);
+            this.handleInput(line);
         }
+    }
+
+    public void handleInput(String in){
+        this.controller.handleUserCommand(in);
     }
 
     public void destroy(){
