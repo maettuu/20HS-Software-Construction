@@ -6,19 +6,27 @@ import lombok.Setter;
 import java.util.UUID;
 
 public class Employee {
-    @Getter @Setter String name;
-    @Getter @Setter String surname;
+    @Getter String name;
+    @Getter String surname;
     @Getter @Setter String address;
-    @Getter @Setter int phone;
+    @Getter @Setter String phone;
 
-    @Getter UUID id;
+    @Getter @Setter String id;
 
-    public Employee(String name, String surname, String address, int phone){
+    public Employee(String name, String surname, String address, String phone){
         this.name = name;
         this.surname = surname;
         this.address = address;
         this.phone = phone;
+    }
 
-        this.id = UUID.randomUUID();
+    @Override
+    public String toString() {
+        return "" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", address='" + address + '\'' +
+                ", phone=" + phone +
+                ", id='" + id + '\'';
     }
 }
