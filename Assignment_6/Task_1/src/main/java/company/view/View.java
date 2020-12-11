@@ -31,7 +31,7 @@ public class View {
         this.controller.handleUserCommand(in);
     }
 
-    public void destroy(){
+    public void close(){
         System.out.println("Thanks for using our employee management system, bye!");
         this.isOpen = false;
     }

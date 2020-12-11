@@ -26,7 +26,7 @@ public class Controller {
                 handleUpdateCommand(commands);
                 break;
             case "exit":
-                view.destroy();
+                view.close();
                 break;
             case "help":
                 view.changeView(
@@ -106,10 +106,10 @@ public class Controller {
                     out += employee.getSurname() + " ";
                     break;
                 case "name":
-                    out += employee.getSurname() + " ";
+                    out += employee.getName() + " ";
                     break;
                 case "id":
-                    out += employee.getSurname() + " ";
+                    out += employee.getId() + " ";
                     break;
             }
         }
