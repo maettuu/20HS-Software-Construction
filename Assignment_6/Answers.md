@@ -14,6 +14,6 @@ Make sure to open the folder Assignment_6 separately with intellij and if there 
 #### Class Diagram ShoppingSW
 
 #### Composite Pattern
-To build the classes for the products a tree-like structure with the abstract class ´Product´ as root was chosen. This enables it to easily iterate through the
+To build the classes for the products a tree-like structure with the abstract class `Product` as root was chosen. This enables it to easily iterate through the
 respective instances of a class when filtering products or specific clothes/shoes. For the color of a product as well as the size an enum was chosen, with which it's
 simple to add new colors or sizes without changing a lot of code (this also leaves open the option to filter by color/size easily if it were desired).
