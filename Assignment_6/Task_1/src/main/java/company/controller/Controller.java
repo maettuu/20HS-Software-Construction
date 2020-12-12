@@ -8,9 +8,9 @@ import lombok.Setter;
 public class Controller {
 
     @Setter
-    Model model;
+    private Model model;
     @Setter
-    View view;
+    private View view;
 
     public void handleUserCommand(String input){
         String[] commands = input.split(" ");
@@ -48,7 +48,7 @@ public class Controller {
         }
     }
 
-    void handleCreateCommand(String[] commands){
+    private void handleCreateCommand(String[] commands){
         if (commands.length != 5){
             view.changeView("Invalid format! \n" +
                     "To create a new Employee, please respect the following Format: \n" +
@@ -63,7 +63,7 @@ public class Controller {
         this.model.add(newEmployee);
     }
 
-    void handleUpdateCommand(String[] commands){
+    private void handleUpdateCommand(String[] commands){
         Employee employee = model.get(commands[1]);
         if (commands.length != 4){
             view.changeView("Invalid format! \n" +
@@ -91,7 +91,7 @@ public class Controller {
         }
     }
 
-    void handlePrintCommand(String[] commands) {
+    private void handlePrintCommand(String[] commands) {
         String out = "";
         Employee employee = model.get(commands[1]);
         for (int i = 2; i < commands.length; i++) {

@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 public class View {
     @Setter
-    Controller controller;
+    private Controller controller;
 
-    Boolean isOpen;
+    private Boolean isOpen;
 
     public void changeView(String output){
         System.out.println(output);

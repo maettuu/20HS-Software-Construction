@@ -6,12 +6,12 @@ import lombok.Setter;
 import java.util.UUID;
 
 public class Employee {
-    @Getter String name;
-    @Getter String surname;
-    @Getter @Setter String address;
-    @Getter @Setter String phone;
+    @Getter private String name;
+    @Getter private String surname;
+    @Getter @Setter private String address;
+    @Getter @Setter private String phone;
 
-    @Getter @Setter String id;
+    @Getter @Setter private String id;
 
     public Employee(String name, String surname, String address, String phone){
         this.name = name;
