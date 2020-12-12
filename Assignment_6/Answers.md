@@ -1,7 +1,7 @@
-## Assignment 5
+## Assignment 6
 This project now uses gradle. In order for it to work, you will have to import the gradle projects.
 
-Make sure to open the folder Task_1 separately with intellij and if there are any issues, try deleting your local copies of .gradle and .idea before reopening the project.
+Make sure to open the folder Assignment_6 separately with intellij and if there are any issues, try deleting your local copies of .gradle and .idea before reopening the project.
 
 ### Exercise 1
 
