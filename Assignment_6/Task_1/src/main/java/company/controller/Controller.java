@@ -15,6 +15,9 @@ public class Controller {
     public void handleUserCommand(String input){
         String[] commands = input.split(" ");
 
+        /**
+         * Decide for algorithm
+         */
         switch (commands[0]){
             case "create":
                 handleCreateCommand(commands);
