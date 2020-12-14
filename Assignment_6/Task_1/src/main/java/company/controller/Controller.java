@@ -48,6 +48,14 @@ public class Controller {
         }
     }
 
+    public void handleModelChange(){
+        String out = "List of all employees: \n";
+        for (Employee employee : model.getAll()){
+            out += employee.toString() + "\n";
+        }
+        view.changeView(out);
+    }
+
     private void handleCreateCommand(String[] commands){
         if (commands.length != 5){
             view.changeView("Invalid format! \n" +
@@ -76,7 +84,7 @@ public class Controller {
 
         switch (commands[2]){
             case "address":
-                model.updateAdress(commands[1], commands[3]);
+                model.updateAddress(commands[1], commands[3]);
                 break;
             case "phone":
                 model.updatePhone(commands[1], commands[3]);
@@ -116,5 +124,4 @@ public class Controller {
 
         this.view.changeView(out);
     }
-
 }

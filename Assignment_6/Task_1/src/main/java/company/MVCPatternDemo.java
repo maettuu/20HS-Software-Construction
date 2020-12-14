@@ -18,7 +18,7 @@ public class MVCPatternDemo {
         controller.setModel(model);
         controller.setView(view);
 
-        model.setView(view);
+        model.setController(controller);
 
         // 1) Create employees
         view.handleInput("create hans muster zürich 1298398");
@@ -38,9 +38,5 @@ public class MVCPatternDemo {
         // 6) Print the new address
         view.handleInput("print 0000EMPL phone");
 
-
-
-
     }
-
 }

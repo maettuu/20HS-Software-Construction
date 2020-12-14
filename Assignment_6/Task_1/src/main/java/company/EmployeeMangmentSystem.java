@@ -15,7 +15,7 @@ public class EmployeeMangmentSystem {
         controller.setModel(model);
         controller.setView(view);
 
-        model.setView(view);
+        model.setController(controller);
 
         view.open();
     }

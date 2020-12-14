@@ -1,6 +1,6 @@
 package company.model;
 
-import company.view.View;
+import company.controller.Controller;
 import lombok.Setter;
 
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Model {
 
     @Setter
-    private View view;
+    private Controller controller;
     private int counter = 0;
     private ArrayList<Employee> employees = new ArrayList<>();
 
@@ -23,12 +23,16 @@ public class Model {
 
         counter++;
 
-        this.signalUpdate();
+        controller.handleModelChange();
     }
 
     public void delete(String id){
         employees.removeIf(employee -> employee.getId().equals(id));
-        this.signalUpdate();
+        controller.handleModelChange();
+    }
+
+    public ArrayList<Employee> getAll(){
+        return this.employees;
     }
 
     public Employee get(String id){
@@ -40,13 +44,13 @@ public class Model {
         return null;
     }
 
-    public void updateAdress(String id, String address ){
+    public void updateAddress(String id, String address ){
         for (Employee employee : employees){
             if (employee.getId().equals(id)){
                 employee.setAddress(address);
             }
         }
-        this.signalUpdate();
+        controller.handleModelChange();
     }
 
     public void updatePhone(String id, String phone ){
@@ -55,14 +59,6 @@ public class Model {
                 employee.setPhone(phone);
             }
         }
-        this.signalUpdate();
-    }
-
-    private void signalUpdate(){
-        String out = "List of all employees: \n";
-        for (Employee employee : employees){
-            out += employee.toString() + "\n";
-        }
-        view.changeView(out);
+        controller.handleModelChange();
     }
 }
