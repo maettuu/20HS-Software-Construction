@@ -41,11 +41,11 @@ and delete them.
 
 |Class|Description|
 |---|---|
-|Product                |The class `Product` is an abstract class for representing data about a single product. It also stores all of its instances in a static list. The sizes are split into integers for shoes and an enum containing alphabetic sizes for clothes to make it more realistic.|
-|Clothing, Shoes etc    |`Dress`, `Pants` and `Shirt` are in the category `Clothing` hence extending the class, whereas `Boots` and `Sneakers` in the category Shoes as described in the assignment.|
-|Customer               |Representation of a customer. Responsible for validating password input, paying, setting customer specific settings like payment method.|
-|ShoppingCart           |Responsible for dealing with items a customer intends to buy.|
-|ProductsForSale        |Responsible for dealing with items a customer intends to sell.|
-|ShoppingSW             |Class the user interacts with. It holds global information for instance to tell if a customer is logged in or not and locks functionality behind a username and password.|
+|Product                |The class `Product` is an abstract class used for representing data about a single product. It also stores all of its instances in a static list. The sizes are split into integers for shoes and an enum containing alphabetic sizes for clothes to make it more realistic.|
+|Clothing & Shoes       |`Dress`, `Pants` and `Shirt` are in the category `Clothing` hence extending the class, whereas `Boots` and `Sneakers` are in the category Shoes as described in the assignment. Inheritance is used to enable a simple filter function for the search bar.|
+|Customer               |The abstract class `Customer`is a representation of a customer. It is responsible for validating password input, paying, as well as setting customer specific settings. Here the method `pay` is made protected since it's only used in the public `checkoutCart` method. Depending on the customer's state the upper bound for the amount of items sold simultaneously is defined. Here classes are used instead of an enum for simplicity if more customer states are added.|
+|ShoppingCart           |The class `ShoppingCart` is responsible for dealing with items a customer intends to buy. Added products are saved in a private list accessible through a getter method.|
+|ProductsForSale        |The class `ProductsForSale` is responsible for dealing with items a customer intends to sell. Again added products are saved in a private list accessible through a getter method. Additionally the `maxAmountProducts` defines how long the list is allowed to be depending on the customer's state.|
+|ShoppingSW             |The user interacts with the class `ShoppingSW`. It holds global information (e.g. whether a customer is logged in or not) and locks functionality behind a username and a password.|
 |SearchBar              |The searchbar is meant to filter results or search for a concrete product. It is made static for simplicity since there is not more than one search bar hence constant.|
 |PaymentMethod          |The class `PaymentMethod` is an abstract class for representaing data about the selected payment. Since both debit and credit cards share the same attributes they inherit any data from the abstract class `Card`. Bank transfers and invoices are handled separately. Given no information in the assignment the classes are left empty.|
