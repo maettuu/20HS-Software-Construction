@@ -41,11 +41,10 @@ would enable us to easily filter for objects we want. It also isn't clear how to
 
 #### Class Diagram ShoppingSW
 
-UML here
+![ShoppingSW](ShoppingSW.png)
 
 ### Responsibility by Class
 
-|   |   |
 |---|---|
 |Product                |The class Product is an abstract class for representing data about a single product. It also stores all of its instances in a static list.|
 |Clothing, Shoes etc    ||
