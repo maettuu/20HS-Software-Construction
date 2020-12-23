@@ -46,6 +46,7 @@ would enable us to easily filter for objects we want. It also isn't clear how to
 ### Responsibility by Class
 
 |   |   |
+|---|---|
 |Product                |The class Product is an abstract class for representing data about a single product. It also stores all of its instances in a static list.|
 |Clothing, Shoes etc    ||
 |Customer               |Representation of a customer. Responsible for validating password input, paying, setting customer specific settings like payment method.|
