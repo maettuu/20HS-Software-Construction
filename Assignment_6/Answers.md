@@ -33,9 +33,25 @@ and delete them.
 
 ### Exercise 2
 
+#### Preface
+
+To be absolutely honest this exercise was awkward to solve. Our solution isn't realistic considering a real life website. For example
+our filter method would have been completely different as usually classes like Dress would be models and any ORM (like SQLAlchemy) 
+would enable us to easily filter for objects we want. It also isn't clear how to deal with the frontend.
+
 #### Class Diagram ShoppingSW
 
-#### Composite Pattern
-To build the classes for the products a tree-like structure with the abstract class `Product` as root was chosen. This enables it to easily iterate through the
-respective instances of a class when filtering products or specific clothes/shoes. For the color of a product as well as the size an enum was chosen, with which it's
-simple to add new colors or sizes without changing a lot of code (this also leaves open the option to filter by color/size easily if it were desired).
+UML here
+
+### Responsibility by Class
+
+|   |   |
+|---|---|
+|Product                |The class Product is an abstract class for representing data about a single product. It also stores all of its instances in a static list.|
+|Clothing, Shoes etc    ||
+|Customer               |Representation of a customer. Responsible for validating password input, paying, setting customer specific settings like payment method.|
+|ShoppingCart           |Responsible for dealing with items a customer intends to buy.|
+|ProductsForSale        |Responsible for dealing with items a customer intends to sell.|
+|ShoppingSW             |Class the user interacts with. It holds global information for instance to tell if a customer is logged in or not and locks functionality behind a username and password.|
+|SearchBar              |The searchbar is meant filter results or search for a concrete product.|
+|PaymentMethod          ||
