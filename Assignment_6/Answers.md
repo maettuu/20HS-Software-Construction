@@ -33,7 +33,7 @@ and delete them.
 
 ### Exercise 2
 
-#### Preface
+#### Disclaimer
 
 To be absolutely honest this exercise was awkward to solve. Our solution isn't realistic considering a real life website. For example
 our filter method would have been completely different as usually classes like Dress would be models and any ORM (like SQLAlchemy) 
