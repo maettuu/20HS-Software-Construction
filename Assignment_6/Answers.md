@@ -31,6 +31,8 @@ and delete them.
 
 #### Class Diagram
 
+![MVCPattern](MVCPattern.png)
+
 ### Exercise 2
 
 #### Class Diagram ShoppingSW
