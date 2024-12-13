@@ -25,6 +25,6 @@ This assignment consists of two separate tasks which both aim to implement desig
 Includes packages: `util` : {`ArrayList`, `Calendar`, `HashMap`}, `lombok`: {`Getter`}, `JUnit`, `PrintStream`, `ByteArrayOutputStream`, `Gradle`
 
 ## Assignment 6: Model-View-Controller (MVC) Pattern
-Here the MVC pattern is implemented to a employee management system. The UML diagram depicts how the classes are coupled to each other. As a second part, a UML for a shopping software is constructed to depict a potential system architecture.
+Here the *MVC* pattern is implemented to a employee management system. The UML diagram depicts how the classes are coupled to each other. As a second part, a UML for a shopping software is constructed to depict a potential system architecture.
 
 Includes packages: `lombok`: {`Getter`, `Setter`}, `util` : {`UUID`, `Scanner`, `ArrayList`}, `PrintStream`, `ByteArrayOutputStream`, `Gradle`
