@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="bakery.offices.CentralOfficeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-11-20T11:07:33" hostname="DESKTOP-SHIRO" time="0.015">
-  <properties/>
-  <testcase name="testPrint()" classname="bakery.offices.CentralOfficeTest" time="0.015"/>
-  <system-out><![CDATA[city office of MÃ¼nsterlingen, SomeNormalBakery, SomeBreadBakery, city office of Frauenfeld, ]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
